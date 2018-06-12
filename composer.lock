@@ -4,12 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "c3efbfb4a0bdd5b1d61bedd0d704b43b",
-=======
     "hash": "d821b45562d781612b82cd8aaf44bff0",
     "content-hash": "379c5d3bbc3711c52e5d98b9762b2a79",
->>>>>>> dc80c8c0c8ea7a7891420e34c82f5ef9369f5e3a
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1041,11 +1037,8 @@
                 "pseudorandom",
                 "random"
             ],
-<<<<<<< HEAD
-            "time": "2018-06-08T15:26:40+00:00"
-=======
             "time": "2018-06-08 15:26:40"
->>>>>>> dc80c8c0c8ea7a7891420e34c82f5ef9369f5e3a
+
         },
         {
             "name": "psr/container",
@@ -1261,11 +1254,7 @@
                 "interactive",
                 "shell"
             ],
-<<<<<<< HEAD
             "time": "2018-06-10T17:57:20+00:00"
-=======
-            "time": "2018-06-10 17:57:20"
->>>>>>> dc80c8c0c8ea7a7891420e34c82f5ef9369f5e3a
         },
         {
             "name": "ramsey/uuid",
@@ -2696,11 +2685,9 @@
                 "object",
                 "object graph"
             ],
-<<<<<<< HEAD
+
             "time": "2018-06-11T23:09:50+00:00"
-=======
-            "time": "2018-06-11 23:09:50"
->>>>>>> dc80c8c0c8ea7a7891420e34c82f5ef9369f5e3a
+
         },
         {
             "name": "nunomaduro/collision",
@@ -3189,11 +3176,8 @@
                 "filesystem",
                 "iterator"
             ],
-<<<<<<< HEAD
+
             "time": "2018-06-11T11:44:00+00:00"
-=======
-            "time": "2018-06-11 11:44:00"
->>>>>>> dc80c8c0c8ea7a7891420e34c82f5ef9369f5e3a
         },
         {
             "name": "phpunit/php-text-template",
@@ -3581,11 +3565,9 @@
                 "unidiff",
                 "unified diff"
             ],
-<<<<<<< HEAD
+
             "time": "2018-06-10T07:54:39+00:00"
-=======
-            "time": "2018-06-10 07:54:39"
->>>>>>> dc80c8c0c8ea7a7891420e34c82f5ef9369f5e3a
+
         },
         {
             "name": "sebastian/environment",
