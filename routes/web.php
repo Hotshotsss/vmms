@@ -20,6 +20,7 @@ Route::get('test','GateController@indexGate')->middleware('auth');
 
 Route::get('home','GateController@Gate2');
 Route::get('AddParkingLocation','GateController@AddParkLocation');
+Route::get('UserSettings','GateController@UserSets');
 
 ///
 Auth::routes();
