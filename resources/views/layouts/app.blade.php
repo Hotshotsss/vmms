@@ -11,13 +11,15 @@
     <title>MCU VMMS Admin Side</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="{{ url ('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <!-- MetisMenu CSS -->
     <link href="{{ url ('vendor/metisMenu/metisMenu.min.css')}}" rel="stylesheet">
 
     <!-- Custom CSS -->
+
     <link href="{{ url ('dist/css/sb-admin-2.css')}}" rel="stylesheet">
+    <link href="{{ url ('css/style.css')}}" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
     <link href="{{ url ('vendor/morrisjs/morris.css')}}" rel="stylesheet">
@@ -48,11 +50,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="Homepage.php"> MCU VMMS: Vehicle Monitoring and Management System </a>
+                    <a class="navbar-brand" href="Homepage.php"> MCU VMMS </a>
                 </div>
                 <!-- /.navbar-header -->
 
-                <ul class="nav navbar-top-links navbar-right">
+                <ul class="nav navbar-top-links navbar-right hidden-xs">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-user fa-fw"></i> Hello User <i class="fa fa-caret-down"></i>
@@ -123,8 +125,11 @@
                             <li>
                                 <a href="/UserSettings"><i class="fa fa-user fa-fw"></i> User Settings </a>
                             </li>
-                                </ul>
-                                <!-- /.nav-second-level -->
+                            <li class="hidden-lg hidden-md hidden-sm">
+                                <a href="UserSettings.php"><i class="fa fa-user fa-fw"></i> User Profile </a>
+                            </li>
+                            <li class="hidden-lg hidden-md hidden-sm">
+                                <a href="UserSettings.php"><i class="fa fa-sign-out fa-fw"></i> Logout </a>
                             </li>
                         </ul>
                     </div>
@@ -140,11 +145,8 @@
 </body>
 </html>
 
-<!-- jQuery -->
-<script src="{{ url ('vendor/jquery/jquery.min.js')}}"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="{{ url ('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
 <script src="{{ url ('vendor/metisMenu/metisMenu.min.js')}}"></script>
