@@ -87,7 +87,7 @@
                                 <!-- /input-group -->
                             </li>
                             <li>
-                                <a href="/home"><i class="fa fa-bar-chart-o fa-fw"></i> Homepage </a>
+                                <a href="home"><i class="fa fa-bar-chart-o fa-fw"></i> Homepage </a>
                             </li>
                             <li>
                                 <a href="#"><i class="fa fa-gear fa-fw"></i> Parking Monitoring Settings <span class="fa arrow"></span></a>
@@ -96,7 +96,7 @@
                                         <a href="UniversityParkingSpace.php"><i class="fa fa-list-alt fa-fw"></i> University Parking Space Settings </a>
                                     </li>
                                     <li>
-                                        <a href="/AddParkingLocation"><i class="fa fa-map-marker fa-fw"></i> Add Parking Location </a>
+                                        <a href="AddParkingLocation"><i class="fa fa-map-marker fa-fw"></i> Add Parking Location </a>
                                     </li>
                                     <li>
                                         <a href="AllocateParkingSpace.php"><i class="fa fa-list-alt fa-fw"></i> Allocate Parking Space </a>
@@ -108,22 +108,25 @@
                                 <a href="CarSettings.php"><i class="fa fa-gear fa-fw"></i> Car Settings <span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="AddCarType.php"><i class="fa fa-road fa-fw"></i> Add Car Type </a>
+                                        <a href="AddCarType"><i class="fa fa-road fa-fw"></i> Add Car Type </a>
                                     </li>
                                     <li>
-                                        <a href="Discount.php"><i class="fa  fa-sliders fa-fw"></i> Discount Settings </a>
+                                        <a href="Discount"><i class="fa  fa-sliders fa-fw"></i> Discount Settings </a>
                                     </li>
                                     <li>
-                                        <a href="FlatRate.php"><i class="fa fa-pencil-square fa-fw"></i> Flat Rate Settings </a>
+                                        <a href="FlatRate"><i class="fa fa-pencil-square fa-fw"></i> Flat Rate Settings </a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="ViewReports.php"><i class="fa fa-bar-chart-o fa-fw"></i> View Reports </a>
+                                <a href="ViewReports"><i class="fa fa-bar-chart-o fa-fw"></i> View Reports </a>
                             </li>
                             <li>
-                                <a href="/UserSettings"><i class="fa fa-user fa-fw"></i> User Settings </a>
+                                <a href="RateSettings"><i class="fa fa-bar-chart-o fa-fw"></i> Rate Settings </a>
+                            </li>
+                            <li>
+                                <a href="UserSettings"><i class="fa fa-user fa-fw"></i> User Settings </a>
                             </li>
                             <li class="hidden-lg hidden-md hidden-sm">
                                 <a href="UserSettings.php"><i class="fa fa-user fa-fw"></i> User Profile </a>
