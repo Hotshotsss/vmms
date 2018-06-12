@@ -16,7 +16,17 @@ class GateController extends Controller
       return view('gate.test')->with('data_view',$data);
     }
     public function Gate2(){
-      return "Gate 2";
+      return view('home');
+    }
+
+    public function AddParkLocation(){
+      return view('AddParkingLocation');
+    }
+    public function UserSets(){
+
+      $data = Accounts_tbl::all();
+
+      return view('UserSettings');
     }
 
     public function insertGate(Request $request){
