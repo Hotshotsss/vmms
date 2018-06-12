@@ -1,23 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    You are logged in!
+
+
+        <div id="page-wrapper">
+            <div class="row">
+
+                <div class="panel panel-default">
+                  <div class="panel-header">
+                    Jason Pogi
+                  </div>
+                  <div class="panel-body">
+                    <div class="form-group">
+                        <label for="">Email Address:</label>
+                      <input type="email" class="form-control" name="" value="">
+                    </div>
+                  </div>
                 </div>
+                <!-- /.col-lg-12 -->
             </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+
         </div>
-    </div>
-</div>
+        <!-- /#page-wrapper -->
+
 @endsection
