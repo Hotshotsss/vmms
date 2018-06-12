@@ -24,7 +24,7 @@ class GateController extends Controller
     }
     public function UserSets(){
 
-      $data = Accounts_tbl::all();
+      $data = accounts_tbl::all();
 
       return view('UserSettings');
     }
