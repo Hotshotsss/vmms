@@ -96,7 +96,7 @@
                                         <a href="UniversityParkingSpace.php"><i class="fa fa-list-alt fa-fw"></i> University Parking Space Settings </a>
                                     </li>
                                     <li>
-                                        <a href="AddParkingLocation.php"><i class="fa fa-map-marker fa-fw"></i> Add Parking Location </a>
+                                        <a href="/AddParkingLocation"><i class="fa fa-map-marker fa-fw"></i> Add Parking Location </a>
                                     </li>
                                     <li>
                                         <a href="AllocateParkingSpace.php"><i class="fa fa-list-alt fa-fw"></i> Allocate Parking Space </a>
@@ -123,7 +123,7 @@
                                 <a href="ViewReports.php"><i class="fa fa-bar-chart-o fa-fw"></i> View Reports </a>
                             </li>
                             <li>
-                                <a href="UserSettings.php"><i class="fa fa-user fa-fw"></i> User Settings </a>
+                                <a href="/UserSettings"><i class="fa fa-user fa-fw"></i> User Settings </a>
                             </li>
                             <li class="hidden-lg hidden-md hidden-sm">
                                 <a href="UserSettings.php"><i class="fa fa-user fa-fw"></i> User Profile </a>

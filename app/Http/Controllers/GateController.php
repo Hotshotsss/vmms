@@ -22,6 +22,12 @@ class GateController extends Controller
     public function AddParkLocation(){
       return view('AddParkingLocation');
     }
+    public function UserSets(){
+
+      $data = Accounts_tbl::all();
+
+      return view('UserSettings');
+    }
 
     public function insertGate(Request $request){
 
