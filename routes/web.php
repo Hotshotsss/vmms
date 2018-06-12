@@ -38,8 +38,10 @@ Route::get('/', function () {
 Route::post('no','GateController@insertGate');
 Route::get('test','GateController@indexGate')->middleware('auth');
 
-Route::get('test2','GateController@Gate2');
+Route::get('home','GateController@Gate2');
+Route::get('AddParkingLocation','GateController@AddParkLocation');
+Route::get('UserSettings','GateController@UserSets');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home2', 'HomeController@index')->name('home');
