@@ -1038,6 +1038,7 @@
                 "random"
             ],
             "time": "2018-06-08 15:26:40"
+
         },
         {
             "name": "psr/container",
@@ -1253,7 +1254,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2018-06-10 17:57:20"
+            "time": "2018-06-10T17:57:20+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -2684,7 +2685,9 @@
                 "object",
                 "object graph"
             ],
-            "time": "2018-06-11 23:09:50"
+
+            "time": "2018-06-11T23:09:50+00:00"
+
         },
         {
             "name": "nunomaduro/collision",
@@ -3173,7 +3176,8 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2018-06-11 11:44:00"
+
+            "time": "2018-06-11T11:44:00+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -3561,7 +3565,9 @@
                 "unidiff",
                 "unified diff"
             ],
-            "time": "2018-06-10 07:54:39"
+
+            "time": "2018-06-10T07:54:39+00:00"
+
         },
         {
             "name": "sebastian/environment",
