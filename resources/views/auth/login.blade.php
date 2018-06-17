@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('layouts.login')
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -38,6 +37,7 @@
                                 @endif
                             </div>
                         </div>
+                        
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">

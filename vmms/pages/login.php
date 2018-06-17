@@ -99,29 +99,29 @@ if(isset($_POST['btn-login']))
     $row=mysqli_fetch_array($result);
 
         if($count >= 1)
-            {       
+            {
                 if ($row['user_type'] == "Administrator" )
                     {
                         session_start();
                         ob_start();
-                           $_SESSION['id'] = $row['user_id'];             
+                           $_SESSION['id'] = $row['user_id'];
                             $_SESSION['type'] = $row['user_type'];
-                             $_SESSION['lname'] = $row['last_name'];   
-                              $_SESSION['fname'] = $row['first_name'];  
-                               $_SESSION['mi'] = $row['middle_name'];       
+                             $_SESSION['lname'] = $row['last_name'];
+                              $_SESSION['fname'] = $row['first_name'];
+                               $_SESSION['mi'] = $row['middle_name'];
                             echo "<script>alert('login success'); window.location.replace('Homepage.php');</script>";
                     }
 
                 else if ($row['user_type'] == "MainGate")
                     {
                         session_start();
-                        ob_start();                  
+                        ob_start();
                             $_SESSION['id'] = $row['user_id'];
                              $_SESSION['type'] = $row['user_type'];
-                              $_SESSION['lname'] = $row['last_name'];  
-                               $_SESSION['fname'] = $row['first_name']; 
+                              $_SESSION['lname'] = $row['last_name'];
+                               $_SESSION['fname'] = $row['first_name'];
                                 $_SESSION['mi'] = $row['middle_name'];
-                                 $_SESSION['time'] = $row['time'];     
+                                 $_SESSION['time'] = $row['time'];
                                   $_SESSION['plate_number']=$row['plate_number'];
                                    $_SESSION['vehicle_type']=$row['vehicle_type'];
                                     $_SESSION['purpose']=$row['purpose'];
@@ -131,32 +131,32 @@ if(isset($_POST['btn-login']))
                  else if ($row['user_type'] == "Monitoring")
                     {
                         session_start();
-                        ob_start();                  
+                        ob_start();
                             $_SESSION['id'] = $row['user_id'];
                              $_SESSION['type'] = $row['user_type'];
-                              $_SESSION['lname'] = $row['last_name'];  
-                               $_SESSION['fname'] = $row['first_name']; 
-                                $_SESSION['mi'] = $row['middle_name'];      
+                              $_SESSION['lname'] = $row['last_name'];
+                               $_SESSION['fname'] = $row['first_name'];
+                                $_SESSION['mi'] = $row['middle_name'];
                                 echo "<script>alert('login success'); window.location.replace('Monitoringhp.php');</script>";
                     }
                  else if ($row['user_type'] == "ExitGate")
                     {
                         session_start();
-                        ob_start();                  
+                        ob_start();
                             $_SESSION['id'] = $row['user_id'];
                              $_SESSION['type'] = $row['user_type'];
-                              $_SESSION['lname'] = $row['last_name'];  
-                               $_SESSION['fname'] = $row['first_name']; 
-                                $_SESSION['mi'] = $row['middle_name'];      
+                              $_SESSION['lname'] = $row['last_name'];
+                               $_SESSION['fname'] = $row['first_name'];
+                                $_SESSION['mi'] = $row['middle_name'];
                                 echo "<script>alert('login success'); window.location.replace('ExitGatehp.php');</script>";
                     }
             }
                 else
                     {
-                        echo "<script>alert('invalid username or password'); window.location.replace('login.php');</script>";                
+                        echo "<script>alert('invalid username or password'); window.location.replace('login.php');</script>";
                     }
 }
-            
-            
+
+
 
 ?>
