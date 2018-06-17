@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Account;
 
 class GateController extends Controller
 {
@@ -15,18 +16,45 @@ class GateController extends Controller
 
       return view('gate.test')->with('data_view',$data);
     }
-    public function Gate2(){
-      return view('home');
+    public function Home(){
+      return view('admin.home');
     }
 
     public function AddParkLocation(){
-      return view('AddParkingLocation');
+      return view('admin.AddParkingLocation');
     }
+
+    public function AddCar(){
+      return view('admin.AddCarType');
+    }
+
     public function UserSets(){
 
-      $data = Accounts_tbl::all();
+      $data = Account::all();
 
-      return view('UserSettings');
+      return view('admin.UserSettings')->with('accounts',$data);
+    }
+
+    public function RateSets(){
+      return view('admin.RateSettings');
+    }
+
+    public function Reports(){
+
+      return view('admin.ViewReports');
+
+    }
+
+    public function Discount(){
+
+      return view('admin.Discount');
+
+    }
+
+    public function FlatRate(){
+
+      return view('admin.FlatRate');
+
     }
 
     public function insertGate(Request $request){

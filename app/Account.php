@@ -5,18 +5,17 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-
-class User extends Authenticatable
+class Account extends Authenticatable
 {
     use Notifiable;
-
+    protected $table = 'accounts_tbl';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name','type', 'email', 'password',
+        'user_type', 'last_name', 'first_name', 'middle_ini', 'username',
     ];
 
     /**

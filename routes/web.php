@@ -12,13 +12,23 @@
 */
 //Add all the routes for the admin here
 Route::prefix('admin')->group(function () {
+
   Route::get('/',function(){
     return view('auth.login');
   })->name('admin-login');
+
   Route::middleware(['admin'])->group(function () {
     Route::get('home',function(){
       return 'admin home';
     });
+    Route::get('home','GateController@Home');
+    Route::get('AddParkingLocation','GateController@AddParkLocation');
+    Route::get('UserSettings','GateController@UserSets');
+    Route::get('RateSettings','GateController@RateSets');
+    Route::get('AddCarType','GateController@AddCar');
+    Route::get('ViewReports','GateController@Reports');
+    Route::get('Discount','GateController@Discount');
+    Route::get('FlatRate','GateController@FlatRate');
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
   });
 });
@@ -56,9 +66,6 @@ Route::get('/', function () {
 Route::post('no','GateController@insertGate');
 Route::get('test','GateController@indexGate')->middleware('auth');
 
-Route::get('home','GateController@Gate2');
-Route::get('AddParkingLocation','GateController@AddParkLocation');
-Route::get('UserSettings','GateController@UserSets');
 
 //login
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
