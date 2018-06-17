@@ -57,13 +57,13 @@
                 <ul class="nav navbar-top-links navbar-right hidden-xs">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-user fa-fw"></i> Hello User <i class="fa fa-caret-down"></i>
+                            <i class="fa fa-user fa-fw"></i> Hello {{Auth::user()->name}} <i class="fa fa-caret-down"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                             <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <li><a href="admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->
@@ -126,13 +126,13 @@
                                 <a href="RateSettings"><i class="fa fa-bar-chart-o fa-fw"></i> Rate Settings </a>
                             </li>
                             <li>
-                                <a href="UserSettings"><i class="fa fa-user fa-fw"></i> User Settings </a>
+                                <a href="settings"><i class="fa fa-user fa-fw"></i> User Settings </a>
                             </li>
                             <li class="hidden-lg hidden-md hidden-sm">
                                 <a href="UserSettings.php"><i class="fa fa-user fa-fw"></i> User Profile </a>
                             </li>
                             <li class="hidden-lg hidden-md hidden-sm">
-                                <a href="UserSettings.php"><i class="fa fa-sign-out fa-fw"></i> Logout </a>
+                                <a href="admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout </a>
                             </li>
                         </ul>
                     </div>
