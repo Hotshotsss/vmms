@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Account;
+use PDF;
+use App;
 
 class GateController extends Controller
 {
@@ -65,5 +67,12 @@ class GateController extends Controller
       // $newUser->password = Hash::make($request->password);
       // $newUser->save();
 
+    }
+
+    public function generate_pdf() {
+
+      $pdf = App::make('dompdf.wrapper');
+      $pdf->loadView('gate.PDF');
+      return $pdf->stream();
     }
 }

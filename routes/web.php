@@ -30,6 +30,7 @@ Route::prefix('admin')->group(function () {
     Route::get('Discount','GateController@Discount');
     Route::get('FlatRate','GateController@FlatRate');
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
   });
 });
 //Add all the routes for the montiring here
@@ -81,5 +82,7 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
+
+Route::get('PDFtry', 'GateController@generate_pdf');
 
 Route::get('/home2', 'HomeController@index')->name('home');
