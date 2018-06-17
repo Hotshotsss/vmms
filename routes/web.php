@@ -21,9 +21,9 @@ Route::prefix('admin')->group(function () {
     Route::get('home',function(){
       return 'admin home';
     });
-    Route::get('home','GateController@Home');
+    Route::get('home','AdminController@home');
+    Route::get('settings','AdminController@settings');
     Route::get('AddParkingLocation','GateController@AddParkLocation');
-    Route::get('UserSettings','GateController@UserSets');
     Route::get('RateSettings','GateController@RateSets');
     Route::get('AddCarType','GateController@AddCar');
     Route::get('ViewReports','GateController@Reports');
