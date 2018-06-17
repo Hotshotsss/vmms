@@ -15,9 +15,11 @@ class Gate
      */
     public function handle($request, Closure $next)
     {
+      if(auth()->check()){
       if(auth()->user()->type == 1){
         return $next($request);
       }
+    }
       return redirect('gate')->with('error','You have not gate access');
     }
 }

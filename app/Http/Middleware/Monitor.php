@@ -15,9 +15,13 @@ class Monitor
      */
     public function handle($request, Closure $next)
     {
+      if(auth()->check()){
+
+
       if(auth()->user()->type == 2){
         return $next($request);
       }
+    }
       return redirect('monitoring')->with('error','You have not monitoring access');
     }
 }
