@@ -42,6 +42,8 @@ Route::prefix('admin')->group(function () {
     Route::get('view-car','AdminController@viewCar');
     Route::post('add-car','AdminController@addCar');
     Route::post('delete-car','AdminController@deleteCar');
+    //Employee schedule
+    Route::get('employee-schedule','AdminController@viewSchedule');
     //logout
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
   });
@@ -69,10 +71,17 @@ Route::prefix('gate')->group(function () {
     });
   });
   Route::middleware(['gate'])->group(function () {
-    Route::get('home',function(){
-      return 'gate home';
-    });
 
+    Route::get('home', 'GateController@menu');
+    // vehicle in
+    Route::get('vehicle-in', 'GateController@vehicleIn');
+
+    Route::post('add-in', 'GateController@addIn');
+    // vehicle out
+    Route::get('vahicle-out', 'GateController@vehicleOut');
+
+    // vehicle monitoring
+    Route::get('vehicle-monitoring', 'GateController@vehicleMonitoring');
 
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
   });
@@ -103,12 +112,6 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('PDFtry', 'GateController@generate_pdf');
-
-Route::get('Menu', 'GateController@MenuList');
-Route::get('VehicleIn', 'GateController@Vehicle_In');
-Route::post('VehicleInAdd', 'GateController@Vehicle_InAdd');
-Route::get('VehicleOut', 'GateController@Vehicle_Out');
-Route::get('VehicleMonitoring', 'GateController@Vehicle_Monitoring');
 
 Route::get('/home2', 'HomeController@index')->name('home');
 

@@ -23,9 +23,9 @@ class RedirectIfAuthenticated
           {
               return redirect('/admin/home');
           }else if($type == 1){
-              return redirect('/admin/gate');
+              return redirect('/gate/home');
           }else{
-            return redirect('/admin/monitor');
+            return redirect('/monitor/home');
           }
         }
 

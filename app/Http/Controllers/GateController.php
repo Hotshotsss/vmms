@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Account;
-use App\Vehicle;
-use App\Car;
+// use App\Account;
+use App\CarType;
+use App\Parking;
+use Carbon\Carbon;
 use PDF;
 use App;
 use Illuminate\Support\Facades\Input;
@@ -26,7 +27,7 @@ class GateController extends Controller
       return view('admin.home');
     }
 
-    
+
 
 
 
@@ -63,35 +64,37 @@ class GateController extends Controller
       return $pdf->stream();
     }
 
-    public function MenuList(){
+    public function menu(){
       return view('gate.menu_list');
     }
 
-    public function Vehicle_In(){
-      $data = Vehicle::select('vehicle_type')->get();
+    public function vehicleIn(){
+      $data = CarType::all();
 
       return view('gate.VehicleIn')->with('vehicle',$data);
     }
 
-    public function Vehicle_InAdd(Request $request){
+    public function addIn(Request $request){
       // dd($request);
-      $car = new Car;
-      $car->car_plate = Input::get("txt-plate");
+      $car = new Parking;
+      $car->plate_number = Input::get("txt-plate");
       $car->vehicle_model = Input::get("txt-model");
-      $car->vehicle_reason = Input::get("txt-purpose");
-      $car->vehicle_type = Input::get("txt-vehicletype");
+      $car->parking_reason = Input::get("txt-purpose");
+      $car->car_type_id = Input::get("txt-vehicletype");
+      $car->time_in = Carbon::now();
+
       $car->save();
       return redirect()->back();
 
     }
 
-    public function Vehicle_Out(){
+    public function vehicleOut(){
       $data = Car::all();
 
       return view('gate.VehicleOut')->with('car',$data);
     }
 
-    public function Vehicle_Monitoring(){
+    public function vehicleMonitoring(){
       $data = Car::all();
 
       return view('gate.VehicleMonitoring')->with('car',$data);;

@@ -26,7 +26,7 @@
 
     <!-- Custom Fonts -->
     <link href="{{ url ('vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -37,8 +37,6 @@
 </head>
 <body>
     <div id="app">
-
-
         <main class="py-4">
           <div class="wrapper">
             <!-- Navigation -->
@@ -122,12 +120,16 @@
                             <li>
                                 <a href="reports"><i class="fa fa-bar-chart-o fa-fw"></i> View Reports </a>
                             </li>
+                            <li>
+                                <a href="employee-schedule"><i class="fa fa-clock-o fa-fw"></i> Employee Schedule </a>
+                            </li>
                             <!-- <li>
                                 <a href="RateSettings"><i class="fa fa-bar-chart-o fa-fw"></i> Rate Settings </a>
                             </li> -->
                             <li>
                                 <a href="settings"><i class="fa fa-user fa-fw"></i> User Settings </a>
                             </li>
+
                             <li class="hidden-lg hidden-md hidden-sm">
                                 <a href="UserSettings.php"><i class="fa fa-user fa-fw"></i> User Profile </a>
                             </li>
@@ -149,20 +151,10 @@
 </html>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script>
+<script src="{{asset('js/admin.js')}}" type="text/javascript"></script>
 
-$(document).on('click','#edit-rate',function(){
-  var values = $(this).data('id');
-  $('#editRate input[name="car_type"]').val(values.car.type);
-  $('#editRate input[name="rate"]').val(values.standard_rate);
-  $('#editRate input[name="hours"]').val(values.standard_hours);
-  $('#editRate input[name="hour_rate"]').val(values.hour_rate);
-  $('#editRate button[name="id"]').val(values.id);
-
-  $('#editRate').modal('show');
-});
-</script>
 
 <!-- Metis Menu Plugin JavaScript -->
 <script src="{{ url ('vendor/metisMenu/metisMenu.min.js')}}"></script>

@@ -28,36 +28,45 @@
 
 <body>
 
-    <div id="wrapper">
+    <div id="app">
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="Menu">MCU - VMMS</a>
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../gate"> MCU VMMS </a>
+          </div>
+          <!-- /.navbar-header -->
 
-                 <ul class="nav navbar-top-links navbar-right" align="right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user">
-                            <li><a href="index.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-
-            </div>
+          <ul class="nav navbar-top-links navbar-right hidden-xs">
+              <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                      <i class="fa fa-user fa-fw"></i> Hello {{Auth::user()->name}} <i class="fa fa-caret-down"></i>
+                  </a>
+                  <ul class="dropdown-menu dropdown-user">
+                      <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                      </li>
+                      <li class="divider"></li>
+                      <li><a href="admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                      </li>
+                  </ul>
+                  <!-- /.dropdown-user -->
+              </li>
+              <!-- /.dropdown -->
+          </ul>
         </nav>
 
 
-   <div id="page-wrapper">
+   <!-- <div id="page-wrapper"> -->
             <div class="container-fluid">
                 <div class="row">
-
                   @yield('content')
-
              </div>
         </div>
-    </div>
+    <!-- </div> -->
     </div>
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>

@@ -30,7 +30,6 @@
             </div>
           </div>
         </div>
-
           <div class="col-lg-8 no-padding">
             <div class="panel panel-default">
               <div class="panel-heading">Incoming Payments</div>
@@ -86,7 +85,6 @@
               </div>
             </div>
           </div>
-
         </div>
     </div>
   </div>

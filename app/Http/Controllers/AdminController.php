@@ -107,4 +107,9 @@ class AdminController extends Controller
       return redirect()->back()->with('success','Parking Location Added!');
     }
 
+    public function viewSchedule(){
+      $users = User::all();
+
+      return view('admin.schedule')->with(['users'=>$users]);
+    }
   }
