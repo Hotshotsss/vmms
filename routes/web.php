@@ -55,6 +55,8 @@ Route::prefix('gate')->group(function () {
     Route::get('home',function(){
       return 'gate home';
     });
+
+
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
   });
 });
@@ -84,6 +86,12 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('PDFtry', 'GateController@generate_pdf');
+
+Route::get('Menu', 'GateController@MenuList');
+Route::get('VehicleIn', 'GateController@Vehicle_In');
+Route::post('VehicleInAdd', 'GateController@Vehicle_InAdd');
+Route::get('VehicleOut', 'GateController@Vehicle_Out');
+Route::get('VehicleMonitoring', 'GateController@Vehicle_Monitoring');
 
 Route::get('/home2', 'HomeController@index')->name('home');
 
