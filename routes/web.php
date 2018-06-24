@@ -13,30 +13,45 @@
 //Add all the routes for the admin here
 Route::prefix('admin')->group(function () {
 
-  Route::get('/',function(){
-    return view('auth.login');
-  })->name('admin-login');
+  Route::middleware(['guest','revalidate'])->group(function(){
+    Route::get('/',function(){
+      return view('auth.login');
+    })->name('admin-login');
+
+  });
 
   Route::middleware(['admin'])->group(function () {
-    Route::get('home',function(){
-      return 'admin home';
-    });
+    // Route::get('home',function(){
+    //   return 'admin home';
+    // });
     Route::get('home','AdminController@home');
     Route::get('settings','AdminController@settings');
-    Route::get('AddParkingLocation','GateController@AddParkLocation');
-    Route::get('RateSettings','GateController@RateSets');
-    Route::get('AddCarType','GateController@AddCar');
-    Route::get('ViewReports','GateController@Reports');
-    Route::get('Discount','GateController@Discount');
-    Route::get('FlatRate','GateController@FlatRate');
-    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
+    //Parking Locations
+    Route::get('parking','AdminController@parking');
+    Route::post('add-location','AdminController@addParking');
+    // Route::get('RateSettings','GateController@RateSets');
+    Route::get('reports','AdminController@reports');
+    //FlatRate
+    Route::get('flat-rate','AdminController@flatRate');
+    Route::post('add-rate','AdminController@addRate');
+    Route::post('edit-rate','AdminController@editRate');
+    //Discount
+    Route::get('discount','AdminController@discount');
+    //Car Settings
+    Route::get('view-car','AdminController@viewCar');
+    Route::post('add-car','AdminController@addCar');
+    Route::post('delete-car','AdminController@deleteCar');
+    //logout
+    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
   });
 });
 //Add all the routes for the montiring here
 Route::prefix('monitoring')->group(function () {
-  Route::get('/',function(){
-    return view('auth.login');
+  Route::middleware(['guest','revalidate'])->group(function(){
+    Route::get('/',function(){
+      return view('auth.login');
+    });
   });
   Route::middleware(['monitor'])->group(function () {
     Route::get('home',function(){
@@ -48,8 +63,10 @@ Route::prefix('monitoring')->group(function () {
 
 //Add all the routes for the gate here
 Route::prefix('gate')->group(function () {
-  Route::get('/',function(){
-    return view('auth.login');
+  Route::middleware(['guest','revalidate'])->group(function(){
+    Route::get('/',function(){
+      return view('auth.login');
+    });
   });
   Route::middleware(['gate'])->group(function () {
     Route::get('home',function(){

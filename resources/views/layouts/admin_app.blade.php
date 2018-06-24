@@ -50,7 +50,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="Homepage.php"> MCU VMMS </a>
+                    <a class="navbar-brand" href="../admin"> MCU VMMS </a>
                 </div>
                 <!-- /.navbar-header -->
 
@@ -96,7 +96,7 @@
                                         <a href="UniversityParkingSpace.php"><i class="fa fa-list-alt fa-fw"></i> University Parking Space Settings </a>
                                     </li>
                                     <li>
-                                        <a href="AddParkingLocation"><i class="fa fa-map-marker fa-fw"></i> Add Parking Location </a>
+                                        <a href="parking"><i class="fa fa-map-marker fa-fw"></i> Add Parking Location </a>
                                     </li>
                                     <li>
                                         <a href="AllocateParkingSpace.php"><i class="fa fa-list-alt fa-fw"></i> Allocate Parking Space </a>
@@ -108,23 +108,23 @@
                                 <a href="CarSettings.php"><i class="fa fa-gear fa-fw"></i> Car Settings <span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="AddCarType"><i class="fa fa-road fa-fw"></i> Add Car Type </a>
+                                        <a href="view-car"><i class="fa fa-road fa-fw"></i> Add Car Type </a>
                                     </li>
                                     <li>
-                                        <a href="Discount"><i class="fa  fa-sliders fa-fw"></i> Discount Settings </a>
+                                        <a href="discount"><i class="fa  fa-sliders fa-fw"></i> Discount Settings </a>
                                     </li>
                                     <li>
-                                        <a href="FlatRate"><i class="fa fa-pencil-square fa-fw"></i> Flat Rate Settings </a>
+                                        <a href="flat-rate"><i class="fa fa-pencil-square fa-fw"></i> Flat Rate Settings </a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="ViewReports"><i class="fa fa-bar-chart-o fa-fw"></i> View Reports </a>
+                                <a href="reports"><i class="fa fa-bar-chart-o fa-fw"></i> View Reports </a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="RateSettings"><i class="fa fa-bar-chart-o fa-fw"></i> Rate Settings </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="settings"><i class="fa fa-user fa-fw"></i> User Settings </a>
                             </li>
@@ -150,6 +150,19 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+
+$(document).on('click','#edit-rate',function(){
+  var values = $(this).data('id');
+  $('#editRate input[name="car_type"]').val(values.car.type);
+  $('#editRate input[name="rate"]').val(values.standard_rate);
+  $('#editRate input[name="hours"]').val(values.standard_hours);
+  $('#editRate input[name="hour_rate"]').val(values.hour_rate);
+  $('#editRate button[name="id"]').val(values.id);
+
+  $('#editRate').modal('show');
+});
+</script>
 
 <!-- Metis Menu Plugin JavaScript -->
 <script src="{{ url ('vendor/metisMenu/metisMenu.min.js')}}"></script>

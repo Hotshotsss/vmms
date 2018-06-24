@@ -1,6 +1,7 @@
 @extends('layouts.admin_app')
 
 @section('content')
+
 <div id="page-wrapper">
   <div id="data-content">
     <div class="row">
@@ -8,32 +9,30 @@
         <h1>Flat Rate</h1>
         <hr>
       </div>
-      @if($type->isNotEmpty())
+
       <div class="col-lg-4 no-padding">
         <div class="panel panel-default">
           <div class="panel-heading">
-            Add Rates
+            Add Parking Location
           </div>
           <div class="panel-body">
-            {!!Form::open(['url'=>'admin/add-rate','method'=>'post']) !!}
+            {!!Form::open(['url'=>'admin/add-location','method'=>'post']) !!}
+            @if ($errors->has('parking_name'))
+                <span class="invalid-feedback">
+                    <strong>{{ $errors->first('parking_name') }}</strong>
+                </span>
+            @endif
             <div class="form-group">
-              <select class="form-control" name="car_type">
-                @foreach($type as $value)
-                <option value="{{$value->id}}">{{$value->type}}</option>
-                @endforeach
-              </select>
+              <label>Parking Name</label>
+              <input type="text" class="form-control" maxlength="155" placeholder="Enter Parking Name" name="parking_name" required>
             </div>
             <div class="form-group">
-              <label>Standard Rate</label>
-              <input type="text" maxlength="100000" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control" placeholder="Enter Standard Rate" name="rate" required>
+              <label>Description</label>
+              <textarea type="text" class="form-control" maxlength="255" placeholder="Enter Description" name="description" required></textarea>
             </div>
             <div class="form-group">
-              <label>Standard Hours</label>
-              <input type="text" maxlength="100000" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control" placeholder="Enter Standard Hours" name="hours" required>
-            </div>
-            <div class="form-group">
-              <label>Rate per Hour</label>
-              <input type="text" maxlength="100000" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control" placeholder="Enter Hour Rate"name="hour_rate" required>
+              <label>Number of Slots</label>
+              <input type="text" class="form-control" maxlength="100000" oninput="this.value=this.value.replace(/[^0-9]/g,'');" placeholder="Enter Number of Slots"name="slots" required>
             </div>
             <div class="form-group">
               <center>
@@ -44,30 +43,29 @@
           </div>
         </div>
       </div>
-      @endif
+
 
       <div class="col-lg-8 no-padding">
         <div class="panel panel-default">
           <div class="panel-heading">Car Rates</div>
           <div class="panel-body">
-            @if($rate->isNotEmpty())
+            @if($slots->isNotEmpty())
             <table class="table table-bordered table-hover">
               <thead>
                 <tr>
-                  <th>Car Type</th>
-                  <th>Standard Rate</th>
-                  <th>Standard Hour</th>
-                  <th>Hour Rate</th>
+                  <th>Parking Name</th>
+                  <th>Description</th>
+                  <th>Number of Slots</th>
+
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-                @foreach($rate as $value)
+                @foreach($slots as $value)
                 <tr>
-                  <th>{{$value->car->type}}</th>
-                  <th>{{$value->standard_rate}}</th>
-                  <th>{{$value->standard_hours}}</th>
-                  <th>{{$value->hour_rate}}</th>
+                  <th>{{$value->parking_name}}</th>
+                  <th>{{$value->description}}</th>
+                  <th>{{$value->number_of_slots}}</th>
                   <th>
                     <center>
                       <button type="button" class="btn btn-info" id="edit-rate" data-id = "{{$value}}" name="button">Edit</button>
@@ -78,7 +76,7 @@
               </tbody>
             </table>
             @else
-            No Rate Found
+            No Locations Found
             @endif
           </div>
         </div>
@@ -105,15 +103,15 @@
            </div>
            <div class="form-group">
              <label>Standard Rate</label>
-             <input type="text" maxlength="100000" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control" placeholder="Enter Standard Rate" name="rate" required>
+             <input type="text" class="form-control" placeholder="Enter Standard Rate" name="rate" required>
            </div>
            <div class="form-group">
              <label>Standard Hours</label>
-             <input type="text" maxlength="100000" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control" placeholder="Enter Standard Hours" name="hours" required>
+             <input type="text" class="form-control" placeholder="Enter Standard Hours" name="hours" required>
            </div>
            <div class="form-group">
              <label>Rate per Hour</label>
-             <input type="text" maxlength="100000" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control" placeholder="Enter Hour Rate"name="hour_rate" required>
+             <input type="text" class="form-control" placeholder="Enter Hour Rate"name="hour_rate" required>
            </div>
 
          </div>
@@ -128,5 +126,5 @@
 
    </div>
  </div>
-<!-- /#page-wrapper -->
+
 @endsection

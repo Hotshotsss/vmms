@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.admin_app')
 
 @section('content')
   <div id="page-wrapper">
     <div id="data-content">
       <div class="row">
         <div class="col-lg-12">
-          <h1>Add Car Settings</h1>
+          <h1>View Reports</h1>
           <hr>
         </div>
         <div class="col-lg-4 no-padding">
@@ -26,7 +26,8 @@
                 <div class="checkbox">
                   <label><input type="checkbox"> Remember me</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+
+                <button type="submit" class="btn btn-primary" >Submit</button>
               </form>
             </div>
           </div>
