@@ -18,9 +18,9 @@
           <div class="panel-body">
             {!!Form::open(['url'=>'admin/add-location','method'=>'post']) !!}
             @if ($errors->has('parking_name'))
-                <span class="invalid-feedback">
-                    <strong>{{ $errors->first('parking_name') }}</strong>
-                </span>
+            <span class="invalid-feedback">
+              <strong>{{ $errors->first('parking_name') }}</strong>
+            </span>
             @endif
             <div class="form-group">
               <label>Parking Name</label>
@@ -68,7 +68,21 @@
                   <th>{{$value->number_of_slots}}</th>
                   <th>
                     <center>
-                      <button type="button" class="btn btn-info" id="edit-rate" data-id = "{{$value}}" name="button">Edit</button>
+                      <div class="btn-group show-on-hover">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                          Action <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#" id="edit-parking" data-id="{{$value}}">Edit</a></li>
+                          <li class="divider"></li>
+                          <li>
+                          {{Form::open(['url'=>'admin/delete-parking','method'=>'post','onsubmit'=>'return confirm("Are you sure you want to delete this slot?")'])}}
+                            <button style="display: flex;-webkit-appearance: caret;padding: 3px 20px;background:none;font-weight:normal" type="submit" name="id" value="{{$value->id}}">Delete</button>
+                          {{Form::close()}}
+                        </li>
+                        </ul>
+                      </div>
+
                     </center>
                   </th>
                 </tr>
@@ -84,47 +98,42 @@
     </div>
   </div>
 </div>
-
 <!-- Modal -->
-<div class="modal fade" id="editRate" role="dialog">
-   <div class="modal-dialog">
-     <!-- Modal content-->
-     <div class="modal-content">
-       <div class="modal-header">
-         <button type="button" class="close" data-dismiss="modal">&times;</button>
-         <h4 class="modal-title">Edit Rates</h4>
-       </div>
-       <div class="modal-body">
-         <div class="panel-body">
-           {!!Form::open(['url'=>'admin/edit-rate','method'=>'post']) !!}
-           <div class="form-group">
-            <label>Car Type Rate</label>
-             <input readonly class="form-control" name="car_type" value="">
-           </div>
-           <div class="form-group">
-             <label>Standard Rate</label>
-             <input type="text" class="form-control" placeholder="Enter Standard Rate" name="rate" required>
-           </div>
-           <div class="form-group">
-             <label>Standard Hours</label>
-             <input type="text" class="form-control" placeholder="Enter Standard Hours" name="hours" required>
-           </div>
-           <div class="form-group">
-             <label>Rate per Hour</label>
-             <input type="text" class="form-control" placeholder="Enter Hour Rate"name="hour_rate" required>
-           </div>
+<div class="modal fade" id="editParking" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Rates</h4>
+      </div>
+      <div class="modal-body">
+        <div class="panel-body">
+          {!!Form::open(['url'=>'admin/edit-parking','method'=>'post']) !!}
+          <div class="form-group">
+            <label>Parking Name</label>
+            <input readonly class="form-control" name="parking_name"  readonly value="">
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <input type="text" class="form-control" placeholder="Enter Standard Rate" name="description" required>
+          </div>
+          <div class="form-group">
+            <label>Slots</label>
+            <input type="text" class="form-control" placeholder="Enter Standard Hours" name="slots" required>
+          </div>
+        </div>
+      </div>
 
-         </div>
-       </div>
-       <div class="modal-footer">
-         <center>
-         <button type="submit" class="btn btn-default" name="id">Submit</button>
-       </center>
-       </div>
-        {!!Form::close() !!}
-     </div>
+      <div class="modal-footer">
+        <center>
+          <button type="submit" class="btn btn-default" name="id">Submit</button>
+        </center>
+      </div>
+      {!!Form::close() !!}
+    </div>
 
-   </div>
- </div>
+  </div>
+</div>
 
 @endsection

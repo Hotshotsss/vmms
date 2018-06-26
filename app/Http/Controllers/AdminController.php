@@ -106,6 +106,20 @@ class AdminController extends Controller
 
       return redirect()->back()->with('success','Parking Location Added!');
     }
+    public function editParking(Request $request){
+    
+      $parking = ParkingSlot::find($request->id);
+
+      $parking->description = $request->description;
+      $parking->number_of_slots = $request->slots;
+      $parking->save();
+      return redirect()->back()->with('success','Parking Location Edited!');
+    }
+    public function deleteParking(Request $request){
+
+        $parking = ParkingSlot::find($request->id)->delete();
+  return redirect()->back()->with('success','Parking Location Deleted!');
+    }
 
     public function viewSchedule(){
       $users = User::all();
