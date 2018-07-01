@@ -13,12 +13,13 @@
             Gate
           </div>
           <div class="panel-body">
-            <form action="/action_page.php">
+            {{Form::open(['url'=>'admin/add-sched','method'=>'post'])}}
               <div class="form-group">
                 <label for="text">Employee</label>
                 <select class="form-control" name="user" required>
                 @if($users->where('type',1)->isNotEmpty())
                 @foreach($users->where('type',1) as $user)
+                <option value="" disabled selected>Select Employee</option>
                 <option value="{{$user->id}}">{{$user->name}}</option>
                 @endforeach
                 @else
@@ -28,25 +29,78 @@
               </div>
               <div class="form-group">
                 <label for="pwd">From Date:</label>
-                <input type="text"  class="form-control" id="from_date">
+                <input type="text" readonly class="form-control" placeholder="From Date" name="from_date">
               </div>
 
               <div class="form-group">
                 <label for="pwd">To Date:</label>
-                <input type="text"  class="form-control" id="to_date">
+                <input type="text" readonly class="form-control"  placeholder="To Date"  name="to_date">
               </div>
 
               <div class="form-group">
                 <label for="pwd">Time In:</label>
-                <input type="text" class="form-control" id="time_in">
+                <select class="form-control" id="time_in" name="time_in" required>
+                  <option value="" disabled selected>Select Time In</option>
+                  <option value="0:00">12:00 AM</option>
+                  <option value="1:00">01:00 AM</option>
+                  <option value="2:00">02:00 AM</option>
+                  <option value="3:00">03:00 AM</option>
+                  <option value="4:00">04:00 AM</option>
+                  <option value="5:00">05:00 AM</option>
+                  <option value="6:00">06:00 AM</option>
+                  <option value="7:00">07:00 AM</option>
+                  <option value="8:00">08:00 AM</option>
+                  <option value="9:00">09:00 AM</option>
+                  <option value="10:00">10:00 AM</option>
+                  <option value="11:00">11:00 AM</option>
+                  <option value="12:00">12:00 PM</option>
+                  <option value="13:00">01:00 PM</option>
+                  <option value="14:00">02:00 PM</option>
+                  <option value="15:00">03:00 PM</option>
+                  <option value="16:00">04:00 PM</option>
+                  <option value="17:00">05:00 PM</option>
+                  <option value="18:00">06:00 PM</option>
+                  <option value="19:00">07:00 PM</option>
+                  <option value="20:00">08:00 PM</option>
+                  <option value="21:00">09:00 PM</option>
+                  <option value="22:00">10:00 PM</option>
+                  <option value="23:00">11:00 PM</option>
+                </select>
               </div>
               <div class="form-group">
                 <label for="pwd">Time Out</label>
-                <input type="text" class="form-control" id="time_out">
+                <select class="form-control" id="time_out" name="time_out" required>
+                  <option value="" disabled selected>Select Time Out</option>
+                  <option value="0:00">12:00 AM</option>
+                  <option value="1:00">01:00 AM</option>
+                  <option value="2:00">02:00 AM</option>
+                  <option value="3:00">03:00 AM</option>
+                  <option value="4:00">04:00 AM</option>
+                  <option value="5:00">05:00 AM</option>
+                  <option value="6:00">06:00 AM</option>
+                  <option value="7:00">07:00 AM</option>
+                  <option value="8:00">08:00 AM</option>
+                  <option value="9:00">09:00 AM</option>
+                  <option value="10:00">10:00 AM</option>
+                  <option value="11:00">11:00 AM</option>
+                  <option value="12:00">12:00 PM</option>
+                  <option value="13:00">01:00 PM</option>
+                  <option value="14:00">02:00 PM</option>
+                  <option value="15:00">03:00 PM</option>
+                  <option value="16:00">04:00 PM</option>
+                  <option value="17:00">05:00 PM</option>
+                  <option value="18:00">06:00 PM</option>
+                  <option value="19:00">07:00 PM</option>
+                  <option value="20:00">08:00 PM</option>
+                  <option value="21:00">09:00 PM</option>
+                  <option value="22:00">10:00 PM</option>
+                  <option value="23:00">11:00 PM</option>
+                </select>
               </div>
-
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+              <center>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </center>
+          {{Form::close()}}
           </div>
         </div>
       </div>
@@ -56,12 +110,13 @@
             Monitoring
           </div>
           <div class="panel-body">
-            <form action="/action_page.php">
+              {{Form::open(['url'=>'admin/add-sched','method'=>'post'])}}
               <div class="form-group">
                 <label for="text">Employee</label>
                 <select class="form-control" name="user" required>
                 @if($users->where('type',2)->isNotEmpty())
                 @foreach($users->where('type',2) as $user)
+                  <option value="" disabled selected>Select Employee</option>
                 <option value="{{$user->id}}">{{$user->name}}</option>
                 @endforeach
                 @else
@@ -70,14 +125,79 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd">
+                <label for="pwd">From Date:</label>
+                <input type="text" readonly class="form-control" placeholder="From Date"  name="from_date">
               </div>
-              <div class="checkbox">
-                <label><input type="checkbox"> Remember me</label>
+
+              <div class="form-group">
+                <label for="pwd">To Date:</label>
+                <input type="text" readonly class="form-control" placeholder="To Date"  name="to_date">
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+
+              <div class="form-group">
+                <label for="pwd">Time In:</label>
+                <select class="form-control" id="time_in" name="time_in" required>
+                  <option value="" disabled selected>Select Time In</option>
+                  <option value="0:00">12:00 AM</option>
+                  <option value="1:00">01:00 AM</option>
+                  <option value="2:00">02:00 AM</option>
+                  <option value="3:00">03:00 AM</option>
+                  <option value="4:00">04:00 AM</option>
+                  <option value="5:00">05:00 AM</option>
+                  <option value="6:00">06:00 AM</option>
+                  <option value="7:00">07:00 AM</option>
+                  <option value="8:00">08:00 AM</option>
+                  <option value="9:00">09:00 AM</option>
+                  <option value="10:00">10:00 AM</option>
+                  <option value="11:00">11:00 AM</option>
+                  <option value="12:00">12:00 PM</option>
+                  <option value="13:00">01:00 PM</option>
+                  <option value="14:00">02:00 PM</option>
+                  <option value="15:00">03:00 PM</option>
+                  <option value="16:00">04:00 PM</option>
+                  <option value="17:00">05:00 PM</option>
+                  <option value="18:00">06:00 PM</option>
+                  <option value="19:00">07:00 PM</option>
+                  <option value="20:00">08:00 PM</option>
+                  <option value="21:00">09:00 PM</option>
+                  <option value="22:00">10:00 PM</option>
+                  <option value="23:00">11:00 PM</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="pwd">Time Out</label>
+                <select class="form-control" id="time_out" name="time_out" required>
+                  <option value="" disabled selected>Select Time Out</option>
+                  <option value="0:00">12:00 AM</option>
+                  <option value="1:00">01:00 AM</option>
+                  <option value="2:00">02:00 AM</option>
+                  <option value="3:00">03:00 AM</option>
+                  <option value="4:00">04:00 AM</option>
+                  <option value="5:00">05:00 AM</option>
+                  <option value="6:00">06:00 AM</option>
+                  <option value="7:00">07:00 AM</option>
+                  <option value="8:00">08:00 AM</option>
+                  <option value="9:00">09:00 AM</option>
+                  <option value="10:00">10:00 AM</option>
+                  <option value="11:00">11:00 AM</option>
+                  <option value="12:00">12:00 PM</option>
+                  <option value="13:00">01:00 PM</option>
+                  <option value="14:00">02:00 PM</option>
+                  <option value="15:00">03:00 PM</option>
+                  <option value="16:00">04:00 PM</option>
+                  <option value="17:00">05:00 PM</option>
+                  <option value="18:00">06:00 PM</option>
+                  <option value="19:00">07:00 PM</option>
+                  <option value="20:00">08:00 PM</option>
+                  <option value="21:00">09:00 PM</option>
+                  <option value="22:00">10:00 PM</option>
+                  <option value="23:00">11:00 PM</option>
+                </select>
+              </div>
+              <center>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </center>
+        {{Form::close()}}
           </div>
         </div>
       </div>
@@ -87,12 +207,13 @@
             Admin
           </div>
           <div class="panel-body">
-            <form action="/action_page.php">
+            {{Form::open(['url'=>'admin/add-sched','method'=>'post'])}}
               <div class="form-group">
                 <label for="text">Employee</label>
                 <select class="form-control" name="user" required>
                 @if($users->where('type',0)->isNotEmpty())
                 @foreach($users->where('type',0) as $user)
+                  <option value="" disabled selected>Select Employee</option>
                 <option value="{{$user->id}}">{{$user->name}}</option>
                 @endforeach
                 @else
@@ -101,14 +222,79 @@
                 </select>
               </div>
               <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd">
+                <label for="pwd">From Date:</label>
+                <input type="text" readonly class="form-control" placeholder="From Date"  name="from_date">
               </div>
-              <div class="checkbox">
-                <label><input type="checkbox"> Remember me</label>
+
+              <div class="form-group">
+                <label for="pwd">To Date:</label>
+                <input type="text" readonly class="form-control" placeholder="To Date"  name="to_date">
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+
+              <div class="form-group">
+                <label for="pwd">Time In:</label>
+                <select class="form-control" id="time_in" name="time_in" required>
+                  <option value="" disabled selected>Select Time In</option>
+                  <option value="0:00">12:00 AM</option>
+                  <option value="1:00">01:00 AM</option>
+                  <option value="2:00">02:00 AM</option>
+                  <option value="3:00">03:00 AM</option>
+                  <option value="4:00">04:00 AM</option>
+                  <option value="5:00">05:00 AM</option>
+                  <option value="6:00">06:00 AM</option>
+                  <option value="7:00">07:00 AM</option>
+                  <option value="8:00">08:00 AM</option>
+                  <option value="9:00">09:00 AM</option>
+                  <option value="10:00">10:00 AM</option>
+                  <option value="11:00">11:00 AM</option>
+                  <option value="12:00">12:00 PM</option>
+                  <option value="13:00">01:00 PM</option>
+                  <option value="14:00">02:00 PM</option>
+                  <option value="15:00">03:00 PM</option>
+                  <option value="16:00">04:00 PM</option>
+                  <option value="17:00">05:00 PM</option>
+                  <option value="18:00">06:00 PM</option>
+                  <option value="19:00">07:00 PM</option>
+                  <option value="20:00">08:00 PM</option>
+                  <option value="21:00">09:00 PM</option>
+                  <option value="22:00">10:00 PM</option>
+                  <option value="23:00">11:00 PM</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="pwd">Time Out</label>
+                <select class="form-control" id="time_out" name="time_out" required>
+                  <option value="" disabled selected>Select Time Out</option>
+                  <option value="0:00">12:00 AM</option>
+                  <option value="1:00">01:00 AM</option>
+                  <option value="2:00">02:00 AM</option>
+                  <option value="3:00">03:00 AM</option>
+                  <option value="4:00">04:00 AM</option>
+                  <option value="5:00">05:00 AM</option>
+                  <option value="6:00">06:00 AM</option>
+                  <option value="7:00">07:00 AM</option>
+                  <option value="8:00">08:00 AM</option>
+                  <option value="9:00">09:00 AM</option>
+                  <option value="10:00">10:00 AM</option>
+                  <option value="11:00">11:00 AM</option>
+                  <option value="12:00">12:00 PM</option>
+                  <option value="13:00">01:00 PM</option>
+                  <option value="14:00">02:00 PM</option>
+                  <option value="15:00">03:00 PM</option>
+                  <option value="16:00">04:00 PM</option>
+                  <option value="17:00">05:00 PM</option>
+                  <option value="18:00">06:00 PM</option>
+                  <option value="19:00">07:00 PM</option>
+                  <option value="20:00">08:00 PM</option>
+                  <option value="21:00">09:00 PM</option>
+                  <option value="22:00">10:00 PM</option>
+                  <option value="23:00">11:00 PM</option>
+                </select>
+              </div>
+              <center>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </center>
+            {{Form::close()}}
           </div>
         </div>
       </div>

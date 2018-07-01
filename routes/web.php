@@ -24,6 +24,13 @@ Route::prefix('admin')->group(function () {
     // Route::get('home',function(){
     //   return 'admin home';
     // });
+    //register
+    Route::post('register', 'Auth\RegisterController@register');
+    Route::post('edit-user', 'AdminController@editUser');
+    // Route::post('edit-password', 'Auth\RegisterController@register');
+    Route::post('edit-password', 'AdminController@editPassword');
+    Route::post('delete-user', 'AdminController@deleteUser');
+    //
     Route::get('home','AdminController@home');
     Route::get('settings','AdminController@settings');
 
@@ -46,6 +53,7 @@ Route::prefix('admin')->group(function () {
     Route::post('delete-car','AdminController@deleteCar');
     //Employee schedule
     Route::get('employee-schedule','AdminController@viewSchedule');
+    Route::post('add-sched','AdminController@addSchedule');
     //logout
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
   });

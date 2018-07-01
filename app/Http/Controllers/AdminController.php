@@ -7,6 +7,8 @@ use App\User;
 use App\CarType;
 use App\Rate;
 use App\ParkingSlot;
+use App\EmployeeSchedule;
+use Carbon\Carbon;
 use Validator;
 class AdminController extends Controller
 {
@@ -16,7 +18,6 @@ class AdminController extends Controller
 
   public function settings(Request $request){
     $data = User::all();
-
     return view('admin.settings')->with('accounts',$data);
   }
 
@@ -107,7 +108,7 @@ class AdminController extends Controller
       return redirect()->back()->with('success','Parking Location Added!');
     }
     public function editParking(Request $request){
-    
+
       $parking = ParkingSlot::find($request->id);
 
       $parking->description = $request->description;
@@ -117,13 +118,60 @@ class AdminController extends Controller
     }
     public function deleteParking(Request $request){
 
-        $parking = ParkingSlot::find($request->id)->delete();
-  return redirect()->back()->with('success','Parking Location Deleted!');
+      $parking = ParkingSlot::find($request->id)->delete();
+      return redirect()->back()->with('success','Parking Location Deleted!');
     }
 
     public function viewSchedule(){
       $users = User::all();
 
       return view('admin.schedule')->with(['users'=>$users]);
+    }
+
+    public function addSchedule(Request $request){
+
+      $sched = new EmployeeSchedule;
+      $sched->user_id = $request->user;
+      $sched->from = Carbon::parse($request->from_date)->format('Y-m-d');
+      $sched->to = Carbon::parse($request->to_date)->format('Y-m-d');
+      $sched->time_in = $request->time_in;
+      $sched->time_out = $request->time_out;
+      $sched->save();
+
+      return redirect()->back()->with('success','Schedule Added!');
+    }
+    public function deleteUser(Request $request){
+      $user = User::find($request->delete)->delete();
+
+      return redirect()->back()->with('success','User Deleted!');
+    }
+
+    public function editUser(Request $request){
+      $user = User::find($request->edit);
+
+      $user->type = $request->type;
+      $user->name = $request->name;
+      $user->username = $request->username;
+      $user->save();
+
+      return redirect()->back()->with('success','User Updated!');
+    }
+
+    public function editPassword(Request $request){
+
+      $validator = Validator::make($request->all(), [
+          'password' => 'required|string|min:6|confirmed',
+      ]);
+
+        if ($validator->fails()) {
+          return redirect()->back()->withInput()->withErrors($validator,'password');
+        }
+
+      $user = User::find($request->change);
+
+      $user->password = Hash::make($request->password);
+      $user->save();
+
+      return redirect()->back()->with('success','Password Updated!');
     }
   }

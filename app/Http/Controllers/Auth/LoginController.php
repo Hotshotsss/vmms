@@ -162,7 +162,7 @@ class LoginController extends Controller
    */
   public function username()
   {
-      return 'email';
+      return 'username';
   }
 
   /**
@@ -173,7 +173,7 @@ class LoginController extends Controller
    */
   public function logout(Request $request)
   {
-      
+
       $this->guard()->logout();
 
       $request->session()->invalidate();
