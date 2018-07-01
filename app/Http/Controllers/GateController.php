@@ -11,8 +11,6 @@ use App\Parking;
 use Carbon\Carbon;
 use PDF;
 use App;
-use Illuminate\Support\Facades\Input;
-
 
 class GateController extends Controller
 {
@@ -28,9 +26,13 @@ class GateController extends Controller
       return view('admin.home');
     }
 
+    public function AddParkLocation(){
+      return view('admin.AddParkingLocation');
+    }
 
-
-
+    public function AddCar(){
+      return view('admin.AddCarType');
+    }
 
     public function UserSets(){
 
@@ -43,10 +45,23 @@ class GateController extends Controller
       return view('admin.RateSettings');
     }
 
+    public function Reports(){
 
+      return view('admin.ViewReports');
 
+    }
 
+    public function Discount(){
 
+      return view('admin.Discount');
+
+    }
+
+    public function FlatRate(){
+
+      return view('admin.FlatRate');
+
+    }
 
     public function insertGate(Request $request){
 
