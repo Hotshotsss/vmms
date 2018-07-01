@@ -4,14 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-// use App\Account;
-use App\CarType;
-use App\Parking;
-use Carbon\Carbon;
+use App\Account;
 use PDF;
 use App;
-use Illuminate\Support\Facades\Input;
-
 
 class GateController extends Controller
 {
@@ -27,9 +22,13 @@ class GateController extends Controller
       return view('admin.home');
     }
 
+    public function AddParkLocation(){
+      return view('admin.AddParkingLocation');
+    }
 
-
-
+    public function AddCar(){
+      return view('admin.AddCarType');
+    }
 
     public function UserSets(){
 
@@ -42,10 +41,23 @@ class GateController extends Controller
       return view('admin.RateSettings');
     }
 
+    public function Reports(){
 
+      return view('admin.ViewReports');
 
+    }
 
+    public function Discount(){
 
+      return view('admin.Discount');
+
+    }
+
+    public function FlatRate(){
+
+      return view('admin.FlatRate');
+
+    }
 
     public function insertGate(Request $request){
 
@@ -62,41 +74,5 @@ class GateController extends Controller
       $pdf = App::make('dompdf.wrapper');
       $pdf->loadView('gate.PDF');
       return $pdf->stream();
-    }
-
-    public function menu(){
-      return view('gate.menu_list');
-    }
-
-    public function vehicleIn(){
-      $data = CarType::all();
-
-      return view('gate.VehicleIn')->with('vehicle',$data);
-    }
-
-    public function addIn(Request $request){
-      // dd($request);
-      $car = new Parking;
-      $car->plate_number = Input::get("txt-plate");
-      $car->vehicle_model = Input::get("txt-model");
-      $car->parking_reason = Input::get("txt-purpose");
-      $car->car_type_id = Input::get("txt-vehicletype");
-      $car->time_in = Carbon::now();
-
-      $car->save();
-      return redirect()->back();
-
-    }
-
-    public function vehicleOut(){
-      $data = Car::all();
-
-      return view('gate.VehicleOut')->with('car',$data);
-    }
-
-    public function vehicleMonitoring(){
-      $data = Car::all();
-
-      return view('gate.VehicleMonitoring')->with('car',$data);;
     }
 }

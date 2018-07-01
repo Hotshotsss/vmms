@@ -34,6 +34,11 @@ Route::prefix('admin')->group(function () {
     Route::post('delete-parking','AdminController@deleteParking');
     // Route::get('RateSettings','GateController@RateSets');
     Route::get('reports','AdminController@reports');
+    Route::get('reports/daily','AdminController@daily');
+    Route::get('reports/weekly','AdminController@weekly');
+    Route::get('reports/monthly','AdminController@monthly');
+    Route::get('reports/yearly','AdminController@yearly');
+
     //FlatRate
     Route::get('flat-rate','AdminController@flatRate');
     Route::post('add-rate','AdminController@addRate');

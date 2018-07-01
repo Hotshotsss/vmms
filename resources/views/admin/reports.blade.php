@@ -8,43 +8,23 @@
           <h1>View Reports</h1>
           <hr>
         </div>
-        <div class="col-lg-4 no-padding">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              Form
-            </div>
-            <div class="panel-body">
-              <form action="/action_page.php">
-                <div class="form-group">
-                  <label for="email">Email address:</label>
-                  <input type="email" class="form-control" id="email">
-                </div>
-                <div class="form-group">
-                  <label for="pwd">Password:</label>
-                  <input type="password" class="form-control" id="pwd">
-                </div>
-                <div class="checkbox">
-                  <label><input type="checkbox"> Remember me</label>
-                </div>
-
-                <button type="submit" class="btn btn-primary" >Submit</button>
-              </form>
-            </div>
-          </div>
-        </div>
-
-          <div class="col-lg-8 no-padding">
+          <div class="col-lg-12 no-padding">
             <div class="panel panel-default">
-              <div class="panel-heading">Incoming Payments</div>
+              <div class="panel-heading">Incoming Payments
+                <div class="form-group">
+                  <select class="form-control" id="filterSelect">
+                    <option value="daily" style="display:none;">{{$day}}</option>
+                    <option value="daily">1 Day Ago</option>
+                    <option value="weekly">7 Days Ago</option>
+                    <option value="monthly">30 Days Ago</option>
+                    <option value="yearly">365 Days Ago</option>
+                  </select>
+                </div>
+              </div>
               <div class="panel-body">
                 <table class="table table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th>
-                        <div class="checkbox">
-                          <label><input type="checkbox" value=""><b>Select All</b></label>
-                        </div>
-                      </th>
                       <th>Firstname</th>
                       <th>Lastname</th>
                       <th>Email</th>
@@ -53,36 +33,15 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td><div class="checkbox">
-                                        <label><input type="checkbox" value="">Option 1</label>
-                                      </div></td>
-                      <td>John</td>
-                      <td>Doe</td>
-                      <td>john@example.com</td>
+                      @foreach($reports as $user)
+                      <tr>
+                      <td>{{$user -> id}}</td>
+                      <td>{{$user -> name}}</td>
+                      <td>{{$user -> email}}</td>
                       <td><button type="button" class="btn btn-primary">Update</button></td>
                       <td><button type="button" class="btn btn-danger">Delete</button></td>
-                    </tr>
-                    <tr>
-                      <td><div class="checkbox">
-                                        <label><input type="checkbox" value="">Option 1</label>
-                                      </div></td>
-                      <td>Mary</td>
-                      <td>Moe</td>
-                      <td>mary@example.com</td>
-                      <td><button type="button" class="btn btn-primary">Update</button></td>
-                      <td><button type="button" class="btn btn-danger">Delete</button></td>
-                    </tr>
-                    <tr>
-                      <td><div class="checkbox">
-                                        <label><input type="checkbox" value="">Option 1</label>
-                                      </div></td>
-                      <td>July</td>
-                      <td>Dooley</td>
-                      <td>july@example.com</td>
-                      <td><button type="button" class="btn btn-primary">Update</button></td>
-                      <td><button type="button" class="btn btn-danger">Delete</button></td>
-                    </tr>
+                      </tr>
+                      @endforeach
                   </tbody>
                 </table>
               </div>
