@@ -1,0 +1,12 @@
+note
+baguhin yung nasa Payments modal "Exceeding hours" wala pa sa database yung exceeding hours rate
+walang violation = word
+walang penalty = how much
+walang first 3 hours sa data base kung magkano
+
+
+Monitoring(guard)
+login
+maglagay ng location
+maglagay ng violation
+magview ng table

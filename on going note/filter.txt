@@ -1,0 +1,4 @@
+query for past day
+query for past 7 days
+query for past 28 days
+query for past year

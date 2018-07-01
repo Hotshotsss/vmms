@@ -1,0 +1,7 @@
+Add User
+Assign User Location with Calendar - WOP
+Rate Settings
+	 Standard hour - hourly rate
+	 Flat rate - first 3 hours - dropdown on hours	Finished
+Vehicle Settings - Add vehicle  Finished
+Violation - add admin the price of violation/penalty (Monitoring select which violation in vehicle out)

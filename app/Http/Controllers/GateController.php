@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+// use App\Car;
 // use App\Account;
 use App\CarType;
 use App\Parking;
@@ -88,15 +89,33 @@ class GateController extends Controller
 
     }
 
-    public function vehicleOut(){
-      $data = Car::all();
+    public function vehicleOutView(){
+      $data = Parking::where('time_out','=',NULL)->get();
 
       return view('gate.VehicleOut')->with('car',$data);
     }
 
     public function vehicleMonitoring(){
-      $data = Car::all();
+      $data = Parking::all();
 
       return view('gate.VehicleMonitoring')->with('car',$data);;
     }
+
+    public function vehicleMonitoringID(Request $request){
+
+      $carID = Car::where('car_id',$car_id)->first();
+
+      return redirect()->back();
+    }
+
+    public function updateParking(Request $request){
+      $data = Parking::find($request->out);
+
+      $data->time_out = Carbon::now();
+
+      $data->save();
+      return redirect()->back();
+
+    }
+
 }

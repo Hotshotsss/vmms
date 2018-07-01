@@ -6,7 +6,7 @@ ob_start();
 if(isset($_REQUEST['location_update']))
 	{
 		$car_id = $_REQUEST['location_update'];
-		$_SESSION['car_id'] = $car_id;	
+		$_SESSION['car_id'] = $car_id;
 
 		$sql = "SELECT * FROM car_tbl WHERE car_id = '$car_id'";
 		$result = mysqli_query($conn,$sql);
@@ -20,7 +20,7 @@ if(isset($_REQUEST['location_update']))
 		$vehicle_reason = $row['vehicle_reason'];
 
 		echo "<b><center>Plate No.</center></b>";
-		echo "<center><font color = 'red' size = '12pt'><b>$car_plate</b></font></center>";	
+		echo "<center><font color = 'red' size = '12pt'><b>$car_plate</b></font></center>";
 
 		echo "<b>Vehicle Details</b><br>";
 		echo "<b>Vehicle Model:</b >$vehicle_model<br>";
@@ -36,9 +36,9 @@ if(isset($_REQUEST['location_update']))
 			$sql2 = "SELECT * FROM parking_tbl";
 			$result2 = mysqli_query($conn,$sql2);
 			while($row2 = mysqli_fetch_array($result2))
-				{	
+				{
 					$parking_name = $row2['parking_name'];
-					echo "<option value = '$parking_name'>$parking_name</option>";	
+					echo "<option value = '$parking_name'>$parking_name</option>";
 				}
 		echo "</select>";
 	}
@@ -47,7 +47,7 @@ if(isset($_REQUEST['vehicle_exit']))
 	{
 		$car_id = $_REQUEST['vehicle_exit'];
 		$validation = $_REQUEST['validation'];
-		$_SESSION['car_id'] = $car_id;	
+		$_SESSION['car_id'] = $car_id;
 		$date = date_create();
 		$actual_time = date_format($date, 'Y-m-d h:i:s A');
 		$sql = "SELECT * FROM car_tbl WHERE car_id = '$car_id' AND payment_status = 'Unpaid' ";
@@ -71,7 +71,7 @@ if(isset($_REQUEST['vehicle_exit']))
 			$vehicle_hour = $row2['vehicle_hour'];
 
 		echo "<b><center>Plate No.</center></b>";
-		echo "<center><font color = 'red' size = '12pt'><b>$car_plate</b></font></center>";	
+		echo "<center><font color = 'red' size = '12pt'><b>$car_plate</b></font></center>";
 
 		echo "<center><b>Vehicle Details</b></center><br>";
 		echo "<b>Vehicle Model:</b >$vehicle_model<br>";
@@ -88,7 +88,7 @@ if(isset($_REQUEST['vehicle_exit']))
 		echo "<b>Location:</b> $vehicle_location<br><br>";
 
 
-		
+
 		if($validation == "Yes")
 			{
 				/*if($minutes > ($vehicle_hour + 1))
@@ -108,8 +108,8 @@ if(isset($_REQUEST['vehicle_exit']))
 
 						if(($minutes/24) >= 2)
 						{
-							echo "<b>Succeding Days:</b> ".number_format($total_days = $minutes/24,2)." Days<br>";	
-							echo "<b>Additional Pay:</b> P".number_format($additional =25,2)."<br>";	
+							echo "<b>Succeding Days:</b> ".number_format($total_days = $minutes/24,2)." Days<br>";
+							echo "<b>Additional Pay:</b> P".number_format($additional =25,2)."<br>";
 							echo "<b>Total:</b> P".number_format(($total_flatrate =  $vehicle_flatrate - 15 + 25) ,2);
 
 							$_SESSION['time_out'] = $actual_time;
@@ -120,13 +120,13 @@ if(isset($_REQUEST['vehicle_exit']))
 						}
 						else
 						{
-							echo "<b>Succeding Days:</b> ".number_format(0,2)." Days<br>";	
+							echo "<b>Succeding Days:</b> ".number_format(0,2)." Days<br>";
 							echo "<b>Total:</b> P".number_format(($total_flatrate = $vehicle_flatrate - 15) ,2);
 							$_SESSION['time_out'] = $actual_time;
 							$_SESSION['vehicle_hours'] = 0;
 							$_SESSION['vehicle_penalty'] = 0;
 							$_SESSION['vehicle_total'] = $total_flatrate;
-						}				
+						}
 			}
 
 			else
@@ -148,7 +148,7 @@ if(isset($_REQUEST['vehicle_exit']))
 						}
 				}
 
-		
+
 
 
 

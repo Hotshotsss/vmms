@@ -80,7 +80,8 @@ Route::prefix('gate')->group(function () {
 
     Route::post('add-in', 'GateController@addIn');
     // vehicle out
-    Route::get('vahicle-out', 'GateController@vehicleOut');
+    Route::get('vehicle-out', 'GateController@vehicleOutView');
+    Route::post('update-parking','GateController@updateParking');
 
     // vehicle monitoring
     Route::get('vehicle-monitoring', 'GateController@vehicleMonitoring');
