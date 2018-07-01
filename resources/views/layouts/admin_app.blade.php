@@ -180,6 +180,7 @@
 <!-- Custom Theme JavaScript -->
 <script src="{{ url ('dist/js/sb-admin-2.js')}}"></script>
 <script type="text/javascript">
+
   @if(isset($errors) && count($errors->registration) > 0)
   $('#addUser').modal('show');
   @endif
@@ -187,4 +188,9 @@
   @if(isset($errors) && count($errors->password) > 0)
   $('#editPassword').modal('show');
   @endif
+
+$('#filterSelect').on('change', function() {
+  window.location = $(this).val();
+});
+
 </script>

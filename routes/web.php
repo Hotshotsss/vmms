@@ -41,6 +41,11 @@ Route::prefix('admin')->group(function () {
     Route::post('delete-parking','AdminController@deleteParking');
     // Route::get('RateSettings','GateController@RateSets');
     Route::get('reports','AdminController@reports');
+    Route::get('reports/daily','AdminController@daily');
+    Route::get('reports/weekly','AdminController@weekly');
+    Route::get('reports/monthly','AdminController@monthly');
+    Route::get('reports/yearly','AdminController@yearly');
+
     //FlatRate
     Route::get('flat-rate','AdminController@flatRate');
     Route::post('add-rate','AdminController@addRate');
@@ -88,7 +93,8 @@ Route::prefix('gate')->group(function () {
 
     Route::post('add-in', 'GateController@addIn');
     // vehicle out
-    Route::get('vahicle-out', 'GateController@vehicleOut');
+    Route::get('vehicle-out', 'GateController@vehicleOutView');
+    Route::post('update-parking','GateController@updateParking');
 
     // vehicle monitoring
     Route::get('vehicle-monitoring', 'GateController@vehicleMonitoring');
