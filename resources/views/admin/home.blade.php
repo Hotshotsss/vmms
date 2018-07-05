@@ -1,108 +1,87 @@
 @extends('layouts.admin_app')
 @section('content')
-  <div id="page-wrapper">
+  <div id="page-wrapper" style="padding-top:20px;">
     <div id="data-content">
-      <div class="row">
-
-        <div class="col-md-3 col-sm-6 mb-3">
-          <div class="card text-white bg-danger o-hidden h-100"  style="height: 100px;">
-            <div class="card-body">
-
-            <div class="mr-5">Total Slots</div>
+      <div class="row" style="color:white;">
+        <div class="col-lg-5 col-md-8 col-xs-6" style="padding-left:0px;padding-right:2.5px;padding-bottom:5px;">
+          <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#79c4bb;border-radius:5px;">
+            <div class="col-md-4 hidden-sm hidden-xs">
+              <i class="fas fa-parking" style="font-size:140px;padding-top:20px;"></i>
 
             </div>
-            <!-- <a class="card-footer text-white clearfix small z-1" href="#">
-            <span class="float-left">View Details</span>
-            <span class="float-right">
-            <i class="fa fa-angle-right"></i>
-            </span>
-            </a> -->
+            <div class="col-md-8" style="padding-top:10px">
+              <div style="padding-left:12px;" class="leftParking">
+                <h2 style="font-weight:bolder;" class="h1Parking">Total Slots</h2>
+                <h1 style="font-size:60px">600 /
+                  <b style="font-size:30px;">750</b>
+                </h1>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div class="row">
-
-            <div class="col-md-3 col-sm-6 mb-3">
-              <div class="card text-white bg-warning o-hidden h-100"  style="height: 100px;">
-                <div class="card-body">
-                <div class="mr-5">Old Gym</div>
-
-                </div>
-
-                <!-- <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-                </span>
-                </a> -->
-              </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6 mb-3">
-              <div class="card text-white bg-warning o-hidden h-100"  style="height: 100px;">
-                <div class="card-body">
-                <div class="mr-5">Patio Minerva</div>
-
-                </div>
-
-                <!-- <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-                </span>
-                </a> -->
-              </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6 mb-3">
-              <div class="card text-white bg-success o-hidden h-100"  style="height: 100px;">
-                <div class="card-body">
-                <div class="mr-5">PGT</div>
-
-                </div>
-
-                <!-- <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-                </span>
-                </a> -->
-              </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6 mb-3">
-              <div class="card text-white bg-success o-hidden h-100"  style="height: 100px;">
-                <div class="card-body">
-                <div class="mr-5">Centennial Gym</div>
-
-                </div>
-
-                <!-- <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-                </span>
-                </a> -->
-              </div>
-            </div>
-
-            <div class="col-md-3 col-sm-6 mb-3">
-              <div class="card text-white bg-danger o-hidden h-100"  style="height: 100px;">
-                <div class="card-body">
-
-                <div class="mr-5">Entrance</div>
-
-                </div>
-                <!-- <a class="card-footer text-white clearfix small z-1" href="#">
-                <span class="float-left">View Details</span>
-                <span class="float-right">
-                <i class="fa fa-angle-right"></i>
-                </span>
-                </a> -->
-              </div>
-            </div>
-
+        <div class="hidden-lg col-md-4 col-xs-6" style="padding-left:2.5px;padding-right:2.5px;padding-bottom:5px;">
+          <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#4db151;border-radius: 5px;">
+            <h3 style="font-weight:bolder;">Entrance</h3>
+            <center>
+              <h5 style="font-size:35px;padding-top:30px;">120 /
+                <b style="font-size:25px;">200</b>
+              </h5>
+            </center>
+          </div>
         </div>
+        <div class="col-lg-5" style="padding-left:2.5px;padding-right:1.25px">
+          <div class="col-md-6" style="padding-left:0px;padding-right:2.5px">
+            <div class="bg-danger o-hidden h-100"  style="height: 95px;margin-bottom:5px;padding:0px 15px;background:#f0493a;border-radius: 5px;">
+              <h4 style="font-weight:bolder;">Centennial Gym</h4>
+              <center>
+                <h5 style="font-size:40px">200 /
+                  <b style="font-size:25px;">250</b>
+                </h5>
+              </center>
+            </div>
+          </div>
+          <div class="col-md-6" style="padding-left:2.5px;padding-right:2.5px">
+            <div class="bg-danger o-hidden h-100"  style="height: 95px; margin-bottom:5px;padding:0px 15px;background:#ff9801;border-radius: 5px;">
+              <h4 style="font-weight:bolder;">Old Gym</h4>
+              <center>
+                <h5 style="font-size:40px">120 /
+                  <b style="font-size:25px;">200</b>
+                </h5>
+              </center>
+            </div>
+          </div>
+          <div class="col-md-6" style="padding-left:0px;padding-right:2.5px">
+            <div class="bg-danger o-hidden h-100"  style="height: 100px;padding:0px 15px;background:#434d66;border-radius: 5px;">
+              <h4 style="font-weight:bolder;">PGT</h4>
+              <center>
+                <h5 style="font-size:40px">20 /
+                  <b style="font-size:25px;">100</b>
+                </h5>
+              </center>
+            </div>
+          </div>
+          <div class="col-md-6" style="padding-left:2.5px;padding-right:2.5px">
+            <div class="bg-danger o-hidden h-100"  style="height: 100px;padding:0px 15px;background:#2297f3;border-radius: 5px;">
+              <h4 style="font-weight:bolder;">Patio Minerva</h4>
+              <center>
+                <h5 style="font-size:40px">180 /
+                  <b style="font-size:25px;">200</b>
+                </h5>
+              </center>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 hidden-md hidden-sm hidden-xs" style="padding-left:2.5px;padding-right:0px">
+          <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#4db151;border-radius: 5px;">
+            <h3 style="font-weight:bolder;">Entrance</h3>
+            <center>
+              <h5 style="font-size:35px;padding-top:30px;">120 /
+                <b style="font-size:25px;">200</b>
+              </h5>
+            </center>
+          </div>
+        </div>
+      </div>
 
           <div class="col-lg-4 no-padding">
             <div class="panel panel-default">

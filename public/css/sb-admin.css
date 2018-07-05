@@ -476,3 +476,29 @@ footer.sticky-footer {
     width: calc(100% - 55px);
   }
 }
+
+@media(min-width:1024px){
+  .leftParking{
+    border-left: 2px solid white;
+  }
+}
+@media(max-width:768px){
+  .leftParking h1{
+    font-size:40px !important;
+  }
+  .h1Parking{
+    font-size:30px !important;
+  }
+}
+@media(max-width:500px){
+  .leftParking h1{
+    font-size:30px !important;
+  }
+  .leftParking h1 b{
+    font-size:20px !important;
+  }
+  .h1Parking{
+    font-size:25px !important;
+  }
+}
+}

@@ -19,15 +19,16 @@
     <!-- Custom CSS -->
 
     <link href="{{ url ('dist/css/sb-admin-2.css')}}" rel="stylesheet">
-    <link href="{{ url ('css/style.css')}}" rel="stylesheet">
     <link href="{{ url ('css/sb-admin.css')}}" rel="stylesheet">
-    <link href="{{ url ('css/sb-admin.min.css')}}" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
     <link href="{{ url ('vendor/morrisjs/morris.css')}}" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="{{ url ('vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/solid.css" integrity="sha384-TbilV5Lbhlwdyc4RuIV/JhD8NR+BfMrvz4BL5QFa2we1hQu6wvREr3v6XSRfCTRp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
+
+
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

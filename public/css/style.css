@@ -147,7 +147,6 @@ body  {
      -webkit-box-direction:  normal;
      -ms-flex-direction:  column;
      flex-direction:  column;
-     background: pink !important;
  }
 
 
@@ -577,6 +576,3 @@ body > p  {
      word-wrap:  break-word;
      word-break:  break-word;
  }
-body{
-  background: blue !important;
-}
