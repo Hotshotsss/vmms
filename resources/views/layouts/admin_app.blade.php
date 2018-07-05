@@ -63,7 +63,14 @@
                             <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
                             </li>
                             <li class="divider"></li>
-                            <li><a href="admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <li>
+                              <a href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                Logout
+                              </a>
+
+                              <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                              </form>
                             </li>
                         </ul>
                         <!-- /.dropdown-user -->
@@ -136,7 +143,13 @@
                                 <a href="UserSettings.php"><i class="fa fa-user fa-fw"></i> User Profile </a>
                             </li>
                             <li class="hidden-lg hidden-md hidden-sm">
-                                <a href="admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout </a>
+                              <a href="admin/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                Logout
+                              </a>
+
+                              <form id="logout-form" action="admin/logout" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                              </form>
                             </li>
                         </ul>
                     </div>
@@ -169,7 +182,17 @@
 <!-- Custom Theme JavaScript -->
 <script src="{{ url ('dist/js/sb-admin-2.js')}}"></script>
 <script type="text/javascript">
+
+  @if(isset($errors) && count($errors->registration) > 0)
+  $('#addUser').modal('show');
+  @endif
+
+  @if(isset($errors) && count($errors->password) > 0)
+  $('#editPassword').modal('show');
+  @endif
+
 $('#filterSelect').on('change', function() {
   window.location = $(this).val();
 });
+
 </script>

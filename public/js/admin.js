@@ -22,14 +22,36 @@ $(document).on('click','#edit-parking',function(){
   $('#editParking').modal('show');
 });
 
+$(document).on('click','#edit-password',function(){
 
-$('#from_date').datepicker({
-  minDate:0,
-  onSelect:function(selectedDate) {
-    $('#to_date').datepicker('option', 'minDate',selectedDate);
-  }
+  var values = $(this).data('id');
+
+  $('#editPassword input[name="username"]').val(values.username);
+
+  $('#editPassword button[name="change"]').val(values.id);
+
+  $('#editPassword').modal('show');
+});
+
+$(document).on('click','#edit-user',function(){
+
+  var values = $(this).data('id');
+
+  $('#editUser input[name="type"]').val(values.type);
+  $('#editUser input[name="name"]').val(values.name);
+  $('#editUser input[name="username"]').val(values.username);
+  $('#editUser button[name="edit"]').val(values.id);
+
+  $('#editUser').modal('show');
 });
 
 
 
-$('#to_date').datepicker();
+$('input[name="from_date"]').datepicker({
+  minDate:0,
+  onSelect:function(selectedDate) {
+    $('input[name="to_date"]').datepicker('option', 'minDate',selectedDate);
+  }
+});
+
+$('input[name="to_date"]').datepicker();
