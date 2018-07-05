@@ -88,6 +88,7 @@
 <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
 <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
 <script src="{{asset('js/gate.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/searchfilter.js')}}" type="text/javascript"></script>
 
 <script>
     $(document).ready(function() {

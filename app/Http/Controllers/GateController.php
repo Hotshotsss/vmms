@@ -113,7 +113,7 @@ class GateController extends Controller
     public function vehicleMonitoring(){
       $data = Parking::all();
 
-      return view('gate.VehicleMonitoring')->with('car',$data);;
+      return view('gate.VehicleMonitoring')->with('car',$data);
     }
 
     public function vehicleMonitoringID(Request $request){

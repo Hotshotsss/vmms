@@ -1,0 +1,52 @@
+table:
+	add parking location : blue table header
+
+
+
+report = every month
+
+guard = every 2 weeks rotation
+
+
+color : blue #00bfff	rgb(0, 191, 255)	hsl(195, 100%, 50%)
+	violet #bf00ff	rgb(191, 0, 255)	hsl(285, 100%, 50%)
+
+vehicle type = dropby
+
+dropby = 15mins nakahiwalay sa monitoring
+nakarecord pero di pa official for ticket after 15mins marerecord na as nakapark
+
+map figure with label = homepage ng lahat
+available slots = homepage.
+
+need ng available slots : estimated 750 slots
+rules ng ticket = sa homepage
+
+edit for monitoring 
+*pano kung mamali
+
+parking location :
+*old gym
+*patio minerva
+*PGT
+*Centennial Gym or C gym or Centralino
+*Entrance
+
+Report (admin)
+*Gross per day
+*kung ilang yung pumasok
+
+Discount:
+*25 pesos kung naconfine sa hospital
+
+Vehicle In:
+*purpose = dropdown (nsa docu)
+*emergency = 25 pesos per day
+
+Add purpose settings:
+*parang add car type
+
+admin side (parking monitoring settings)
+*Vehicle in
+
+responsive table

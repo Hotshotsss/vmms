@@ -20,6 +20,8 @@
 
     <link href="{{ url ('dist/css/sb-admin-2.css')}}" rel="stylesheet">
     <link href="{{ url ('css/style.css')}}" rel="stylesheet">
+    <link href="{{ url ('css/sb-admin.css')}}" rel="stylesheet">
+    <link href="{{ url ('css/sb-admin.min.css')}}" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
     <link href="{{ url ('vendor/morrisjs/morris.css')}}" rel="stylesheet">

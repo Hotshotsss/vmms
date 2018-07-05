@@ -63,9 +63,12 @@ Route::prefix('monitoring')->group(function () {
     });
   });
   Route::middleware(['monitor'])->group(function () {
-    Route::get('home',function(){
-      return 'monitoring home';
-    });
+
+    Route::get('home', 'MonitoringController@Home');
+
+    // Route::get('home',function(){
+    //   return 'monitoring home';
+    // });
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
   });
 });
@@ -122,6 +125,9 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('PDFtry', 'GateController@generate_pdf');
 
 Route::get('/home2', 'HomeController@index')->name('home');
+
+Route::get('monitoring-home', 'MonitoringController@Home');
+Route::get('add-violation', 'MonitoringController@addViolation');
 
 Route::get('calendar', function () {
   return view('calendar');
