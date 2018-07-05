@@ -26,11 +26,12 @@
                 					</div><br>
 			                    <thead>
 			                        <tr>
-			                        	<th>Plate Number</th>
+			                        	  <th>Plate Number</th>
 			                            <th>Vehicle Model</th>
 			                            <th>Time In</th>
+                                  <th>Existing Violation</th>
 			                            <th>Location</th>
-                                  <th>Violation</th>
+                                  <th>Add Violation</th>
 			                        </tr>
 			                    </thead>
 
@@ -41,16 +42,21 @@
 						                          <th>{{$value->vehicle_model}}</th>
 						                          <th>{{$value->time_in}}</th>
                                       <th>
+                                        @foreach($value->violations as $violation)
+                                        <li>{{$violation->violation_name->violation}}</li>
+                                        @endforeach
+                                      </th>
+                                      <th>
                                         <a href="#" class='btn btn-success' type='button' name='confirm' data-target='#confirmLocation' data-toggle='modal'>Park Here?</a>
                                       </th>
                                       <th>
                                         <div class="form-group">
                                           <!-- <label for="sel1">Select list:</label> -->
 
-                                          <select class="form-control" id="sel1" data-id="{{$value}}">
+                                          <select class="form-control select-violation" data-id="{{$value}}">
                                             <option disabled selected>Select Violation:</option>
                                             @foreach ($type as $value)
-                                            <option value="{{$value->violation}}">{{$value->violation}}</option>
+                                            <option value="{{$value->id}}">{{$value->violation}}</option>
                                             @endforeach
                                           </select>
 
@@ -96,7 +102,7 @@
 <div id="confirmViolation" class="modal fade">
   <div class = "modal-dialog modal-sm ">
       <div class = "modal-content">
-            {!! Form::open(['url'=>'monitoring/confirm-location','method'=>'post']) !!}
+            {!! Form::open(['url'=>'add-violation','method'=>'post']) !!}
 		        <div class = "modal-header">
 		          <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
 		        </div>
@@ -108,10 +114,11 @@
 
                        <p id="violation">Add Violation :
                          <b id="valueViolation"></b>
+                         <input id="violationID" type="hidden" name="violationID">
                        </p>
 
-                       <a href="#" class='btn btn-success' type='button'>Yes</a>
-                       <a href="#" class='btn btn-success' type='button'>No</a>
+                       <button type="submit" class="btn btn-success" name="id">Yes</button>
+                       <button type="button" class="btn btn-danger close-violation" name="button">No</button>
 
                      </center>
 

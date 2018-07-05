@@ -81,16 +81,16 @@
                                 <td class="col-md-7" id="monitoring-timein">  </td>
                             </tr>
                             <tr>
-                                <td class="col-md-5"> <label>Hours: </label> </td>
+                                <td class="col-md-5"> <label>Exceeding Hours: </label> </td>
                                 <td class="col-md-7" id="monitoring-hours"> </td>
                             </tr>
                             <tr>
                                 <td class="col-md-5"> <label>Parking Location: </label> </td>
-                                <td class="col-md-7" id="monitoring-penalty">  </td>
+                                <td class="col-md-7" id="monitoring-location">  </td>
                             </tr>
                             <tr>
                                 <td class="col-md-5"> <label>Violation: </label> </td>
-                                <td class="col-md-7" id="monitoring-penalty">  </td>
+                                <td class="col-md-7" id="monitoring-violation">  </td>
                             </tr>
                           </table>
                         </div>
@@ -103,16 +103,16 @@
                                 <td class="col-md-7"> 40.00 </td>
                             </tr>
                             <tr>
-                                <td class="col-md-5"> <label>Exceeding Hours: </label> </td>
+                                <td class="col-md-5"> <label>Total Rate of Extension: </label> </td>
                                 <td class="col-md-7" id="monitoring-exceeding"> </td>
                             </tr>
                             <tr>
                                 <td class="col-md-5"> <label>Penalty: </label> </td>
-                                <td class="col-md-7" id="monitoring-timein">  </td>
+                                <td class="col-md-7" id="monitoring-penalty">  </td>
                             </tr>
                             <tr>
                                 <td class="col-md-5"> <label>Total Price: </label> </td>
-                                <td class="col-md-7" id="monitoring-penalty">  </td>
+                                <td class="col-md-7" id="monitoring-total">  </td>
                             </tr>
                           </table>
                         </div>
