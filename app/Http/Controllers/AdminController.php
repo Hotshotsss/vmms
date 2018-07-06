@@ -13,7 +13,10 @@ use Validator;
 class AdminController extends Controller
 {
   public function home(Request $request){
-    return view('admin.home');
+    $slots = ParkingSlot::all();
+    // $parkings = Parking::where('time_out',null)->get();
+
+    return view('admin.home')->with(['slots'=>$slots]);
   }
 
   public function settings(Request $request){
