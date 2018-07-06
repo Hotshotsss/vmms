@@ -29,6 +29,7 @@
 			                        	  <th>Plate Number</th>
 			                            <th>Vehicle Model</th>
 			                            <th>Time In</th>
+                                  <th>Location Parked</th>
                                   <th>Existing Violation</th>
 			                            <th>Location</th>
                                   <th>Add Violation</th>
@@ -42,12 +43,27 @@
 						                          <th>{{$value->vehicle_model}}</th>
 						                          <th>{{$value->time_in}}</th>
                                       <th>
+                                        @foreach($value->location as $locations)
+                                        <li>{{$locations->location_name->parking_name}}</li>
+                                        @endforeach
+                                      </th>
+                                      <th>
                                         @foreach($value->violations as $violation)
                                         <li>{{$violation->violation_name->violation}}</li>
                                         @endforeach
                                       </th>
                                       <th>
-                                        <a href="#" class='btn btn-success' type='button' name='confirm' data-target='#confirmLocation' data-toggle='modal'>Park Here?</a>
+                                        <div class="form-group">
+                                          <!-- <label for="sel1">Select list:</label> -->
+
+                                          <select class="form-control select-location" data-id="{{$value}}">
+                                            <option disabled selected>Select Location:</option>
+                                            @foreach ($locations as $value)
+                                            <option value="{{$value->id}}">{{$value->parking_name}}</option>
+                                            @endforeach
+                                          </select>
+
+                                        </div>
                                       </th>
                                       <th>
                                         <div class="form-group">
@@ -75,7 +91,7 @@
 <div id="confirmLocation" class="modal fade">
   <div class = "modal-dialog modal-sm ">
       <div class = "modal-content">
-            {!! Form::open(['url'=>'monitoring/confirm-location','method'=>'post']) !!}
+            {!! Form::open(['url'=>'add-location','method'=>'post']) !!}
 		        <div class = "modal-header">
 		          <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
 		        </div>
@@ -84,10 +100,13 @@
 		              	 <div id ="d1" style="visibility: hidden;">Display</div>
 
                      <center>
-                       <p>Park Here?</p>
+                       <p id="location">Add Location :
+                         <b id="valueLocation"></b>
+                         <input id="locationID" type="hidden" name="locationID">
+                       </p>
 
-                       <a href="#" class='btn btn-success' type='button'>Yes</a>
-                       <a href="#" class='btn btn-success' type='button'>No</a>
+                       <button type="submit" class="btn btn-success" name="id">Yes</button>
+                       <button type="button" class="btn btn-danger close-violation" name="button">No</button>
 
                      </center>
 

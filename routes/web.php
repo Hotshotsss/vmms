@@ -135,6 +135,7 @@ Route::get('PDFtry', 'GateController@generate_pdf');
 Route::get('/home2', 'HomeController@index')->name('home');
 
 Route::get('monitoring-home', 'MonitoringController@Home');
+Route::post('add-location', 'MonitoringController@addLocation');
 Route::post('add-violation', 'MonitoringController@addViolation');
 
 Route::get('calendar', function () {

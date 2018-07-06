@@ -154,6 +154,7 @@ class AdminController extends Controller
 
       return redirect()->back()->with('success','Schedule Added!');
     }
+
     public function deleteUser(Request $request){
       $user = User::find($request->delete)->delete();
 
@@ -187,5 +188,11 @@ class AdminController extends Controller
       $user->save();
 
       return redirect()->back()->with('success','Password Updated!');
+    }
+
+    public function viewTotalSlots(){
+      $slots = ParkingSlot::all();
+
+      return view('admin.home')->with(['slots'=>$slots]);
     }
   }

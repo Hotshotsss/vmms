@@ -2,12 +2,14 @@
 @section('content')
   <div id="page-wrapper" style="padding-top:20px;">
     <div id="data-content">
+
+      foreach($slots as $slot)
       <div class="row" style="color:white;">
         <div class="col-lg-5 col-md-8 col-xs-6" style="padding-left:0px;padding-right:2.5px;padding-bottom:5px;">
           <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#79c4bb;border-radius:5px;">
             <div class="col-md-4 hidden-sm hidden-xs">
               <i class="fas fa-parking" style="font-size:140px;padding-top:20px;"></i>
-
+              {{$slot->}}
             </div>
             <div class="col-md-8" style="padding-top:10px">
               <div style="padding-left:12px;" class="leftParking">
@@ -82,6 +84,7 @@
           </div>
         </div>
       </div>
+      @endforeach
 
           <div class="col-lg-4 no-padding">
             <div class="panel panel-default">

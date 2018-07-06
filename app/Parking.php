@@ -14,4 +14,8 @@ class Parking extends Model
   public function violations(){
     return $this->hasMany('App\ParkingViolation');
   }
+
+  public function location(){
+    return $this->hasMany('App\ParkingLocation');
+  }
 }
