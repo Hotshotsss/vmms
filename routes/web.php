@@ -17,7 +17,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/',function(){
       return view('auth.login');
     })->name('admin-login');
-
   });
 
   Route::middleware(['admin'])->group(function () {
@@ -116,6 +115,9 @@ Route::get('test','GateController@indexGate')->middleware('auth');
 
 
 //login
+Route::get('/',function(){
+  return view('auth.login');
+});
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');

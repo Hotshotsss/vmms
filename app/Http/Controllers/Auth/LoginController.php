@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Validation\ValidationException;
 use Auth;
-
+use App\Http\Helpers\TransHelper as Transearly;
 class LoginController extends Controller
 {
   use AuthenticatesUsers;
@@ -15,18 +15,18 @@ class LoginController extends Controller
   protected $type;
 
   public function __construct(){
-    $url = \URL::previous();
-
-    if(str_contains($url,'gate')){
-      $this->referrer = 'gate';
-      $this->type = 1;
-    }else if(str_contains($url,'monitor')){
-      $this->referrer = 'monitor';
-      $this->type = 2;
-    }else{
-      $this->referrer = 'admin';
-      $this->type = 0;
-    }
+    // $url = \URL::previous();
+    //
+    // if(str_contains($url,'gate')){
+    //   $this->referrer = 'gate';
+    //   $this->type = 1;
+    // }else if(str_contains($url,'monitor')){
+    //   $this->referrer = 'monitor';
+    //   $this->type = 2;
+    // }else{
+    //   $this->referrer = 'admin';
+    //   $this->type = 0;
+    // }
   }
   /**
    * Show the application's login form.
@@ -107,9 +107,8 @@ class LoginController extends Controller
    */
   protected function credentials(Request $request)
   {
-
-      $request->request->add(['type'=>$this->type]);
-      return $request->only($this->username(), 'password','type');
+      // $request->request->add(['type'=>$this->type]);
+      return $request->only($this->username(), 'password');
   }
 
   /**
@@ -125,7 +124,7 @@ class LoginController extends Controller
       $this->clearLoginAttempts($request);
 
       return $this->authenticated($request, $this->guard()->user())
-              ?: redirect()->intended($this->referrer.$this->redirectPath());
+              ?: redirect()->intended(Transearly::type(auth()->user()->id).$this->redirectPath());
   }
 
   /**
@@ -178,7 +177,7 @@ class LoginController extends Controller
 
       $request->session()->invalidate();
 
-      return redirect($this->referrer);
+      return redirect('/');
   }
 
   /**

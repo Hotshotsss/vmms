@@ -8,13 +8,13 @@ class TransHelper
   public static function type($type){
     switch((int)$type){
       case 0:
-      return 'Admin';
+      return 'admin';
       break;
       case 1:
-      return 'Gate';
+      return 'gate';
       break;
       default:
-      return 'Monitoring';
+      return 'monitoring';
       break;
     }
   }
