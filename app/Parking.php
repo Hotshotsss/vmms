@@ -16,6 +16,10 @@ class Parking extends Model
   }
 
   public function location(){
-    return $this->hasMany('App\ParkingLocation');
+    return $this->hasOne('App\ParkingSlot','id','location_id');
   }
+
+// $parking->location->parking_name;
+//
+
 }

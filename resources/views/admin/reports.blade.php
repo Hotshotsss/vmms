@@ -13,11 +13,11 @@
               <div class="panel-heading">Incoming Payments
                 <div class="form-group">
                   <select class="form-control" id="filterSelect">
-                    <option value="daily" style="display:none;">{{$day}}</option>
-                    <option value="daily">1 Day Ago</option>
-                    <option value="weekly">7 Days Ago</option>
-                    <option value="monthly">30 Days Ago</option>
-                    <option value="yearly">365 Days Ago</option>
+                    <option value="/admin/reports/daily" style="display:none;">{{$day}}</option>
+                    <option value="/admin/reports/daily">1 Day Ago</option>
+                    <option value="/admin/reports/weekly">7 Days Ago</option>
+                    <option value="/admin/reports/monthly">30 Days Ago</option>
+                    <option value="/admin/reports/yearly">365 Days Ago</option>
                   </select>
                 </div>
               </div>

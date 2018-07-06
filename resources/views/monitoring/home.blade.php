@@ -29,7 +29,7 @@
 			                        	  <th>Plate Number</th>
 			                            <th>Vehicle Model</th>
 			                            <th>Time In</th>
-                                  <th>Location Parked</th>
+
                                   <th>Existing Violation</th>
 			                            <th>Location</th>
                                   <th>Add Violation</th>
@@ -43,16 +43,16 @@
 						                          <th>{{$value->vehicle_model}}</th>
 						                          <th>{{$value->time_in}}</th>
                                       <th>
-                                        @foreach($value->location as $locations)
-                                        <li>{{$locations->location_name->parking_name}}</li>
-                                        @endforeach
-                                      </th>
-                                      <th>
                                         @foreach($value->violations as $violation)
                                         <li>{{$violation->violation_name->violation}}</li>
                                         @endforeach
                                       </th>
                                       <th>
+                                        @if($value->location_id)
+                                        {{$value->location->parking_name}}
+
+                                        <b><a href="#!" data-id="{{$value}}" id="edit-location" style="float:right;">edit</a></b>
+                                        @else
                                         <div class="form-group">
                                           <!-- <label for="sel1">Select list:</label> -->
 
@@ -62,8 +62,8 @@
                                             <option value="{{$value->id}}">{{$value->parking_name}}</option>
                                             @endforeach
                                           </select>
-
                                         </div>
+                                        @endif
                                       </th>
                                       <th>
                                         <div class="form-group">
@@ -91,7 +91,7 @@
 <div id="confirmLocation" class="modal fade">
   <div class = "modal-dialog modal-sm ">
       <div class = "modal-content">
-            {!! Form::open(['url'=>'add-location','method'=>'post']) !!}
+            {!! Form::open(['url'=>'monitoring/add-location','method'=>'post']) !!}
 		        <div class = "modal-header">
 		          <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
 		        </div>
@@ -121,7 +121,7 @@
 <div id="confirmViolation" class="modal fade">
   <div class = "modal-dialog modal-sm ">
       <div class = "modal-content">
-            {!! Form::open(['url'=>'add-violation','method'=>'post']) !!}
+            {!! Form::open(['url'=>'monitoring/add-violation','method'=>'post']) !!}
 		        <div class = "modal-header">
 		          <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
 		        </div>
@@ -149,6 +149,41 @@
   </div>
 </div>
 
+<div id="editLocation" class="modal fade">
+  <div class = "modal-dialog modal-sm ">
+      <div class = "modal-content">
+            {!! Form::open(['url'=>'monitoring/edit-location','method'=>'post']) !!}
+		        <div class = "modal-header">
+		          <h4 class="modal-title" id="myModalLabel">Select Location: </h4>
+		        </div>
+		           <div class="modal-body">
+		              <div class="form-group">
+		              	 <div id ="d1" style="visibility: hidden;">Display</div>
 
+                     <center>
+
+                       <div class="form-group">
+                         <!-- <label for="sel1">Select list:</label> -->
+                         <select name="locationID" class="form-control select-edit-location">
+                           <option disabled selected>Select Location:</option>
+                           @foreach ($locations as $value)
+                           <option value="{{$value->id}}">{{$value->parking_name}}</option>
+                           @endforeach
+                         </select>
+                         <br>
+
+                         <button type="submit" class="btn btn-success" name="id">Edit</button>
+                         <button type="button" class="btn btn-danger close-violation" name="button">Cancel</button>
+
+                       </div>
+                     </center>
+
+                  </div>
+		          </div>
+
+		         {!!Form::close()!!}
+      </div>
+  </div>
+</div>
 
 @endsection

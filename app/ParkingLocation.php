@@ -2,16 +2,21 @@
 
 namespace App;
 
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 
 class ParkingLocation extends Model
 {
-  protected $fillable = [
-      'id', 'parking_id', 'location_id',
-  ];
+    use Notifiable;
 
-public function location_name(){
-  return $this->hasOne('App\Location','id','location_id');
-}
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'id', 'location_id', 'parking_name', 'description', 'number_of_slots', 'location', 'created_at', 'updated_at',
+    ];
+
 
 }

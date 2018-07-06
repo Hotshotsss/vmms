@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ParkingSlot extends Model
 {
 
-  protected $table = 'location';
+  protected $table = 'parking_locations';
   protected $fillable = [
     'parking_name','description','number_of_slots',
   ];

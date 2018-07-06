@@ -87,19 +87,19 @@ class AdminController extends Controller
     return view('admin.reports')->with('reports',$data)->with('day','Filter');
   }
   public function daily(){
-    $data = User::where('email','admin@gmail.com')->get();
+    $data = User::all();
     return view('admin.reports')->with('reports',$data)->with('day','1 Day Ago');
   }
   public function weekly(){
-    $data = User::where('email','admin@gmail.com')->get();
+    $data = User::all();
     return view('admin.reports')->with('reports',$data)->with('day','7 Days Ago');
   }
   public function monthly(){
-    $data = User::where('email','admin@gmail.com')->get();
+    $data = User::all();
     return view('admin.reports')->with('reports',$data)->with('day','30 Days Ago');
   }
   public function yearly(){
-    $data = User::where('email','admin@gmail.com')->get();
+    $data = User::all();
     return view('admin.reports')->with('reports',$data)->with('day','365 Days Ago');
   }
   public function parking(){

@@ -73,9 +73,11 @@ Route::prefix('monitoring')->group(function () {
 
     Route::get('home', 'MonitoringController@Home');
 
-    // Route::get('home',function(){
-    //   return 'monitoring home';
-    // });
+    Route::get('home', 'MonitoringController@Home');
+    Route::post('add-location', 'MonitoringController@addLocation');
+    Route::post('edit-location', 'MonitoringController@editLocation');
+    Route::post('add-violation', 'MonitoringController@addViolation');
+
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
   });
 });
@@ -136,9 +138,6 @@ Route::get('PDFtry', 'GateController@generate_pdf');
 
 Route::get('/home2', 'HomeController@index')->name('home');
 
-Route::get('monitoring-home', 'MonitoringController@Home');
-Route::post('add-location', 'MonitoringController@addLocation');
-Route::post('add-violation', 'MonitoringController@addViolation');
 
 Route::get('calendar', function () {
   return view('calendar');
