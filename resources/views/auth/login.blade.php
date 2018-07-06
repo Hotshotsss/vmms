@@ -1,10 +1,14 @@
 @extends('layouts.login')
 @section('content')
-<div class="container">
+<div class="container" style="position:absolute;bottom:150px;left:0;right:0;">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-5">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header">
+                  <center>
+                    VMMS
+                  </center>
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
