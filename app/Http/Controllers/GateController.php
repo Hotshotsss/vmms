@@ -77,7 +77,7 @@ class GateController extends Controller
     public function generate_pdf() {
 
       $pdf = App::make('dompdf.wrapper');
-      $customPaper = array(30,-50,240,270);
+      $customPaper = array(0,0,230,300);
       $pdf->setPaper($customPaper);
       $pdf->loadView('gate.PDF');
       return $pdf->stream();
