@@ -20,6 +20,8 @@
 
     <link href="{{ url ('dist/css/sb-admin-2.css')}}" rel="stylesheet">
     <link href="{{ url ('css/sb-admin.css')}}" rel="stylesheet">
+    <link href="{{ url ('css/admin.css')}}" rel="stylesheet">
+
 
     <!-- Morris Charts CSS -->
     <link href="{{ url ('vendor/morrisjs/morris.css')}}" rel="stylesheet">
@@ -80,7 +82,7 @@
                 </ul>
                 <!-- /.navbar-top-links -->
 
-                <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <li class="sidebar-search">
