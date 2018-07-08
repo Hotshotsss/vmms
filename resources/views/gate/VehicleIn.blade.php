@@ -14,8 +14,6 @@
         <input type = "text" class = "form-control" name = "txt-plate" placeholder="Enter Plate Number" required>
         <label>Vehicle Model</label>
         <input type = "text" class = "form-control" name = "txt-model" placeholder="Enter Model" required>
-        <label>Purpose</label>
-        <textarea class = "form-control" name = "txt-purpose" placeholder="Enter Purpose" required></textarea>
         <label>Vehicle Type</label>
         <select class = "form-control" name = "txt-vehicletype">
 
@@ -23,7 +21,26 @@
           <option value="{{$value->id}}">{{$value->type}}</option>
           @endforeach
 
-        </select>	<br>
+        </select>
+        <label>Vehicle Color</label>
+        <select class = "form-control" name = "txt-vehiclecolor">
+
+          @foreach ($color as $value)
+          <option value="{{$value->id}}">{{$value->color}}</option>
+          @endforeach
+
+        </select>
+        <label>Purpose</label>
+        <select class = "form-control" name = "txt-purpose">
+
+          @foreach ($purpose as $value)
+          <option value="{{$value->id}}">{{$value->purpose}}</option>
+          @endforeach
+
+        </select>
+        <label>Remarks</label>
+        <textarea class = "form-control" name = "txt-remarks" placeholder="Enter Purpose" required></textarea>
+        <br>
         <center><button type = "submit" name = "btn-in" class = "btn btn-primary">Save</button></center>
       </div>
     </div>

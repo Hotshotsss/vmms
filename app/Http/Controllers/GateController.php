@@ -8,6 +8,8 @@ use App\User;
 // use App\Car;
 // use App\Account;
 use App\CarType;
+use App\Colors;
+use App\Purpose;
 use App\Parking;
 use Carbon\Carbon;
 use PDF;
@@ -89,8 +91,10 @@ class GateController extends Controller
 
     public function vehicleIn(){
       $data = CarType::all();
+      $colors = Colors::all();
+      $purposes = Purpose::all();
 
-      return view('gate.VehicleIn')->with('vehicle',$data);
+      return view('gate.VehicleIn')->with(['vehicle'=>$data,'color'=>$colors,'purpose'=>$purposes]);
     }
 
     public function addIn(Request $request){
@@ -100,6 +104,8 @@ class GateController extends Controller
       $car->vehicle_model = Input::get("txt-model");
       $car->parking_reason = Input::get("txt-purpose");
       $car->car_type_id = Input::get("txt-vehicletype");
+      $car->vehicle_color = Input::get("txt-vehiclecolor");
+      $car->remarks = Input::get("txt-remarks");
       $car->time_in = Carbon::now();
 
       $car->save();
@@ -113,11 +119,16 @@ class GateController extends Controller
       return view('gate.VehicleOut')->with('car',$data);
     }
 
-    public function vehicleMonitoring(){
+    public function vehicleMonitoringIn(){
       $carin = Parking::where('time_out',null)->get();
-      $carout = Parking::all();
 
-      return view('gate.VehicleMonitoring')->with(['carin'=>$carin,'carout'=>$carout]);
+      return view('gate.VehicleMonitoringIn')->with('carin',$carin);
+    }
+
+    public function vehicleMonitoringOut(){
+      $carout = Parking::whereNotNull('time_out')->get();
+
+      return view('gate.VehicleMonitoringOut')->with('carout',$carout);
     }
 
     public function vehicleMonitoringID(Request $request){

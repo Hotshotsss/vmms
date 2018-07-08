@@ -101,7 +101,8 @@ Route::prefix('gate')->group(function () {
     Route::post('update-parking','GateController@updateParking');
 
     // vehicle monitoring
-    Route::get('vehicle-monitoring', 'GateController@vehicleMonitoring');
+    Route::get('vehicle-monitoring-in', 'GateController@vehicleMonitoringIn');
+    Route::get('vehicle-monitoring-out', 'GateController@vehicleMonitoringOut');
 
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
   });
