@@ -40,4 +40,34 @@
     </a>
   </div>
 
+  <div class="col-lg-12 no-padding">
+    <a href="menu.php?webpage=vehicle_report">
+      <div class="report" onmouseover="bigReport()" onmouseout="normalReport()">
+        <div class="panel-body centerContent reportContent">
+            <center>
+                <i class="fas fa-chart-line" style="font-size:120px"></i>
+              <h1>Vehicle Report</h1>
+          </center>
+        </div>
+      </div>
+    </a>
+
+  </div> -->
+
+
+    <!-- <div class="col-lg-6">
+      <div class="panel-body">
+          <center><a href="vehicle-out"><img src = "..\img\signout.png" width = "100px" height="100px"></a></center>
+          <center><span><h2>Vehicle Out</h2></span></center>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-lg-6">
+      <div class="panel-body">
+          <center><a href="vehicle-monitoring"><img src = "..\img\search.png" width = "100px" height="100px"></a></center>
+          <center><span><h2>Vehicle Monitoring</h2></span></center>
+      </div>
+    </div> -->
+
   @endsection

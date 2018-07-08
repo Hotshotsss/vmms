@@ -13,12 +13,13 @@
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('css/sample.css')}}">
+  <link rel="stylesheet" href="{{asset('css/admin.css')}}">
 
 </head>
 <body>
 
   <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+    <nav class="navbar navbar-expand-md navbar-light navbar-default">
       <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
           VMMS
