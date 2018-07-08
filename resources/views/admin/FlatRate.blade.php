@@ -32,7 +32,7 @@
               <input type="text" maxlength="100000" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control" placeholder="Enter Standard Hours" name="hours" required>
             </div>
             <div class="form-group">
-              <label>Rate per Hour</label>
+              <label>Exceeding Rate per Hour</label>
               <input type="text" maxlength="100000" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="form-control" placeholder="Enter Hour Rate"name="hour_rate" required>
             </div>
             <div class="form-group">

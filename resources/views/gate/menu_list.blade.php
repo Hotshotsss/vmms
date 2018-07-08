@@ -34,12 +34,4 @@
     </div>
   </div>
 
-  <div class="col-lg-6">
-    <div class="panel-body">
-      <p>
-        <center><a href="menu.php?webpage=vehicle_report"><img src = "..\img\report.png" width = "100px" height="100px"></a></center>
-        <center><span><h2>Vehicle Report</h2></span></center>
-      </p>
-    </div>
-  </div>
   @endsection

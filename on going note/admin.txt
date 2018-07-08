@@ -1,0 +1,22 @@
+Homepage :
+*total slots
+*map figure
+
+PARKING MONITORING SETTINGS:
+*University Parking Space 
+*Allocate Parking Space
+(etong dalawa sa taas di natin alam ano ipapalit pero based sa kanila pwede na tanggalin)
+
+CAR SETTINGS:
+*Discount Settings
+
+VIEW REPORTS:
+*data
+
+EMPLOYEE SCHEDULE:
+*input schedule
+*change schedule
+
+and
+
+PDF File

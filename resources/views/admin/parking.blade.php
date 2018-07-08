@@ -6,7 +6,7 @@
   <div id="data-content">
     <div class="row">
       <div class="col-lg-12">
-        <h1>Flat Rate</h1>
+        <h1>Parking Location Settings</h1>
         <hr>
       </div>
 
@@ -47,7 +47,7 @@
 
       <div class="col-lg-8 no-padding">
         <div class="panel panel-default">
-          <div class="panel-heading">Car Rates</div>
+          <div class="panel-heading">Parking Location Details</div>
           <div class="panel-body">
             @if($slots->isNotEmpty())
             <table class="table table-bordered table-hover">

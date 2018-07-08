@@ -1,0 +1,31 @@
+Admin side
+*Add parking location
+-Paki iba yung pangalan ni Flat Rate (Parking Location Settings) - done
+ tsaka Car Rate (Parking Location Details? na lng siguro) - done
+
+*Flat Rate Settings
+-yung per hour??? d ko gets kasi may standard rate and hour na.
+
+*Add user
+-Hindi maka add, may error - done
+
+
+Gate side
+-Di pa nakabukod si Gate user tsaka Exit user?
+-Alisin si Vehcile report - done
+
+*Vehicle In
+-Drop down na si Purpose
+-Hindi maka add ng data, nag eerror katulad nung sa add user - done
+
+*Monitoring
+-pwede ba ihawalay yung data sa mga nakaalis nang sasakyan? ilagay na lng sa ilalim tapos sa taas yung mga nagpapark pa diba kasi may mga bumabalik mag park ganern - ginagawa ko na
+-Pakilagyan ng Vehicle Color and Remarks, yung remarks jan sinasabe kung damage or not damaged ba yung vehicle bago o after mag park.
+
+
+*Vehicle Out
+-May receipt # yung ticket
+
+
+Additional sa Admin Side
+-Violation Settings? prang add Violation, edit violation rate, tas delete ganern lang.

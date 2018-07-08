@@ -1,0 +1,19 @@
+GATE SIDE:
+*paghiwalay hiwalayin yung view ni Entrance and Exit
+
+VEHICLE IN:
+*design
+
+VEHICLE MONITORING:
+*design?
+
+VEHICLE OUT:
+*footer ni modal
+*pdf pagka-checkout (dun ba yun? haha)
+
+*alisin si Vehicle Report
+
+
+
+MONITORING SIDE:
+*design?
