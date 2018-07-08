@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CarType extends Model
 {
   protected $fillable = [
-    'type',
+    'id','type',
   ];
 
   public function getTypeAttribute($value){

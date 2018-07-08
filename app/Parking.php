@@ -8,7 +8,7 @@ class Parking extends Model
 {
 
   protected $fillable = [
-    'car_type_id','location_id','vehicle_model','plate_number','parking_reason','time_in','time_out','violation','penalty','detailed_location','payment_status'
+    'car_type_id','location_id','vehicle_model','vehicle_color','remarks','plate_number','parking_reason','time_in','time_out','violation','penalty','detailed_location','payment_status'
   ];
 
   public function violations(){
@@ -17,6 +17,18 @@ class Parking extends Model
 
   public function location(){
     return $this->hasOne('App\ParkingSlot','id','location_id');
+  }
+
+  public function color(){
+    return $this->hasOne('App\Colors','id','color_id');
+  }
+
+  public function type(){
+    return $this->hasOne('App\CarType');
+  }
+
+  public function purpose(){
+    return $this->hasOne('App\Purpose','id','purpose_id');
   }
 
 // $parking->location->parking_name;
