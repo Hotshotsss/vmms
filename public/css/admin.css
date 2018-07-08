@@ -50,15 +50,20 @@
 .panel-default {
     border-color: #9c27b0;
 }
-body{
+html,
+body,
+#pageID {
+  height: 100%;
+  margin: 0;
+  padding: 0;
   color:#757575;
 }
+
 .parking{
-  background: url('https://image.freepik.com/free-photo/purple-parking-lot_1127-40.jpg');
-  height: 600px;
-  background-position: center;
-  background-size: cover;
+  background: url(https://scontent.fmnl5-1.fna.fbcdn.net/v/t1.15752-9/36542638_2279620625387690_8963740164299948032_n.jpg?_nc_cat=0&oh=a98496edbbd913bc7cf8c78593100118&oe=5BA0626D);
+  height: 100%;
   background-attachment: fixed;
+  background-size: contain;
 }
 .parking:after{
   content: '';
@@ -71,10 +76,8 @@ body{
 
 }
 .report{
-  background: url(http://www.photofurl.com/wp-content/uploads/2008/07/pen_and_laptop.jpg);
-  height: 600px;
-  background-position: center;
-  background-size: cover;
+  background: url(https://scontent.fmnl5-1.fna.fbcdn.net/v/t1.15752-9/36534366_2279620692054350_3857551737627869184_n.jpg?_nc_cat=0&oh=0eac76afe7dc80828d1b6643b795ea2b&oe=5BDC1F1C);
+min-height: 100%;  background-position: bottom left 205px;
   background-attachment: fixed;
 }
 .report:after{
@@ -82,7 +85,22 @@ body{
   position: absolute;
   width: 100%;
   height: 100%;
-  background:rgba(0,0,0,0.2);
+  background:rgba(0,0,0,0.3);
+  z-index: 1;
+  transition: all .2s ease-in-out;
+
+}
+.reportOut{
+  background: url(https://scontent.fmnl5-1.fna.fbcdn.net/v/t1.15752-9/36611257_2279620035387749_1988304240090546176_n.jpg?_nc_cat=0&oh=20a41567722e1b488a4da3ca04a5267e&oe=5BD7640F);
+min-height: 100%;  background-attachment: fixed;
+  background-position: bottom left -300px;
+}
+.reportOut:after{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:rgba(0,0,0,0.3);
   z-index: 1;
   transition: all .2s ease-in-out;
 
@@ -106,4 +124,7 @@ body{
 .containerBig:after{
   background:rgba(0,0,0,0.4);
   z-index: 1;
+}
+.containerFull{
+  height: 100%;
 }

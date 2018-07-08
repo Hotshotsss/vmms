@@ -34,7 +34,7 @@
 
 <body>
 
-  <div id="app">
+  <div id="app" style="height:100%;">
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -120,5 +120,13 @@
   function normalReport(){
     $('.report').removeClass('containerBig');
     $('.reportContent').removeClass('centerContentBig');
+  }
+  function bigReportOut(){
+    $('.reportOut').addClass('containerBig');
+    $('.reportContentOut').addClass('centerContentBig');
+  }
+  function normalReportOut(){
+    $('.reportOut').removeClass('containerBig');
+    $('.reportContentOut').removeClass('centerContentBig');
   }
 </script>

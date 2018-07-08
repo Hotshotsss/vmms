@@ -1,7 +1,7 @@
 @extends('layouts.menu_app')
 
 @section('content')
-<div class="col-lg-4 no-padding" style="min-height: 520px;">
+<div class="col-lg-4 no-padding containerFull" style="border-right:2px solid #d05ce3">
   <a href="vehicle-in">
     <div class="parking" onmouseover="bigParking()" onmouseout="normalParking()">
       <div class="panel-body centerContent parkingContent">
@@ -14,7 +14,7 @@
   </a>
 </div>
 
-<div class="col-lg-4 no-padding">
+<div class="col-lg-4 no-padding containerFull" style="border-right:2px solid #d05ce3">
   <a href="vehicle-monitoring-in">
     <div class="report" onmouseover="bigReport()" onmouseout="normalReport()">
       <div class="panel-body centerContent reportContent">
@@ -27,19 +27,19 @@
   </a>
 </div>
 
-<div class="col-lg-4 no-padding">
+<div class="col-lg-4 no-padding containerFull">
   <a href="vehicle-monitoring-out">
-    <div class="report" onmouseover="bigReport()" onmouseout="normalReport()">
-      <div class="panel-body centerContent reportContent">
+    <div class="reportOut" onmouseover="bigReportOut()" onmouseout="normalReportOut()">
+      <div class="panel-body centerContent reportContentOut">
           <center>
-              <i class="fas fa-desktop" style="font-size:120px"></i>
+              <i class="fas fa-laptop" style="font-size:120px"></i>
             <h1>Vehicle Monitoring Out</h1>
         </center>
       </div>
     </div>
   </a>
 </div>
-
+<!--
 <div class="col-lg-6 no-padding">
   <a href="vehicle-out">
     <div class="report" onmouseover="bigReport()" onmouseout="normalReport()">
@@ -51,7 +51,7 @@
       </div>
     </div>
   </a>
-</div>
+</div> -->
 
 <!-- <div class="col-lg-6">
   <div class="panel-body">
