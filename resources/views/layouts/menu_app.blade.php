@@ -21,11 +21,14 @@
   <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
 
   <!-- Custom Fonts -->
-  <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/solid.css" integrity="sha384-TbilV5Lbhlwdyc4RuIV/JhD8NR+BfMrvz4BL5QFa2we1hQu6wvREr3v6XSRfCTRp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
+
 
     <!-- Search Filter -->
     <link href="{{asset('css/searchtable.css')}}" rel="stylesheet" type="text/css">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="../css/admin.css" rel="stylesheet">
 
 </head>
 
@@ -71,11 +74,7 @@
 
 
     <!-- <div id="page-wrapper"> -->
-    <div class="container-fluid">
-      <div class="row">
-        @yield('content')
-      </div>
-    </div>
+@yield('content')
 </body>
 
 </html>
@@ -101,4 +100,22 @@
             responsive: true
         });
     });
+</script>
+<script type="text/javascript">
+  function bigParking(){
+    $('.parking').addClass('containerBig');
+    $('.parkingContent').addClass('centerContentBig');
+  }
+  function normalParking(){
+    $('.parking').removeClass('containerBig');
+    $('.parkingContent').removeClass('centerContentBig');
+  }
+  function bigReport(){
+    $('.report').addClass('containerBig');
+    $('.reportContent').addClass('centerContentBig');
+  }
+  function normalReport(){
+    $('.report').removeClass('containerBig');
+    $('.reportContent').removeClass('centerContentBig');
+  }
 </script>

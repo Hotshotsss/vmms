@@ -7,8 +7,8 @@
 </div>
 <div class="col-lg-8">
   {!! Form::open(['url'=>'gate/add-in','method'=>'post']) !!}
-  <div class="row">
-    <div class="col-lg-12">
+  <div class="row" style="margin-top: 0px;">
+    <div class="col-lg-offset-6 col-lg-6">
       <div class="panel-body">
         <label>Plate Number</label>
         <input type = "text" class = "form-control" name = "txt-plate" placeholder="Enter Plate Number" required>
