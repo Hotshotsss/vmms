@@ -23,7 +23,7 @@ class Parking extends Model
     return $this->hasOne('App\Colors','id','color_id');
   }
 
-  public function type(){
+  public function carType(){
     return $this->hasOne('App\CarType');
   }
 

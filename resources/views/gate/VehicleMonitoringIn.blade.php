@@ -45,7 +45,6 @@
 			                    			<tr>
 						                          <th>{{$value->plate_number}}</th>
 						                          <th>{{$value->vehicle_model}}</th>
-
                                       <th>{{$value->vehicle_model}}</th>
 						                          <th>{{$value->vehicle_model}}</th>
                                       <th>{{$value->plate_number}}</th>

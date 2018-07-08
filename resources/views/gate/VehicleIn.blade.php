@@ -25,9 +25,12 @@
         <label>Vehicle Color</label>
         <select class = "form-control" name = "txt-vehiclecolor">
 
-          @foreach ($color as $value)
-          <option value="{{$value->id}}">{{$value->color}}</option>
-          @endforeach
+          <option value="Red">Red</option>
+          <option value="Blue">Blue</option>
+          <option value="Yellow">Yellow</option>
+          <option value="Black">Black</option>
+          <option value="Orange">Orange</option>
+          <option value="White">White</option>
 
         </select>
         <label>Purpose</label>
@@ -39,7 +42,7 @@
 
         </select>
         <label>Remarks</label>
-        <textarea class = "form-control" name = "txt-remarks" placeholder="Enter Purpose" required></textarea>
+        <textarea class = "form-control" name = "txt-remarks" placeholder="Enter Remarks" required></textarea>
         <br>
         <center><button type = "submit" name = "btn-in" class = "btn btn-primary">Save</button></center>
       </div>
