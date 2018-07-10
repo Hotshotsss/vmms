@@ -26,6 +26,8 @@
     <!-- Search Filter -->
     <link href="{{asset('css/searchtable.css')}}" rel="stylesheet" type="text/css">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="{{ url ('css/admin.css')}}" rel="stylesheet">
+
 
 </head>
 

@@ -19,7 +19,7 @@ Route::prefix('admin')->group(function () {
     })->name('admin-login');
   });
 
-  Route::middleware(['admin'])->group(function () {
+  Route::middleware(['admin','revalidate'])->group(function () {
     // Route::get('home',function(){
     //   return 'admin home';
     // });
