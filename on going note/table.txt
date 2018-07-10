@@ -1,0 +1,21 @@
+time in
+plate number
+vehicle model
+type
+color
+remarks
+purpose
+violation
+location
+
+time in
+time out
+plate number
+vehicle model
+type
+color
+remarks
+purpose
+violation
+location
+amount paid

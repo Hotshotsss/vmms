@@ -33,8 +33,7 @@
                                 <th>Vehicle Remarks</th>
                                 <th>Purpose</th>
 			                          <th>Time In</th>
-			                          <th>Time Out</th>
-                                <th>Amount Paid</th>
+                                <th>Purpose</th>
                                 <th>Violation</th>
                                 <th>Parking Location</th>
 			                        </tr>
@@ -45,22 +44,22 @@
 			                    			<tr>
 						                          <th>{{$value->plate_number}}</th>
 						                          <th>{{$value->vehicle_model}}</th>
-                                      <th>{{$value->vehicle_model}}</th>
-						                          <th>{{$value->vehicle_model}}</th>
-                                      <th>{{$value->plate_number}}</th>
+                                      <th>{{$value->carType->type}}</th>
+						                          <th>{{$value->vehicle_color}}</th>
+                                      <th>{{$value->remarks}}</th>
                                       <th>{{$value->vehicle_model}}</th>
 						                          <th>{{$value->time_in}}</th>
-                                      <th>{{$value->time_out}}</th>
-                                      <th>{{$value->time_in}}</th>
-                                      <th>{{$value->time_in}}</th>
-                                      <th>{{$value->time_in}}</th>
+                                      <th>{{$value->inPurpose->purpose}}</th>
+                                      <th>@foreach($value->violations as $violation)
+                                        <li>{{$violation->violation_name->violation}}</li>
+                                        @endforeach
+                                      </th>
+                                      <th>{{$value->location->parking_name}}</th>
 						                        </tr>
                                 @endforeach
 			                    </tbody>
 			                </table>
 			            </div>
-
-
 			        </div>
 			    </div>
 		</div>

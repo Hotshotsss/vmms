@@ -24,11 +24,11 @@ class Parking extends Model
   }
 
   public function carType(){
-    return $this->hasOne('App\CarType');
+    return $this->hasOne('App\CarType','id','car_type_id');
   }
 
-  public function purpose(){
-    return $this->hasOne('App\Purpose','id','purpose_id');
+  public function inPurpose(){
+    return $this->hasOne('App\Purpose','id','parking_reason');
   }
 
 // $parking->location->parking_name;

@@ -1,0 +1,27 @@
+*ayusin yung routes
+*gawing responsive yung tables ng lahat
+
+ADMIN SIDE:
+*map figure
+*Discount - pagpatient yung purpose (dagdag ng patient sa purpose)
+*ayusin yung view table sa View Reports and yung functions?
+*sa view reports - laman nya yung lahat ng may check-out
+*employee schedule
+
+
+*paghiwalayin si gate (entrance and exit)
+
+ENTRANCE SIDE:
+VEHICLE IN
+*check kung nakapasok na ba si kotse and kung nakapasok na sya, may natitirang oras pa ba sya
+
+VEHICLE MONITORING OUT
+*idagdag yung ibang attribute sa table
+
+EXIT SIDE
+
+
+MONITORING SIDE:
+*design
+*isort si may location na and yung wala pa
+*ilagay si pdf kay checkout

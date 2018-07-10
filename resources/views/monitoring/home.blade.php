@@ -105,7 +105,7 @@
                          <input id="locationID" type="hidden" name="locationID">
                        </p>
 
-                       <button type="submit" class="btn btn-success" name="id">Yes</button>
+                       <button type="submit" class="btn btn-primary" name="id">Yes</button>
                        <button type="button" class="btn btn-danger close-violation" name="button">No</button>
 
                      </center>
@@ -136,7 +136,7 @@
                          <input id="violationID" type="hidden" name="violationID">
                        </p>
 
-                       <button type="submit" class="btn btn-success" name="id">Yes</button>
+                       <button type="submit" class="btn btn-primary" name="id">Yes</button>
                        <button type="button" class="btn btn-danger close-violation" name="button">No</button>
 
                      </center>
@@ -172,7 +172,7 @@
                          </select>
                          <br>
 
-                         <button type="submit" class="btn btn-success" name="id">Edit</button>
+                         <button type="submit" class="btn btn-primary" name="id">Edit</button>
                          <button type="button" class="btn btn-danger close-violation" name="button">Cancel</button>
 
                        </div>

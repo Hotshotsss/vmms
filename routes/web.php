@@ -63,13 +63,13 @@ Route::prefix('admin')->group(function () {
   });
 });
 //Add all the routes for the montiring here
-Route::prefix('monitoring')->group(function () {
+Route::prefix('monitor')->group(function () {
   Route::middleware(['guest','revalidate'])->group(function(){
     Route::get('/',function(){
       return view('auth.login');
     });
   });
-  Route::middleware(['role','revalidate'])->group(function () {
+  Route::middleware(['monitor','revalidate'])->group(function () {
 
     Route::get('home', 'MonitoringController@Home');
 

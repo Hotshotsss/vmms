@@ -128,3 +128,14 @@ min-height: 100%;  background-attachment: fixed;
 .containerFull{
   height: 100%;
 }
+#edit-location, #edit-location:hover, #edit-location:focus{
+  color: #9c27b0;
+}
+.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
+    background-color: #c351d7;
+    color: white !important;
+}
+.table-hover>tbody>tr:hover>td>b>a, .table-hover>tbody>tr:hover>th>b>a {
+    color: white !important;
+    text-decoration: underline;
+}
