@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('type');
             $table->string('username');
             $table->string('password');
+            $table->string('temporary_password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

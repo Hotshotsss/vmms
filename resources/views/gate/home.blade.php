@@ -1,5 +1,4 @@
 @extends('layouts.menu_app')
-
 @section('content')
 <div class="col-lg-4 no-padding containerFull" style="border-right:2px solid #d05ce3">
   <a href="vehicle-in">

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -16,7 +16,7 @@ class User extends Authenticatable
   * @var array
   */
   protected $fillable = [
-    'name','type', 'email','username', 'password',
+    'name','type', 'email','username', 'password','temporary_password',
   ];
 
   /**
@@ -31,5 +31,17 @@ class User extends Authenticatable
   public function getNameAttribute($value)
   {
     return ucwords($value);
+  }
+
+  public function sched(){
+    $now = Carbon::today();
+    $time = Carbon::now()->format('H:i');
+
+    return $this->hasOne('App\EmployeeSchedule','user_id','id')
+    ->where(function ($query) use($now){
+      $query->where('date_from','<=',$now)->where('date_to','>=',$now);
+    })->where(function ($query) use($time){
+      $query->where('time_in','<=',$time)->where('time_out','>=',$time);
+    });
   }
 }

@@ -146,11 +146,22 @@ class AdminController extends Controller
     }
 
     public function addSchedule(Request $request){
+      $at = $request->sched_btn;
+
+      if($at == "2"){
+        if($request->has('gate_loc')){
+          $at = $request->gate_loc;
+        }
+        else{
+          return redirect()->back()->with(['error','Somethings wrong with your input!']);
+        }
+      }
 
       $sched = new EmployeeSchedule;
       $sched->user_id = $request->user;
-      $sched->from = Carbon::parse($request->from_date)->format('Y-m-d');
-      $sched->to = Carbon::parse($request->to_date)->format('Y-m-d');
+      $sched->assigned_at = $at;
+      $sched->date_from = Carbon::parse($request->from_date)->format('Y-m-d');
+      $sched->date_to = Carbon::parse($request->to_date)->format('Y-m-d');
       $sched->time_in = $request->time_in;
       $sched->time_out = $request->time_out;
       $sched->save();

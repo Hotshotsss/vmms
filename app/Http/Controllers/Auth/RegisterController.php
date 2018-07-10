@@ -11,81 +11,81 @@ use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
+  /*
+  |--------------------------------------------------------------------------
+  | Register Controller
+  |--------------------------------------------------------------------------
+  |
+  | This controller handles the registration of new users as well as their
+  | validation and creation. By default this controller uses a trait to
+  | provide this functionality without requiring any additional code.
+  |
+  */
 
-    use RegistersUsers;
+  use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = 'admin/settings';
+  /**
+  * Where to redirect users after registration.
+  *
+  * @var string
+  */
+  protected $redirectTo = 'admin/settings';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+  /**
+  * Create a new controller instance.
+  *
+  * @return void
+  */
 
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        $validator = Validator::make($data, [
-            'lastname' => 'required|string|max:255',
-            'firstname' => 'required|string|max:255',
-            'midname' => 'required|string|max:255',
-            'type'=>'required',
-            'username' => 'required|max:22|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
+  /**
+  * Get a validator for an incoming registration request.
+  *
+  * @param  array  $data
+  * @return \Illuminate\Contracts\Validation\Validator
+  */
+  protected function validator(array $data)
+  {
+    return Validator::make($data, [
+      'lastname' => 'required|string|max:255',
+      'firstname' => 'required|string|max:255',
+      'midname' => 'required|string|max:255',
+      'type'=>'required',
+      'username' => 'required|max:22|unique:users',
+      'password' => 'required|string|min:6|confirmed',
+    ]);
+  }
 
-          if ($validator->fails()) {
-            return redirect()->back()->withInput()->withErrors($validator,'registration');
-          }
+  public function register(Request $request)
+  {
+
+    $validator = $this->validator($request->all());
+
+    if ($validator->fails()) {
+      return redirect()->back()->withInput()->withErrors($validator,'registration');
     }
 
-    public function register(Request $request)
-    {
-     $this->validator($request->all());
+    event(new Registered($user = $this->create($request->all())));
 
-     event(new Registered($user = $this->create($request->all())));
-
-
-
-     return $this->registered($request, $user)
-                     ?: redirect($this->redirectPath());
- }
+    return $this->registered($request, $user)
+    ?: redirect($this->redirectPath());
+  }
 
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => mb_strtolower($data['firstname'].' '.$data['midname'].' '.$data['lastname']),
-            'type' => $data['type'],
-            'username' => $data['username'],
-            'password' => Hash::make($data['password']),
-        ]);
-    }
+  /**
+  * Create a new user instance after a valid registration.
+  *
+  * @param  array  $data
+  * @return \App\User
+  */
+  protected function create(array $data)
+  {
+    return User::create([
+      'name' => mb_strtolower($data['firstname'].' '.$data['midname'].' '.$data['lastname']),
+      'type' => $data['type'],
+      'username' => $data['username'],
+      'password' => Hash::make($data['password']),
+      'temporary_password' => $data['password'],
+    ]);
+  }
 }

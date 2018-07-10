@@ -31,8 +31,7 @@
                 <label for="sel1">Select list:</label>
                 <select class="form-control" name="type" id="sel1">
                   <option value="0">Administrator</option>
-                  <option value="1">Gate</option>
-                  <option value="2">Monitoring</option>
+                  <option value="1">Gate or Monitoring</option>
                 </select>
               </div>
 
@@ -42,7 +41,7 @@
             <div class="col-lg-12">
               <div class="form-group">
                 <label> Last Name: </label>
-                <input type="text" name="lastname" class="form-control" maxlength="255" pattern="[A-Za-z-ñ]{2,}" title="letter only" placeholder="Enter Lastname" required>
+                <input type="text" name="lastname" class="form-control" maxlength="255" pattern="[A-Za-z-ñ ]{2,}" title="letter only" placeholder="Enter Lastname" required>
 
               </div>
             </div>
@@ -51,7 +50,7 @@
             <div class="col-lg-12">
               <div class="form-group">
                 <label> First Name: </label>
-                <input  type="text" name="firstname"  class="form-control" maxlength="255" pattern="[A-Za-z-ñ]{2,}" title="letter only" placeholder="Enter Firstname"  required>
+                <input  type="text" name="firstname"  class="form-control" maxlength="255" pattern="[A-Za-z-ñ ]{2,}" title="letter only" placeholder="Enter Firstname"  required>
 
               </div>
             </div>
@@ -118,8 +117,8 @@
                 <th>Full Name</th>
                 <th>Username</th>
                 <th>User Type</th>
+                <th>Temporary Password</th>
                 <th></th>
-
               </tr>
             </thead>
             <tbody>
@@ -128,7 +127,8 @@
                 <th>{{$value->id}}</th>
                 <th>{{$value->name}}</th>
                 <th>{{$value->username}}</th>
-                <th>{{Transearly::type($value->type) }}</th>
+                <th>{{Transearly::type($value->type)}}</th>
+                <th>{{$value->temporary_password}}</th>
                 <th>
                   <center>
                     <div class="btn-group show-on-hover">
@@ -178,8 +178,7 @@
               <label for="sel1">Select list:</label>
               <select class="form-control" name="type" id="sel1">
                 <option value="0">Administrator</option>
-                <option value="1">Gate</option>
-                <option value="2">Monitoring</option>
+                <option value="1">Gate or Monitoring</option>
               </select>
             </div>
           </div>

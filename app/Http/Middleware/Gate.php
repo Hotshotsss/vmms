@@ -20,6 +20,8 @@ class Gate
         return $next($request);
       }
     }
+    
     return redirect('gate')->with('error','You have not gate access');
   }
+
 }

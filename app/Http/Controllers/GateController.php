@@ -14,7 +14,8 @@ use App\Parking;
 use Carbon\Carbon;
 use PDF;
 use App;
-
+use Auth;
+use App\EmployeeSchedule;
 class GateController extends Controller
 {
     public function indexGate(){
@@ -86,7 +87,18 @@ class GateController extends Controller
     }
 
     public function menu(){
-      return view('gate.menu_list');
+      $now = Carbon::today();
+      $time = Carbon::now()->format('H:i');
+
+      // $sched = EmployeeSchedule::where('user_id',auth()->user()->id)
+      // ->where(function ($query) use($now){
+      //   $query->where('date_from','<=',$now)->where('date_to','>=',$now);
+      // })->where(function ($query) use($time){
+      //   $query->where('time_in','<=',$time)->where('time_out','>=',$time);
+      // })->first();
+      //
+      // dd($sched);
+      return view('gate.home');
     }
 
     public function vehicleIn(){

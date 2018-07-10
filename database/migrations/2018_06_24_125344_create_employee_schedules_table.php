@@ -15,9 +15,10 @@ class CreateEmployeeSchedulesTable extends Migration
     {
         Schema::create('employee_schedules', function (Blueprint $table) {
             $table->increments('id');
+            $table->tinyInteger('assigned_at');
             $table->integer('user_id');
-            $table->date('from');
-            $table->date('to');
+            $table->date('date_from');
+            $table->date('date_to');
             $table->time('time_in');
             $table->time('time_out');
             $table->integer('repeater')->nullable();

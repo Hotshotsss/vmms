@@ -18,4 +18,21 @@ class TransHelper
       break;
     }
   }
+
+  public static function redirect($type){
+    switch ((int)$type) {
+      case 0:
+      return 'admin/home';
+      break;
+      case 1:
+      return 'monitoring/home';
+      break;
+      case 2:
+      return 'gate/home';
+      break;
+      default:
+      return 'gate/home';
+      break;
+    }
+  }
 }

@@ -63,5 +63,6 @@ class Kernel extends HttpKernel
     'admin' => \App\Http\Middleware\Admin::class,
     'gate'=> \App\Http\Middleware\Gate::class,
     'monitor' => \App\Http\Middleware\Monitor::class,
+    'role' => \App\Http\Middleware\Role::class,
   ];
 }

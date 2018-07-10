@@ -69,7 +69,7 @@ Route::prefix('monitoring')->group(function () {
       return view('auth.login');
     });
   });
-  Route::middleware(['monitor'])->group(function () {
+  Route::middleware(['role','revalidate'])->group(function () {
 
     Route::get('home', 'MonitoringController@Home');
 
