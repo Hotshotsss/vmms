@@ -15,6 +15,7 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'isActivated' => 'failed'
+    'isActivated' => 'failed',
+    'notAuthorized'=>'You are not authorized to login as of the moment. Please check your schedule with your administration.'
 
 ];

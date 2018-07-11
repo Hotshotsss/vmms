@@ -72,8 +72,6 @@ Route::prefix('monitor')->group(function () {
   Route::middleware(['monitor','revalidate'])->group(function () {
 
     Route::get('home', 'MonitoringController@Home');
-
-    Route::get('home', 'MonitoringController@Home');
     Route::post('add-location', 'MonitoringController@addLocation');
     Route::post('edit-location', 'MonitoringController@editLocation');
     Route::post('add-violation', 'MonitoringController@addViolation');
@@ -89,7 +87,7 @@ Route::prefix('gate')->group(function () {
       return view('auth.login');
     });
   });
-  Route::middleware(['gate'])->group(function () {
+  Route::middleware(['gate','revalidate'])->group(function () {
 
     Route::get('home', 'GateController@menu');
     // vehicle in
@@ -120,8 +118,9 @@ Route::get('test','GateController@indexGate')->middleware('auth');
 //login
 Route::get('/',function(){
   return view('auth.login');
-});
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+})->middleware('guest');
+
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login')->middleware('guest');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 

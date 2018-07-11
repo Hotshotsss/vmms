@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Validation\ValidationException;
 use Auth;
+use Carbon\Carbon;
+use App\EmployeeSchedule;
 use App\Http\Helpers\TransHelper as Transearly;
 class LoginController extends Controller
 {
@@ -122,9 +124,40 @@ class LoginController extends Controller
       $request->session()->regenerate();
 
       $this->clearLoginAttempts($request);
+      $var = $this->checkSched();
 
-      return $this->authenticated($request, $this->guard()->user())
-              ?: redirect()->intended(Transearly::type(auth()->user()->id).$this->redirectPath());
+      if($var){
+        return $this->authenticated($request, $this->guard()->user())
+                ?: redirect()->intended($var);
+      }
+
+      return $this->autoLogout();
+
+  }
+
+  public function checkSched(){
+    $assigned = null;
+    if(auth()->user()->type !== 0){
+      $now = Carbon::today();
+      $time = Carbon::now()->format('H:i');
+
+      $sched = EmployeeSchedule::where('user_id',auth()->user()->id)
+      ->where(function ($query) use($now){
+        $query->where('date_from','<=',$now)->where('date_to','>=',$now);
+      })->where(function ($query) use($time){
+        $query->where('time_in','<=',$time)->where('time_out','>=',$time);
+      })->first();
+
+      if($sched){
+        $assigned = Transearly::redirect($sched->assigned_at);
+        session()->put('user_type',$sched->assigned_at);
+      }else{
+        $assigned = null;
+      }
+    }else{
+       $assigned = "/admin/home";
+    }
+    return $assigned;
   }
 
   /**
@@ -180,6 +213,15 @@ class LoginController extends Controller
       return redirect('/');
   }
 
+
+  public function autoLogout()
+  {
+      auth()->logout();
+
+      session()->invalidate();
+
+      return redirect('/')->withErrors(['notAllowed'=>trans('auth.notAuthorized')]);
+  }
   /**
    * Get the guard to be used during authentication.
    *

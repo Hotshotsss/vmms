@@ -1,17 +1,24 @@
 @extends('layouts.menu_app')
 @section('content')
 <div class="col-lg-4 no-padding containerFull" style="border-right:2px solid #d05ce3">
-  <a href="vehicle-in">
+  <a href="@if(session('user_type') && session('user_type') == 2)vehicle-in @else vehicle-out @endif">
     <div class="parking" onmouseover="bigParking()" onmouseout="normalParking()">
       <div class="panel-body centerContent parkingContent">
           <center>
             <i class="fas fa-sign-out-alt" aria-hidden="true" style="font-size:120px"></i>
-            <h1>Vehicle In</h1>
+            <h1>
+              @if(session('user_type') && session('user_type') == 2)
+              Vehicle In
+              @else
+              Vehicle Out
+              @endif
+            </h1>
         </center>
       </div>
     </div>
   </a>
 </div>
+
 
 <div class="col-lg-4 no-padding containerFull" style="border-right:2px solid #d05ce3">
   <a href="vehicle-monitoring-in">

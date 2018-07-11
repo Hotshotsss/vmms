@@ -62,7 +62,6 @@ class Kernel extends HttpKernel
     'revalidate' => \App\Http\Middleware\RevalidateBackHistory::class,
     'admin' => \App\Http\Middleware\Admin::class,
     'gate'=> \App\Http\Middleware\Gate::class,
-    'monitor' => \App\Http\Middleware\Monitor::class,
-    'role' => \App\Http\Middleware\Role::class,
+    'monitor'=> \App\Http\Middleware\Monitor::class
   ];
 }

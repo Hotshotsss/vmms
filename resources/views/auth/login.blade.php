@@ -13,10 +13,19 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        
+                        <div class="form-group row">
+  <div class="col-md-12" style="padding-left:10px">
+
+                        @if($errors->has('notAllowed'))
+                        <center>
+                          {{$errors->first('notAllowed')}}
+                        </center>
+                        @endif
+                        </div>
+                      </div>
+
                         <div class="form-group row">
                             <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('Username') }}</label>
-
                             <div class="col-md-6">
                                 <input id="email" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
 

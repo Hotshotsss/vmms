@@ -22,16 +22,16 @@ class TransHelper
   public static function redirect($type){
     switch ((int)$type) {
       case 0:
-      return 'admin/home';
+      return '/admin/home';
       break;
       case 1:
-      return 'monitoring/home';
+      return '/monitor/home';
       break;
       case 2:
-      return 'gate/home';
+      return '/gate/home';
       break;
       default:
-      return 'gate/home';
+      return '/gate/home';
       break;
     }
   }

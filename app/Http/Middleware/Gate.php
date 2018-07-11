@@ -17,11 +17,11 @@ class Gate
   {
     if(auth()->check()){
       if(auth()->user()->type == 1){
-        return $next($request);
+        if(session('user_type') != 1){  
+          return $next($request);
+        }
       }
     }
-    
-    return redirect('gate')->with('error','You have not gate access');
+    return redirect('/')->with('error','You have not gate access');
   }
-
 }
