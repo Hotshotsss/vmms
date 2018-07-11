@@ -22,28 +22,30 @@
                 </div>
               </div>
               <div class="panel-body">
-                <table class="table table-bordered table-hover">
-                  <thead>
-                    <tr>
-                      <th>Firstname</th>
-                      <th>Lastname</th>
-                      <th>Email</th>
-                      <th>Update</th>
-                      <th>Delete</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                      @foreach($reports as $user)
+                <div style="overflow:auto">
+                  <table class="table table-bordered table-hover">
+                    <thead>
                       <tr>
-                      <td>{{$user -> id}}</td>
-                      <td>{{$user -> name}}</td>
-                      <td>{{$user -> email}}</td>
-                      <td><button type="button" class="btn btn-primary">Update</button></td>
-                      <td><button type="button" class="btn btn-danger">Delete</button></td>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Email</th>
+                        <th>Update</th>
+                        <th>Delete</th>
                       </tr>
-                      @endforeach
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                        @foreach($reports as $user)
+                        <tr>
+                        <td>{{$user -> id}}</td>
+                        <td>{{$user -> name}}</td>
+                        <td>{{$user -> email}}</td>
+                        <td><button type="button" class="btn btn-primary">Update</button></td>
+                        <td><button type="button" class="btn btn-danger">Delete</button></td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>

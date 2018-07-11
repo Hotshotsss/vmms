@@ -50,45 +50,47 @@
           <div class="panel-heading">Parking Location Details</div>
           <div class="panel-body">
             @if($slots->isNotEmpty())
-            <table class="table table-bordered table-hover">
-              <thead>
-                <tr>
-                  <th>Parking Name</th>
-                  <th>Description</th>
-                  <th>Number of Slots</th>
+            <div style="overflow:auto">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Parking Name</th>
+                    <th>Description</th>
+                    <th>Number of Slots</th>
 
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($slots as $value)
-                <tr>
-                  <th>{{$value->parking_name}}</th>
-                  <th>{{$value->description}}</th>
-                  <th>{{$value->number_of_slots}}</th>
-                  <th>
-                    <center>
-                      <div class="btn-group show-on-hover">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                          Action <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#" id="edit-parking" data-id="{{$value}}">Edit</a></li>
-                          <li class="divider"></li>
-                          <li>
-                          {{Form::open(['url'=>'admin/delete-parking','method'=>'post','onsubmit'=>'return confirm("Are you sure you want to delete this slot?")'])}}
-                            <button style="display: flex;-webkit-appearance: caret;padding: 3px 20px;background:none;font-weight:normal" type="submit" name="id" value="{{$value->id}}">Delete</button>
-                          {{Form::close()}}
-                        </li>
-                        </ul>
-                      </div>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($slots as $value)
+                  <tr>
+                    <th>{{$value->parking_name}}</th>
+                    <th>{{$value->description}}</th>
+                    <th>{{$value->number_of_slots}}</th>
+                    <th>
+                      <center>
+                        <div class="btn-group show-on-hover">
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            Action <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" id="edit-parking" data-id="{{$value}}">Edit</a></li>
+                            <li class="divider"></li>
+                            <li>
+                            {{Form::open(['url'=>'admin/delete-parking','method'=>'post','onsubmit'=>'return confirm("Are you sure you want to delete this slot?")'])}}
+                              <button style="display: flex;-webkit-appearance: caret;padding: 3px 20px;background:none;font-weight:normal" type="submit" name="id" value="{{$value->id}}">Delete</button>
+                            {{Form::close()}}
+                          </li>
+                          </ul>
+                        </div>
 
-                    </center>
-                  </th>
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
+                      </center>
+                    </th>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
             @else
             No Locations Found
             @endif

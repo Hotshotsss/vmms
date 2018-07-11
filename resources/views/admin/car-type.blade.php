@@ -30,27 +30,29 @@
         <div class="panel panel-default">
           <div class="panel-heading">Available Cars</div>
           <div class="panel-body">
-            <table class="table table-bordered table-hover">
-              <thead>
-                <tr>
-                  <th>Car Types</th>
+            <div style="overflow:auto">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Car Types</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($cars as $value)
+                  <tr>
+                    <th>{{$value->type}}
+                      <div class="btn-group show-on-hover pull-right">
+                        {!!Form::open(['url'=>'admin/delete-car','method'=>'post','onsubmit'=>'return confirm("Are you sure you want to delete the item?")'])!!}
+                        <input type="hidden" name="type_number" value="{{$value->id}}">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        {!!Form::close() !!}
+                      </div>
+                    </th>
                 </tr>
-              </thead>
-              <tbody>
-                @foreach ($cars as $value)
-                <tr>
-                  <th>{{$value->type}}
-                    <div class="btn-group show-on-hover pull-right">
-                      {!!Form::open(['url'=>'admin/delete-car','method'=>'post','onsubmit'=>'return confirm("Are you sure you want to delete the item?")'])!!}
-                      <input type="hidden" name="type_number" value="{{$value->id}}">
-                      <button type="submit" class="btn btn-danger">Delete</button>
-                      {!!Form::close() !!}
-                    </div>
-                  </th>
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
+                @endforeach
+              </tbody>
+            </table>
+            </div>
         </div>
       </div>
     </div>

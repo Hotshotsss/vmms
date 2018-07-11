@@ -110,48 +110,50 @@
         </div>
         <!-- /.panel-heading -->
         <div class="panel-body">
-          <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Full Name</th>
-                <th>Username</th>
-                <th>User Type</th>
-                <th>Temporary Password</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach ($accounts as $value)
-              <tr>
-                <th>{{$value->id}}</th>
-                <th>{{$value->name}}</th>
-                <th>{{$value->username}}</th>
-                <th>{{Transearly::type($value->type)}}</th>
-                <th>{{$value->temporary_password}}</th>
-                <th>
-                  <center>
-                    <div class="btn-group show-on-hover">
-                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        Action <span class="caret"></span>
-                      </button>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#" id="edit-user" data-id="{{$value}}">Edit</a></li>
-                        <li><a href="#" id="edit-password" data-id="{{$value}}">Change Password</a></li>
-                        <li class="divider"></li>
-                        <li>
-                          {{Form::open(['url'=>'admin/delete-user','method'=>'post','onsubmit'=>'return confirm("Are you sure you want to delete this user?")'])}}
-                          <button style="display: flex;-webkit-appearance: caret;padding: 3px 20px;background:none;font-weight:normal" type="submit" name="delete" value="{{$value->id}}">Delete User</button>
-                          {{Form::close()}}
-                        </li>
-                      </ul>
-                    </div>
-                  </center>
-                </th>
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
+          <div style="overflow:auto;">
+            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Full Name</th>
+                  <th>Username</th>
+                  <th>User Type</th>
+                  <th>Temporary Password</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($accounts as $value)
+                <tr>
+                  <th>{{$value->id}}</th>
+                  <th>{{$value->name}}</th>
+                  <th>{{$value->username}}</th>
+                  <th>{{Transearly::type($value->type)}}</th>
+                  <th>{{$value->temporary_password}}</th>
+                  <th>
+                    <center>
+                      <div class="btn-group show-on-hover">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                          Action <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#" id="edit-user" data-id="{{$value}}">Edit</a></li>
+                          <li><a href="#" id="edit-password" data-id="{{$value}}">Change Password</a></li>
+                          <li class="divider"></li>
+                          <li>
+                            {{Form::open(['url'=>'admin/delete-user','method'=>'post','onsubmit'=>'return confirm("Are you sure you want to delete this user?")'])}}
+                            <button style="display: flex;-webkit-appearance: caret;padding: 3px 20px;background:none;font-weight:normal" type="submit" name="delete" value="{{$value->id}}">Delete User</button>
+                            {{Form::close()}}
+                          </li>
+                        </ul>
+                      </div>
+                    </center>
+                  </th>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
         </div>
         <!-- /.panel-body -->
       </div>
