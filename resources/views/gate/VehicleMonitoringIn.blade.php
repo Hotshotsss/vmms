@@ -20,45 +20,47 @@
 
 			            </div>
 			            <div class="panel-body">
-  			                <table width="100%" class="table table-striped table-bordered table-hover" id="dev-table">
-                          <div class="panel-body1">
-                						<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
-                					</div><br>
-			                    <thead>
-			                        <tr>
-			                        	<th>Plate Number</th>
-			                          <th>Vehicle Model</th>
-                                <th>Vehicle Type</th>
-                                <th>Vehicle Color</th>
-                                <th>Vehicle Remarks</th>
-                                <th>Purpose</th>
-			                          <th>Time In</th>
-                                <th>Purpose</th>
-                                <th>Violation</th>
-                                <th>Parking Location</th>
-			                        </tr>
-			                    </thead>
+  			            <div style="overflow:auto;">
+                      <table width="100%" class="table table-striped table-bordered table-hover" id="dev-table">
+                        <div class="panel-body1">
+                          <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+                        </div><br>
+                        <thead>
+                            <tr>
+                              <th>Plate Number</th>
+                              <th>Vehicle Model</th>
+                              <th>Vehicle Type</th>
+                              <th>Vehicle Color</th>
+                              <th>Vehicle Remarks</th>
+                              <th>Purpose</th>
+                              <th>Time In</th>
+                              <th>Purpose</th>
+                              <th>Violation</th>
+                              <th>Parking Location</th>
+                            </tr>
+                        </thead>
 
-			                    <tbody>
-			                         @foreach ($carin as $value)
-			                    			<tr>
-						                          <th>{{$value->plate_number}}</th>
-						                          <th>{{$value->vehicle_model}}</th>
-                                      <th>{{$value->carType->type}}</th>
-						                          <th>{{$value->vehicle_color}}</th>
-                                      <th>{{$value->remarks}}</th>
-                                      <th>{{$value->vehicle_model}}</th>
-						                          <th>{{$value->time_in}}</th>
-                                      <th>{{$value->inPurpose->purpose}}</th>
-                                      <th>@foreach($value->violations as $violation)
-                                        <li>{{$violation->violation_name->violation}}</li>
-                                        @endforeach
-                                      </th>
-                                      <th>{{$value->location->parking_name}}</th>
-						                        </tr>
-                                @endforeach
-			                    </tbody>
-			                </table>
+                        <tbody>
+                             @foreach ($carin as $value)
+                              <tr>
+                                    <th>{{$value->plate_number}}</th>
+                                    <th>{{$value->vehicle_model}}</th>
+                                    <th>{{$value->carType->type}}</th>
+                                    <th>{{$value->vehicle_color}}</th>
+                                    <th>{{$value->remarks}}</th>
+                                    <th>{{$value->vehicle_model}}</th>
+                                    <th>{{$value->time_in}}</th>
+                                    <th>{{$value->inPurpose->purpose}}</th>
+                                    <th>@foreach($value->violations as $violation)
+                                      <li>{{$violation->violation_name->violation}}</li>
+                                      @endforeach
+                                    </th>
+                                    <th>{{$value->location->parking_name}}</th>
+                                  </tr>
+                              @endforeach
+                        </tbody>
+                    </table>
+                    </div>
 			            </div>
 			        </div>
 			    </div>

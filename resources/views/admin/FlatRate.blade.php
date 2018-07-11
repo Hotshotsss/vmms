@@ -51,32 +51,34 @@
           <div class="panel-heading">Car Rates</div>
           <div class="panel-body">
             @if($rate->isNotEmpty())
-            <table class="table table-bordered table-hover">
-              <thead>
-                <tr>
-                  <th>Car Type</th>
-                  <th>Standard Rate</th>
-                  <th>Standard Hour</th>
-                  <th>Hour Rate</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($rate as $value)
-                <tr>
-                  <th>{{$value->car->type}}</th>
-                  <th>{{$value->standard_rate}}</th>
-                  <th>{{$value->standard_hours}}</th>
-                  <th>{{$value->hour_rate}}</th>
-                  <th>
-                    <center>
-                      <button type="button" class="btn btn-info" id="edit-rate" data-id = "{{$value}}" name="button">Edit</button>
-                    </center>
-                  </th>
-                </tr>
-                @endforeach
-              </tbody>
-            </table>
+            <div style="overflow:auto;">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Car Type</th>
+                    <th>Standard Rate</th>
+                    <th>Standard Hour</th>
+                    <th>Hour Rate</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($rate as $value)
+                  <tr>
+                    <th>{{$value->car->type}}</th>
+                    <th>{{$value->standard_rate}}</th>
+                    <th>{{$value->standard_hours}}</th>
+                    <th>{{$value->hour_rate}}</th>
+                    <th>
+                      <center>
+                        <button type="button" class="btn btn-info" id="edit-rate" data-id = "{{$value}}" name="button">Edit</button>
+                      </center>
+                    </th>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
+            </div>
             @else
             No Rate Found
             @endif

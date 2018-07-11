@@ -20,68 +20,70 @@
 
 			            </div>
 			            <div class="panel-body">
-  			                <table width="100%" class="table table-striped table-bordered table-hover" id="dev-table">
-                          <div class="panel-body1">
-                						<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
-                					</div><br>
-			                    <thead>
-			                        <tr>
-			                        	  <th>Plate Number</th>
-			                            <th>Vehicle Model</th>
-			                            <th>Time In</th>
+  			           <div style="overflow:auto;">
+                     <table width="100%" class="table table-striped table-bordered table-hover" id="dev-table">
+                       <div class="panel-body1">
+                         <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+                       </div><br>
+                       <thead>
+                           <tr>
+                               <th>Plate Number</th>
+                               <th>Vehicle Model</th>
+                               <th>Time In</th>
 
-                                  <th>Existing Violation</th>
-			                            <th>Location</th>
-                                  <th>Add Violation</th>
-			                        </tr>
-			                    </thead>
+                               <th>Existing Violation</th>
+                               <th>Location</th>
+                               <th>Add Violation</th>
+                           </tr>
+                       </thead>
 
-			                    <tbody>
-			                         @foreach ($car as $value)
-			                    			<tr>
-						                          <th>{{$value->plate_number}}</th>
-						                          <th>{{$value->vehicle_model}}</th>
-						                          <th>{{$value->time_in}}</th>
-                                      <th>
-                                        @foreach($value->violations as $violation)
-                                        <li>{{$violation->violation_name->violation}}</li>
-                                        @endforeach
-                                      </th>
-                                      <th>
-                                        @if($value->location_id)
-                                        {{$value->location->parking_name}}
+                       <tbody>
+                            @foreach ($car as $value)
+                             <tr>
+                                   <th>{{$value->plate_number}}</th>
+                                   <th>{{$value->vehicle_model}}</th>
+                                   <th>{{$value->time_in}}</th>
+                                   <th>
+                                     @foreach($value->violations as $violation)
+                                     <li>{{$violation->violation_name->violation}}</li>
+                                     @endforeach
+                                   </th>
+                                   <th>
+                                     @if($value->location_id)
+                                     {{$value->location->parking_name}}
 
-                                        <b><a href="#!" data-id="{{$value}}" id="edit-location" style="float:right;">edit</a></b>
-                                        @else
-                                        <div class="form-group">
-                                          <!-- <label for="sel1">Select list:</label> -->
+                                     <b><a href="#!" data-id="{{$value}}" id="edit-location" style="float:right;">edit</a></b>
+                                     @else
+                                     <div class="form-group">
+                                       <!-- <label for="sel1">Select list:</label> -->
 
-                                          <select class="form-control select-location" data-id="{{$value}}">
-                                            <option disabled selected>Select Location:</option>
-                                            @foreach ($locations as $value)
-                                            <option value="{{$value->id}}">{{$value->parking_name}}</option>
-                                            @endforeach
-                                          </select>
-                                        </div>
-                                        @endif
-                                      </th>
-                                      <th>
-                                        <div class="form-group">
-                                          <!-- <label for="sel1">Select list:</label> -->
+                                       <select class="form-control select-location" data-id="{{$value}}">
+                                         <option disabled selected>Select Location:</option>
+                                         @foreach ($locations as $value)
+                                         <option value="{{$value->id}}">{{$value->parking_name}}</option>
+                                         @endforeach
+                                       </select>
+                                     </div>
+                                     @endif
+                                   </th>
+                                   <th>
+                                     <div class="form-group">
+                                       <!-- <label for="sel1">Select list:</label> -->
 
-                                          <select class="form-control select-violation" data-id="{{$value}}">
-                                            <option disabled selected>Select Violation:</option>
-                                            @foreach ($type as $value)
-                                            <option value="{{$value->id}}">{{$value->violation}}</option>
-                                            @endforeach
-                                          </select>
+                                       <select class="form-control select-violation" data-id="{{$value}}">
+                                         <option disabled selected>Select Violation:</option>
+                                         @foreach ($type as $value)
+                                         <option value="{{$value->id}}">{{$value->violation}}</option>
+                                         @endforeach
+                                       </select>
 
-                                        </div>
-                                      </th>
-						                        </tr>
-                                @endforeach
-			                    </tbody>
-			                </table>
+                                     </div>
+                                   </th>
+                                 </tr>
+                             @endforeach
+                       </tbody>
+                   </table>
+                   </div>
 			            </div>
 			        </div>
 			    </div>

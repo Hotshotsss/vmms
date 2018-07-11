@@ -15,54 +15,56 @@
         <div class="panel panel-default">
           <div class="panel-heading">Incoming Payments</div>
           <div class="panel-body">
-            <table class="table table-bordered table-hover">
-              <thead>
-                <tr>
-                  <th>
-                    <div class="checkbox">
-                      <label><input type="checkbox" value=""><b>Select All</b></label>
-                    </div>
-                  </th>
-                  <th>Firstname</th>
-                  <th>Lastname</th>
-                  <th>Email</th>
-                  <th>Update</th>
-                  <th>Delete</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><div class="checkbox">
-                    <label><input type="checkbox" value="">Option 1</label>
-                  </div></td>
-                  <td>John</td>
-                  <td>Doe</td>
-                  <td>john@example.com</td>
-                  <td><button type="button" class="btn btn-primary">Update</button></td>
-                  <td><button type="button" class="btn btn-danger">Delete</button></td>
-                </tr>
-                <tr>
-                  <td><div class="checkbox">
-                    <label><input type="checkbox" value="">Option 1</label>
-                  </div></td>
-                  <td>Mary</td>
-                  <td>Moe</td>
-                  <td>mary@example.com</td>
-                  <td><button type="button" class="btn btn-primary">Update</button></td>
-                  <td><button type="button" class="btn btn-danger">Delete</button></td>
-                </tr>
-                <tr>
-                  <td><div class="checkbox">
-                    <label><input type="checkbox" value="">Option 1</label>
-                  </div></td>
-                  <td>July</td>
-                  <td>Dooley</td>
-                  <td>july@example.com</td>
-                  <td><button type="button" class="btn btn-primary">Update</button></td>
-                  <td><button type="button" class="btn btn-danger">Delete</button></td>
-                </tr>
-              </tbody>
-            </table>
+            <div style="overflow:auto;">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>
+                      <div class="checkbox">
+                        <label><input type="checkbox" value=""><b>Select All</b></label>
+                      </div>
+                    </th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><div class="checkbox">
+                      <label><input type="checkbox" value="">Option 1</label>
+                    </div></td>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                    <td><button type="button" class="btn btn-primary">Update</button></td>
+                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                  </tr>
+                  <tr>
+                    <td><div class="checkbox">
+                      <label><input type="checkbox" value="">Option 1</label>
+                    </div></td>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                    <td><button type="button" class="btn btn-primary">Update</button></td>
+                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                  </tr>
+                  <tr>
+                    <td><div class="checkbox">
+                      <label><input type="checkbox" value="">Option 1</label>
+                    </div></td>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                    <td><button type="button" class="btn btn-primary">Update</button></td>
+                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
