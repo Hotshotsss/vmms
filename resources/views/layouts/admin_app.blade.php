@@ -20,6 +20,8 @@
 
     <link href="{{ url ('dist/css/sb-admin-2.css')}}" rel="stylesheet">
     <link href="{{ url ('css/sb-admin.css')}}" rel="stylesheet">
+    <link href="{{asset('css/fullcalendar.min.css')}}" rel='stylesheet' />
+
     <link href="{{ url ('css/admin.css')}}" rel="stylesheet">
 
 
@@ -169,7 +171,8 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="{{asset('js/admin.js')}}" type="text/javascript"></script>
-
+<script src="{{ asset('js/moment.min.js')}}"></script>
+<script src="{{ asset('js/fullcalendar.min.js')}}"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
 <script src="{{ url ('vendor/metisMenu/metisMenu.min.js')}}"></script>
@@ -177,7 +180,6 @@
 <!-- Morris Charts JavaScript -->
 <script src="{{ url ('vendor/raphael/raphael.min.js')}}"></script>
 <script src="{{ url ('vendor/morrisjs/morris.min.js')}}"></script>
-<script src="{{ url ('data/morris-data.js')}}"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="{{ url ('dist/js/sb-admin-2.js')}}"></script>

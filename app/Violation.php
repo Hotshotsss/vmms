@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Violation extends Model
 {
     use Notifiable;
-    protected $table = 'violation';
     /**
      * The attributes that are mass assignable.
      *
