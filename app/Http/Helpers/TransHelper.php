@@ -25,7 +25,7 @@ class TransHelper
       return '/admin/home';
       break;
       case 1:
-      return '/monitor/home';
+      return '/monitoring/home';
       break;
       case 2:
       return '/gate/home';

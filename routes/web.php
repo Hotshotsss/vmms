@@ -55,6 +55,9 @@ Route::prefix('admin')->group(function () {
     Route::get('view-car','AdminController@viewCar');
     Route::post('add-car','AdminController@addCar');
     Route::post('delete-car','AdminController@deleteCar');
+    Route::get('view-violation','AdminController@viewViolations');
+    Route::post('add-violation','AdminController@adminAddViolation');
+    Route::post('delete-violation','AdminController@adminDeleteViolation');
     //Employee schedule
     Route::get('employee-schedule','AdminController@viewSchedule');
     Route::post('add-sched','AdminController@addSchedule');
@@ -63,7 +66,7 @@ Route::prefix('admin')->group(function () {
   });
 });
 //Add all the routes for the montiring here
-Route::prefix('monitor')->group(function () {
+Route::prefix('monitoring')->group(function () {
   Route::middleware(['guest','revalidate'])->group(function(){
     Route::get('/',function(){
       return view('auth.login');

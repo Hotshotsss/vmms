@@ -23,28 +23,38 @@
               </div>
               <div class="panel-body">
                 <div style="overflow:auto">
-                  <table class="table table-bordered table-hover">
+                  <table width="100%" class="table table-striped table-bordered table-hover" id="dev-table">
+                  
                     <thead>
-                      <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Email</th>
-                        <th>Update</th>
-                        <th>Delete</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($reports as $user)
                         <tr>
-                        <td>{{$user -> id}}</td>
-                        <td>{{$user -> name}}</td>
-                        <td>{{$user -> email}}</td>
-                        <td><button type="button" class="btn btn-primary">Update</button></td>
-                        <td><button type="button" class="btn btn-danger">Delete</button></td>
+                             <th>Time In</th>
+                             <th>Time Out</th>
+                             <th>Plate Number</th>
+                             <th>Vehicle Model</th>
+                             <th>Vehicle Type</th>
+                             <th>Vehicle Color</th>
+                             <th>Vehicle Remarks</th>
+                             <th>Purpose</th>
+                             <th>Amount Paid</th>
                         </tr>
-                        @endforeach
+                    </thead>
+
+                    <tbody>
+                         @foreach ($cars as $value)
+                          <tr>
+                                 <th>{{$value->time_in}}</th>
+                                 <th>{{$value->time_out}}</th>
+                                 <th>{{$value->plate_number}}</th>
+                                 <th>{{$value->vehicle_model}}</th>
+                                 <th>{{$value->carType->type}}</th>
+                                 <th>{{$value->vehicle_color}}</th>
+                                 <th>{{$value->remarks}}</th>
+                                 <th>{{$value->inPurpose->purpose}}</th>
+                                 <th>{{$value->time_in}}</th>
+                          </tr>
+                         @endforeach
                     </tbody>
-                  </table>
+                </table>
                 </div>
               </div>
             </div>

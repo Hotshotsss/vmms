@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\CarType;
+use App\Violation;
 use App\Rate;
+use App\Parking;
 use App\ParkingSlot;
 use App\EmployeeSchedule;
 use Carbon\Carbon;
@@ -46,6 +48,28 @@ class AdminController extends Controller
     return redirect()->back()->with('success','success');
   }
 
+  public function viewViolations(){
+
+    $violation = Violation::all();
+    return view('admin.add-Violation')->with('violations',$violation);
+  }
+
+  public function adminAddViolation(Request $request){
+
+    $newViolation = new Violation;
+
+    $newViolation->violation = $request->violation;
+    $newViolation->penalty = $request->penalty;
+    $newViolation->save();
+
+    return redirect()->back()->with('success','success');
+  }
+
+  public function adminDeleteViolation(Request $request){
+    $type = Violation::find($request->type_number)->delete();
+
+    return redirect()->back()->with('success','success');
+  }
 
   public function discount(){
 
@@ -86,24 +110,37 @@ class AdminController extends Controller
   }
 
   public function reports(){
-    $data = User::all();
-    return view('admin.reports')->with('reports',$data)->with('day','Filter');
+    $car = Parking::whereNotNull('time_out')->get();
+
+    return view('admin.reports')->with(['cars'=>$car])->with('day','Filter');
   }
   public function daily(){
-    $data = User::all();
-    return view('admin.reports')->with('reports',$data)->with('day','1 Day Ago');
+    $now = Carbon::now()->subDay();
+    $days28 = Carbon::now()->subDays(1);
+    $car = Parking::whereNotNull('time_out')->whereBetween('time_out',[$days28,$now])->get();
+
+    return view('admin.reports')->with(['cars'=>$car])->with('day','1 Day Ago');
   }
   public function weekly(){
-    $data = User::all();
-    return view('admin.reports')->with('reports',$data)->with('day','7 Days Ago');
+    $now = Carbon::now()->subDay();
+    $days28 = Carbon::now()->subDays(7);
+    $car = Parking::whereNotNull('time_out')->whereBetween('time_out',[$days28,$now])->get();
+
+    return view('admin.reports')->with(['cars'=>$car])->with('day','7 Days Ago');
   }
   public function monthly(){
-    $data = User::all();
-    return view('admin.reports')->with('reports',$data)->with('day','30 Days Ago');
+    $now = Carbon::now()->subDay();
+    $days28 = Carbon::now()->subDays(30);
+    $car = Parking::whereNotNull('time_out')->whereBetween('time_out',[$days28,$now])->get();
+
+    return view('admin.reports')->with(['cars'=>$car])->with('day','30 Days Ago');
   }
   public function yearly(){
-    $data = User::all();
-    return view('admin.reports')->with('reports',$data)->with('day','365 Days Ago');
+    $now = Carbon::now()->subDay();
+    $days28 = Carbon::now()->subDays(365);
+    $car = Parking::whereNotNull('time_out')->whereBetween('time_out',[$days28,$now])->get();
+
+    return view('admin.reports')->with(['cars'=>$car])->with('day','365 Days Ago');
   }
   public function parking(){
     $slots = ParkingSlot::all();
