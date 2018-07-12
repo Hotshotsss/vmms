@@ -20,10 +20,7 @@ Route::prefix('admin')->group(function () {
   });
 
   Route::middleware(['admin','revalidate'])->group(function () {
-    // Route::get('home',function(){
-    //   return 'admin home';
-    // });
-    //register
+
     Route::post('register', 'Auth\RegisterController@register');
     Route::post('edit-user', 'AdminController@editUser');
     // Route::post('edit-password', 'Auth\RegisterController@register');
@@ -32,6 +29,7 @@ Route::prefix('admin')->group(function () {
     //
     Route::get('home','AdminController@home');
     Route::get('settings','AdminController@settings');
+    Route::get('getSched','AdminController@getSched');
 
     //Parking Locations
     Route::get('parking','AdminController@parking');
