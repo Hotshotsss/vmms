@@ -18,7 +18,22 @@ class TransHelper
       break;
     }
   }
-
+  public static function assign($type){
+    switch ((int)$type) {
+      case 0:
+      return 'Admin';
+      break;
+      case 1:
+      return 'Monitoring';
+      break;
+      case 2:
+      return 'Gate - Entrance';
+      break;
+      default:
+      return 'Gate - Exit';
+      break;
+    }
+  }
   public static function redirect($type){
     switch ((int)$type) {
       case 0:

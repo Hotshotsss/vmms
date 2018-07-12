@@ -61,34 +61,31 @@ $(document).ready(function() {
     header: {
       left: 'prev,next today',
       center: 'title',
-      right: 'listDay,listWeek,month'
+
     },
 
-    // customize the button names,
-    // otherwise they'd all just say "list"
-    views: {
-      listDay: { buttonText: 'list day' },
-      listWeek: { buttonText: 'list week' }
-    },
     displayEventEnd: true,
 
     defaultView: 'month',
     defaultDate: '2018-03-12',
     navLinks: true, // can click day/week names to navigate views
-    editable: true,
-    allDay: false,
     eventLimit: true, // allow "more" link when too many events
+
     events: [
       {
-        title: 'Jason Lopez',
+        title: 'Jason Lopez - Gate Entrance',
         start: '2018-03-01 08:00:00',
-        end: '2018-03-02 15:00:00',
+        end: '2018-03-01 15:00:00',
+        description: 'gate',
+        textColor: 'pink',
       },
       {
         title: 'Joyce Ann',
         start: '2018-03-01 15:00:00',
         end: '2018-03-02 21:00:00',
+
       },
+
       {
         title: 'Long Event',
         start: '2018-03-07',

@@ -12,6 +12,7 @@ use App\ParkingSlot;
 use App\EmployeeSchedule;
 use Carbon\Carbon;
 use Validator;
+use DB;
 class AdminController extends Controller
 {
   public function home(Request $request){
@@ -178,8 +179,16 @@ class AdminController extends Controller
 
     public function viewSchedule(){
       $users = User::all();
+      $sched = EmployeeSchedule::select("id","user_id",DB::raw('CONCAT(from,time_in) as start'),DB::raw("CONCAT('to','time_out') as end"))->orderBy('assigned_at')->get();
+      dd($sched);
 
       return view('admin.schedule')->with(['users'=>$users]);
+    }
+
+    public function getSched(){
+
+
+      // return $sched;a
     }
 
     public function addSchedule(Request $request){
