@@ -27,13 +27,12 @@
                         </div><br>
                         <thead>
                             <tr>
+                              <th>Time In</th>
                               <th>Plate Number</th>
                               <th>Vehicle Model</th>
                               <th>Vehicle Type</th>
                               <th>Vehicle Color</th>
                               <th>Vehicle Remarks</th>
-                              <th>Purpose</th>
-                              <th>Time In</th>
                               <th>Purpose</th>
                               <th>Violation</th>
                               <th>Parking Location</th>
@@ -43,19 +42,19 @@
                         <tbody>
                              @foreach ($carin as $value)
                               <tr>
+                                    <th>{{$value->time_in}}</th>
                                     <th>{{$value->plate_number}}</th>
                                     <th>{{$value->vehicle_model}}</th>
                                     <th>{{$value->carType->type}}</th>
                                     <th>{{$value->vehicle_color}}</th>
                                     <th>{{$value->remarks}}</th>
-                                    <th>{{$value->vehicle_model}}</th>
-                                    <th>{{$value->time_in}}</th>
                                     <th>{{$value->inPurpose->purpose}}</th>
-                                    <th>@foreach($value->violations as $violation)
+                                    <th>
+                                      @foreach($value->violations as $violation)
                                       <li>{{$violation->violation_name->violation}}</li>
                                       @endforeach
                                     </th>
-                                    <th>{{$value->location->parking_name}}</th>
+                                    <th>@if($value->location) {{$value->location->parking_name}} @else No Location @endif</th>
                                   </tr>
                               @endforeach
                         </tbody>

@@ -26,6 +26,7 @@ $(document).on('click','#view-details',function(){
   $('#monitoring-exceeding').text(exceedinghours);
   $('#monitoring-penalty').text(totalPenalty);
   $('#monitoring-violation').text(violationsList.toString());
+  $('#monitoring-location').text(values.location.parking_name);
   $('#monitoring-total').text(total);
   $('#vehicleMonitoring button[name="out"]').val(values.id);
   $('#vehicleMonitoring').modal('show');

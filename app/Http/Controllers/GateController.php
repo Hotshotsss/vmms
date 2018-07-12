@@ -92,10 +92,9 @@ class GateController extends Controller
 
     public function vehicleIn(){
       $data = CarType::all();
-      $colors = Colors::all();
       $purposes = Purpose::all();
 
-      return view('gate.VehicleIn')->with(['vehicle'=>$data,'color'=>$colors,'purpose'=>$purposes]);
+      return view('gate.VehicleIn')->with(['vehicle'=>$data,'purpose'=>$purposes]);
     }
 
     public function addIn(Request $request){
@@ -115,7 +114,7 @@ class GateController extends Controller
     }
 
     public function vehicleOutView(){
-      $data = Parking::where('time_out',null)->with(['violations.violation_name'])->get();
+      $data = Parking::where('time_out',null)->with(['violations.violation_name','location'])->get();
 
       return view('gate.VehicleOut')->with('car',$data);
     }

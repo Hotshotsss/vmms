@@ -101,15 +101,11 @@
                             <li>
                                 <a href="#"><i class="fa fa-gear fa-fw"></i> Parking Monitoring Settings <span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="UniversityParkingSpace.php"><i class="fa fa-list-alt fa-fw"></i> University Parking Space Settings </a>
-                                    </li>
+
                                     <li>
                                         <a href="/admin/parking"><i class="fa fa-map-marker fa-fw"></i> Add Parking Location </a>
                                     </li>
-                                    <li>
-                                        <a href="AllocateParkingSpace.php"><i class="fa fa-list-alt fa-fw"></i> Allocate Parking Space </a>
-                                    </li>
+
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
@@ -118,6 +114,9 @@
                                 <ul class="nav nav-second-level">
                                     <li>
                                         <a href="/admin/view-car"><i class="fa fa-road fa-fw"></i> Add Car Type </a>
+                                    </li>
+                                    <li>
+                                        <a href="/admin/view-violation"><i class="fa fa-road fa-fw"></i> Add Violation</a>
                                     </li>
                                     <li>
                                         <a href="/admin/discount"><i class="fa  fa-sliders fa-fw"></i> Discount Settings </a>

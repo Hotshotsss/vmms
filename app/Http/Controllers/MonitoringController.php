@@ -15,7 +15,7 @@ class MonitoringController extends Controller
         $data = Parking::all(); //Parking
         $violation = Violation::all();
         $parkinglocation = ParkingSlot::orderBy('parking_name','DESC')->get();
-
+        // dd($parkinglocation[5 ]->parking_name);
       return view('monitoring.home')->with(['car'=>$data,'type'=>$violation,'locations'=>$parkinglocation]);
     }
 

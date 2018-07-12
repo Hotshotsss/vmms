@@ -31,7 +31,4 @@ class Parking extends Model
     return $this->hasOne('App\Purpose','id','parking_reason');
   }
 
-// $parking->location->parking_name;
-//
-
 }

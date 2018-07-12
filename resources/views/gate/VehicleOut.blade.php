@@ -27,10 +27,10 @@
                        </div><br>
                          <thead>
                              <tr>
-                               <th>Plate Number</th>
-                                 <th>Vehicle Model</th>
-                                 <th>Time In</th>
-                                 <th>Action</th>
+                                <th>Plate Number</th>
+                                <th>Vehicle Model</th>
+                                <th>Time In</th>
+                                <th>Action</th>
                              </tr>
                          </thead>
 
@@ -41,7 +41,7 @@
                                      <th>{{$value->vehicle_model}}</th>
                                      <th>{{$value->time_in}}</th>
                                      <th align = 'center'><center>
-                                       <a href="#" class='btn btn-success' type='button' data-toggle='modal' data-target='#exitVehicle' name = 't2' id="view-details" data-id="{{$value}}" value = '$car_id'><span class='glyphicon glyphicon-search'></span> View Details</a>
+                                       <a href="#" class='btn btn-success' type='button' data-toggle='modal' data-target='#vehicleMonitoring' name = 't2' id="view-details" data-id="{{$value}}" value = '$car_id'><span class='glyphicon glyphicon-search'></span> View Details</a>
                                     </th></center>
                                    </tr>
                                @endforeach
@@ -126,7 +126,7 @@
 
                   </div>
 		          </div>
-		           <div class="modal-footer">
+		           <div class="modal-footer" style="border-color:white;">
 		            <button type="submit" name="out" class="btn btn-success" >Check Out</button>
 		          </div>
 		         {!!Form::close()!!}
