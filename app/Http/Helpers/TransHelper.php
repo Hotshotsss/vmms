@@ -34,6 +34,25 @@ class TransHelper
       break;
     }
   }
+
+  public static function color($type){
+    switch ((int)$type) {
+      case 0:
+      return '#673AB7';
+      break;
+      case 1:
+      return '#3F51B5';
+      break;
+      case 2:
+      return '#E91E63';
+      break;
+      default:
+      return '#4CAF50';
+      break;
+    }
+  }
+
+
   public static function redirect($type){
     switch ((int)$type) {
       case 0:

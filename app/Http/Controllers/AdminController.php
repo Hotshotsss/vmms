@@ -8,6 +8,7 @@ use App\CarType;
 use App\Rate;
 use App\ParkingSlot;
 use App\EmployeeSchedule;
+use App\Parking;
 use Carbon\Carbon;
 use Validator;
 use DB;
@@ -15,9 +16,9 @@ class AdminController extends Controller
 {
   public function home(Request $request){
     $slots = ParkingSlot::all();
-    // $parkings = Parking::where('time_out',null)->get();
+    $parkings = Parking::whereNull('time_out')->count();
 
-    return view('admin.home')->with(['slots'=>$slots]);
+    return view('admin.home')->with(['slots'=>$slots,'parkings'=>$parkings]);
   }
 
   public function settings(Request $request){
@@ -142,16 +143,14 @@ class AdminController extends Controller
 
     public function viewSchedule(){
       $users = User::all();
-      $sched = EmployeeSchedule::select("id","user_id",DB::raw('CONCAT(from,time_in) as start'),DB::raw("CONCAT('to','time_out') as end"))->orderBy('assigned_at')->get();
-      dd($sched);
 
       return view('admin.schedule')->with(['users'=>$users]);
     }
 
     public function getSched(){
+      $sched = EmployeeSchedule::selectRaw('id,user_id,assigned_at,CONCAT(date_from," ",time_in) as start,CONCAT(date_to," ",time_out) as end')->orderBy('assigned_at','asc')->get()->toJson();
 
-
-      // return $sched;a
+      return $sched;
     }
 
     public function addSchedule(Request $request){
@@ -166,6 +165,10 @@ class AdminController extends Controller
         }
       }
 
+      $conflict = $this->checkSchedConflict($request);
+      if($conflict->isNotEmpty()){
+        return redirect()->back()->withInput()->withErrors(['conflict'=>'Oh no! There is a conflict with the schedule you entered.']);
+      }
       $sched = new EmployeeSchedule;
       $sched->user_id = $request->user;
       $sched->assigned_at = $at;
@@ -176,6 +179,21 @@ class AdminController extends Controller
       $sched->save();
 
       return redirect()->back()->with('success','Schedule Added!');
+    }
+
+    public function checkSchedConflict($request){
+      $in = Carbon::parse($request->from_date.' '.$request->time_in);
+      $out = Carbon::parse($request->to_date.' '.$request->time_out);
+
+      $conflict = EmployeeSchedule::where('user_id',$request->user)
+      ->where(function ($query) use($in,$out){
+        $query->where('date_from','<=',$out->format('Y-m-d'))
+        ->where('date_to','>=',$in->format('Y-m-d'))
+        ->where('time_in','<=',$out->format('H:i:s'))
+        ->where('time_out','>=',$in->format('H:i:s'));
+      })->get();
+
+      return $conflict;
     }
 
     public function deleteUser(Request $request){
@@ -198,12 +216,12 @@ class AdminController extends Controller
     public function editPassword(Request $request){
 
       $validator = Validator::make($request->all(), [
-          'password' => 'required|string|min:6|confirmed',
+        'password' => 'required|string|min:6|confirmed',
       ]);
 
-        if ($validator->fails()) {
-          return redirect()->back()->withInput()->withErrors($validator,'password');
-        }
+      if ($validator->fails()) {
+        return redirect()->back()->withInput()->withErrors($validator,'password');
+      }
 
       $user = User::find($request->change);
 
