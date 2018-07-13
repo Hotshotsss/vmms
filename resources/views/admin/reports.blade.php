@@ -22,7 +22,7 @@
                   </select>
                 </div>
                 <div class="form-group" style="width:50%;display:inline;">
-                  <a href="/admin/reportPDF" target="_blank"><button type="button" class="btn btn-primary" name="button" style="right: 0;position: absolute;margin-right: 20px;">Download as PDF</button></a>
+                  <a href="/admin/reportPDF/{{$param}}" target="_blank"><button type="button" class="btn btn-primary" name="button" style="right: 0;position: absolute;margin-right: 20px;">Download as PDF</button></a>
                 </div>
               </div>
               <div class="panel-body">

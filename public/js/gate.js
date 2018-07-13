@@ -66,7 +66,6 @@ $(document).on('click','#view-details',function(){
   $('#vehicleMonitoring').modal('show');
 });
 
-$(document).on('hidden.bs.modal','#vehicleMonitoring',function(){
-  $('.input-value').text('');
-  $('input[type="checkbox"]').prop('checked',false);
-});
+// $(document).on('submit','#checkOut-submit',function(){
+//   location.reload();
+// });

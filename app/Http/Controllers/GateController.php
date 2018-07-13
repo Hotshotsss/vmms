@@ -144,9 +144,16 @@ class GateController extends Controller
       $data->hospital_proof = $proof;
       $data->save();
 
+
       $total = $this->calculatePayments($data);
 
-      return redirect()->back();
+
+      $pdf = App::make('dompdf.wrapper');
+      $customPaper = array(0,0,230,300);
+      $pdf->setPaper($customPaper);
+      $pdf->loadView('gate.PDF',compact('data'));
+      return $pdf->stream();
+      // return redirect()->back();
     }
 
     public function calculatePayments($value){
@@ -186,5 +193,13 @@ class GateController extends Controller
 
       return $total;
     }
+
+    // public function showPdf($request){
+    //   $pdf = App::make('dompdf.wrapper');
+    //   $customPaper = array(0,0,230,300);
+    //   $pdf->setPaper($customPaper);
+    //   $pdf->loadView('gate.PDF');
+    //   return $pdf->stream();
+    // }
 
 }
