@@ -3,8 +3,8 @@
 <div class="container" style="position:absolute;bottom:150px;left:0;right:0;">
     <div class="row justify-content-center">
         <div class="col-md-5">
-            <div class="card">
-                <div class="card-header">
+            <div class="card" style="border-color: #d05ce3;">
+                <div class="card-header" style="background:#d05ce3;color:white;">
                   <center>
                     VMMS
                   </center>

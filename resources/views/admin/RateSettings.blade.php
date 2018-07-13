@@ -8,7 +8,7 @@
           <h1>Rate Settings</h1>
           <hr>
         </div>
-        <div class="col-lg-4 no-padding">
+        <div class="col-lg-4">
           <div class="panel panel-default">
             <div class="panel-heading">
               Form
@@ -32,7 +32,7 @@
           </div>
         </div>
 
-          <div class="col-lg-8 no-padding">
+          <div class="col-lg-8">
             <div class="panel panel-default">
               <div class="panel-heading">Incoming Payments</div>
               <div class="panel-body">

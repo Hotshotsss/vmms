@@ -8,11 +8,11 @@
         </h1>
         <hr>
       </div>
-      <button type="button" class="btn-lg btn-primary" data-toggle="modal" data-target="#gate" data-dismiss="modal" name="button">Gate</button>
-      <button type="button" class="btn-lg btn-primary" data-toggle="modal" data-target="#monitoring" data-dismiss="modal" name="button">Monitoring</button>
-      <button type="button" class="btn-lg btn-primary" data-toggle="modal" data-target="#admin" data-dismiss="modal" name="button">Admin</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#gate" data-dismiss="modal" name="button">Gate</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#monitoring" data-dismiss="modal" name="button">Monitoring</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#admin" data-dismiss="modal" name="button">Admin</button>
 
-      <div class="col-lg-12 no-padding">
+      <div class="col-lg-12 no-padding" style="padding-top:10px;">
         @if($errors->has('conflict'))
         <div class="alert alert-danger">
            <strong>Conflict!</strong> {{$errors->first('conflict')}}

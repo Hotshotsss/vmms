@@ -8,7 +8,7 @@
         <h1>Car Settings</h1>
         <hr>
       </div>
-      <div class="col-lg-4 no-padding">
+      <div class="col-lg-4">
         <div class="panel panel-default">
           <div class="panel-heading">
             Add Car Type
@@ -26,7 +26,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-8 no-padding">
+      <div class="col-lg-8">
         <div class="panel panel-default">
           <div class="panel-heading">Available Cars</div>
           <div class="panel-body">

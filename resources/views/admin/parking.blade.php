@@ -10,7 +10,7 @@
         <hr>
       </div>
 
-      <div class="col-lg-4 no-padding">
+      <div class="col-lg-4">
         <div class="panel panel-default">
           <div class="panel-heading">
             Add Parking Location
@@ -45,7 +45,7 @@
       </div>
 
 
-      <div class="col-lg-8 no-padding">
+      <div class="col-lg-8">
         <div class="panel panel-default">
           <div class="panel-heading">Parking Location Details</div>
           <div class="panel-body">

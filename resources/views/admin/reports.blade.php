@@ -24,7 +24,7 @@
               <div class="panel-body">
                 <div style="overflow:auto">
                   <table width="100%" class="table table-striped table-bordered table-hover" id="dev-table">
-                  
+
                     <thead>
                         <tr>
                              <th>Time In</th>

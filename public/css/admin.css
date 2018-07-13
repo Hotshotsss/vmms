@@ -140,3 +140,10 @@ min-height: 100%;  background-attachment: fixed;
     color: white !important;
     text-decoration: underline;
 }
+.modal-header{
+  padding-bottom: 0px;
+}
+.modal-title{
+  font-weight: bolder;
+  font-size: 25px;
+}
