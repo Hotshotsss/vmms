@@ -13,6 +13,8 @@ use App\EmployeeSchedule;
 use Carbon\Carbon;
 use Validator;
 use DB;
+use PDF;
+use App;
 class AdminController extends Controller
 {
   public function home(Request $request){
@@ -114,6 +116,16 @@ class AdminController extends Controller
     $car = Parking::whereNotNull('time_out')->get();
 
     return view('admin.reports')->with(['cars'=>$car])->with('day','Filter');
+  }
+  public function reportPDF(){
+
+    $now = Carbon::now()->subDay();
+    $days28 = Carbon::now()->subDays(365);
+    $car = Parking::whereNotNull('time_out')->whereBetween('time_out',[$days28,$now])->get();
+      $pdf = App::make('dompdf.wrapper');
+      $pdf->setPaper('legal', 'landscape');
+      $pdf->loadView('admin.reportPDF',compact('car'));
+      return $pdf->stream();
   }
   public function daily(){
     $now = Carbon::now()->subDay();
