@@ -98,11 +98,11 @@ Route::prefix('gate')->group(function () {
 
     Route::get('home', 'GateController@menu');
     // vehicle in
-    Route::get('vehicle-in', 'GateController@vehicleIn');
+    Route::get('vehicle-in', 'GateController@vehicleIn')->middleware('entrance');
 
     Route::post('add-in', 'GateController@addIn');
     // vehicle out
-    Route::get('vehicle-out', 'GateController@vehicleOutView');
+    Route::get('vehicle-out', 'GateController@vehicleOutView')->middleware('exitg');
     Route::post('update-parking','GateController@updateParking');
 
     // vehicle monitoring
