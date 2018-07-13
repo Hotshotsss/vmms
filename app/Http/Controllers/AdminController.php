@@ -10,7 +10,6 @@ use App\Rate;
 use App\Parking;
 use App\ParkingSlot;
 use App\EmployeeSchedule;
-use App\Parking;
 use Carbon\Carbon;
 use Validator;
 use DB;
