@@ -48,12 +48,21 @@
                     <th>{{$value->penalty}}</th>
                     <th>
                       <center>
-                      <div class="btn-group show-on-hover">
-                        {!!Form::open(['url'=>'admin/delete-violation','method'=>'post','onsubmit'=>'return confirm("Are you sure you want to delete the item?")'])!!}
-                        <input type="hidden" name="type_number" value="{{$value->id}}">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                        {!!Form::close() !!}
-                      </div>
+                        <div class="btn-group show-on-hover">
+                          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            Action <span class="caret"></span>
+                          </button>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" id="edit-violation" data-id="{{$value}}">Edit</a></li>
+                            <li class="divider"></li>
+                            <li>
+                            {!!Form::open(['url'=>'admin/delete-violation','method'=>'post','onsubmit'=>'return confirm("Are you sure you want to delete the item?")'])!!}
+                              <button style="display: flex;-webkit-appearance: caret;padding: 3px 20px;color:#333;background:none;font-weight:normal" type="submit" name="type_number" value="{{$value->id}}">Delete</button>
+                            {{Form::close()}}
+                          </li>
+                          </ul>
+                        </div>
+
                       </center>
                     </th>
                 </tr>
@@ -68,4 +77,43 @@
 </div>
 </div>
 <!-- /#page-wrapper -->
+
+<!-- Modal -->
+<div class="modal fade" id="editViolation" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Violation Details</h4>
+      </div>
+      <div class="modal-body">
+        <div class="panel-body">
+          {!!Form::open(['url'=>'admin/edit-violation','method'=>'post']) !!}
+          <div class="form-group">
+            <label>Parking Name</label>
+            <input readonly class="form-control" name="parking_name"  readonly value="">
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <input type="text" class="form-control" placeholder="Enter Standard Rate" name="description" required>
+          </div>
+          <div class="form-group">
+            <label>Slots</label>
+            <input type="text" class="form-control" placeholder="Enter Standard Hours" name="slots" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <center>
+          <button type="submit" class="btn btn-default" name="id">Submit</button>
+        </center>
+      </div>
+      {!!Form::close() !!}
+    </div>
+
+  </div>
+</div>
+
 @endsection

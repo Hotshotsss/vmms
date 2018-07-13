@@ -116,7 +116,7 @@ class AdminController extends Controller
   public function reports(){
     $car = Parking::whereNotNull('time_out')->get();
 
-    return view('admin.reports')->with(['cars'=>$car])->with('day','Filter');
+    return view('admin.reports')->with(['cars'=>$car])->with(['day'=>'Filter','param'=>'365']);
   }
   public function reportPDF($param){
 

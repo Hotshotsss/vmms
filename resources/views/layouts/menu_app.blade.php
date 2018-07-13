@@ -126,4 +126,11 @@
     $('.reportOut').removeClass('containerBig');
     $('.reportContentOut').removeClass('centerContentBig');
   }
+
+	function openWindowReload(link) {
+				document.location.reload(true)
+        var href = link.href;
+        window.open('vehicle-out');
+			}
+
 </script>

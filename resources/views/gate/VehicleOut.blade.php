@@ -60,7 +60,7 @@
 <div id="vehicleMonitoring" class="modal fade">
   <div class = "modal-dialog modal-lg-dialog">
       <div class = "modal-content modal-lg">
-            {!! Form::open(['url'=>'gate/update-parking','method'=>'post']) !!}
+            {!! Form::open(['url'=>'gate/update-parking','method'=>'post','id'=>'checkOut-submit']) !!}
 		        <div class = "modal-header">
 		          <h4 class="modal-title" id="myModalLabel">Details</h4>
 		        </div>
@@ -127,7 +127,7 @@
                   </div>
 		          </div>
 		           <div class="modal-footer" style="border-color:white;">
-		            <button  type="submit" name="out" class="btn btn-success" id="check-out" formtarget="_blank" >Check Out</button>
+ 		              <button  type="submit" name="out" class="btn btn-success" target="_blank" onClick="openWindowReload(this)">Check Out</button>
 		          </div>
 		         {!!Form::close()!!}
       </div>

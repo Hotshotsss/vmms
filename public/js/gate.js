@@ -38,7 +38,6 @@ $(document).on('click','#view-details',function(){
   $('#vehicleMonitoring').modal('show');
 });
 
-$(document).on('click','#check-out',function(){
-  location.reload();
-  $('#vehicleMonitoring').modal('hide');
-});
+// $(document).on('submit','#checkOut-submit',function(){
+//   location.reload();
+// });

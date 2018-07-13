@@ -29,6 +29,7 @@
     body { margin: 0px; }
   </style>
   <body style="margin:0px 20px;">
+
     <div class="col-lg-3">
       <img src="img/Mcu_logo01.jpg" alt="" style="width:50px;">
     </div>
@@ -74,16 +75,16 @@
             <td width="12%;">Bus Style:</td>
             <td width="51%;" style="border-bottom:.1px solid black;"></td>
             <td width="5%;">Date:</td>
-            <td width="32%;" style="border-bottom:.1px solid black;"></td>
+            <td width="32%;" style="border-bottom:.1px solid black;">{{\Carbon\Carbon::parse($data->time_out)->format('m-d-Y')}}</td>
           </tr>
 
         </table>
         <table style="width:270px">
           <tr>
             <td width="12%;">Plate No.</td>
-            <td width="51%;" style="border-bottom:.1px solid black;"></td>
+            <td width="51%;" style="border-bottom:.1px solid black;">{{$data->plate_number}}</td>
             <td width="12%;">Time Out:</td>
-            <td width="25%;" style="border-bottom:.1px solid black;"></td>
+            <td width="25%;" style="border-bottom:.1px solid black;">{{\Carbon\Carbon::parse($data->time_out)->format('H:i:s')}}</td>
           </tr>
         </table>
         <table style="width:270px">
