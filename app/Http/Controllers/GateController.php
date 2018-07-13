@@ -144,9 +144,7 @@ class GateController extends Controller
       $data->hospital_proof = $proof;
       $data->save();
 
-
       $total = $this->calculatePayments($data);
-
 
       $pdf = App::make('dompdf.wrapper');
       $customPaper = array(0,0,230,300);
@@ -157,7 +155,7 @@ class GateController extends Controller
     }
 
     public function calculatePayments($value){
-      if($value->parking_reason == 1 && $value->hospital_proof){
+      if(($value->parking_reason == 1 && $value->hospital_proof)){
         $days = ($value->time_out)->diffInDays($value->time_in);
         return 25 * $days;
       }else if($value->parking_reason == 2){
