@@ -10,8 +10,9 @@
         </div>
           <div class="col-lg-12 no-padding">
             <div class="panel panel-default">
-              <div class="panel-heading">Incoming Payments
-                <div class="form-group">
+              <div class="panel-heading">
+                <p>Incoming Payments</p>
+                <div class="form-group" style="width:50%;display:-webkit-inline-box;">
                   <select class="form-control" id="filterSelect">
                     <option value="/admin/reports/daily" style="display:none;">{{$day}}</option>
                     <option value="/admin/reports/daily">1 Day Ago</option>
@@ -19,6 +20,9 @@
                     <option value="/admin/reports/monthly">30 Days Ago</option>
                     <option value="/admin/reports/yearly">365 Days Ago</option>
                   </select>
+                </div>
+                <div class="form-group" style="width:50%;display:inline;">
+                  <a href="/admin/reportPDF" target="_blank"><button type="button" class="btn btn-primary" name="button" style="right: 0;position: absolute;margin-right: 20px;">Download as PDF</button></a>
                 </div>
               </div>
               <div class="panel-body">

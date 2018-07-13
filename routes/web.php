@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 //Add all the routes for the admin here
 Route::prefix('admin')->group(function () {
 
@@ -47,7 +48,7 @@ Route::prefix('admin')->group(function () {
     Route::get('reports/weekly','AdminController@weekly');
     Route::get('reports/monthly','AdminController@monthly');
     Route::get('reports/yearly','AdminController@yearly');
-
+    Route::get('reportPDF','AdminController@reportPDF');
     //FlatRate
     Route::get('flat-rate','AdminController@flatRate');
     Route::post('add-rate','AdminController@addRate');
