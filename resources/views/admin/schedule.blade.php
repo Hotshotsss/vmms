@@ -8,12 +8,18 @@
         </h1>
         <hr>
       </div>
-      <button type="button" class="btn-lg btn-primary" data-toggle="modal" data-target="#gate" data-dismiss="modal" name="button">Gate</button>
-      <button type="button" class="btn-lg btn-primary" data-toggle="modal" data-target="#monitoring" data-dismiss="modal" name="button">Monitoring</button>
-      <button type="button" class="btn-lg btn-primary" data-toggle="modal" data-target="#admin" data-dismiss="modal" name="button">Admin</button>
-      <div class="col-lg-12 no-padding">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#gate" data-dismiss="modal" name="button">Gate</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#monitoring" data-dismiss="modal" name="button">Monitoring</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#admin" data-dismiss="modal" name="button">Admin</button>
+
+      <div class="col-lg-12 no-padding" style="padding-top:10px;">
+        @if($errors->has('conflict'))
+        <div class="alert alert-danger">
+           <strong>Conflict!</strong> {{$errors->first('conflict')}}
+        </div>
+        @endif
         <div class="panel panel-default">
-          <div class="panel-heading">Incoming Payments</div>
+          <div class="panel-heading">Schedules</div>
           <div class="panel-body">
             <div id='calendar'></div>
           </div>
@@ -22,6 +28,7 @@
     </div>
   </div>
 </div>
+
 
 <div class="modal fade" id="gate" tabindex="-1" role="dialog" aria-labelledby="gate" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -386,4 +393,5 @@
   {{Form::close()}}
 </div>
 </div>
+
 @endsection

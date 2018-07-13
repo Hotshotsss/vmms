@@ -11,7 +11,7 @@
             <div class="col-md-8" style="padding-top:10px">
               <div style="padding-left:12px;" class="leftParking">
                 <h2 style="font-weight:bolder;" class="h1Parking">Total Slots</h2>
-                <h1 style="font-size:60px">600 /
+                <h1 style="font-size:60px">{{$parkings}} /
                   <b style="font-size:30px;">{{$slots->sum('number_of_slots')}}</b>
                 </h1>
               </div>
@@ -24,75 +24,14 @@
          <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#79c4bb;border-radius: 5px;">
            <h3 style="font-weight:bolder;">{{ucwords(strtolower($slot->parking_name))}}</h3>
            <center>
-             <h5 style="font-size:35px;padding-top:30px;">120/
+             <h5 style="font-size:35px;padding-top:30px;">{{$slot->parked->count()}}/
                <b style="font-size:25px;">{{$slot->number_of_slots}}</b>
              </h5>
            </center>
          </div>
        </div>
         @endforeach
-        <!-- <div class="hidden-lg col-md-4 col-xs-6" style="padding-left:2.5px;padding-right:2.5px;padding-bottom:5px;">
-          <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#4db151;border-radius: 5px;">
-            <h3 style="font-weight:bolder;">Entrance</h3>
-            <center>
-              <h5 style="font-size:35px;padding-top:30px;">120 /
-                <b style="font-size:25px;">200</b>
-              </h5>
-            </center>
-          </div>
-        </div>
-        <div class="col-lg-5" style="padding-left:2.5px;padding-right:1.25px">
-          <div class="col-md-6" style="padding-left:0px;padding-right:2.5px">
-            <div class="bg-danger o-hidden h-100"  style="height: 95px;margin-bottom:5px;padding:0px 15px;background:#f0493a;border-radius: 5px;">
-              <h4 style="font-weight:bolder;">Centennial Gym</h4>
-              <center>
-                <h5 style="font-size:40px">200 /
-                  <b style="font-size:25px;">250</b>
-                </h5>
-              </center>
-            </div>
-          </div>
-          <div class="col-md-6" style="padding-left:2.5px;padding-right:2.5px">
-            <div class="bg-danger o-hidden h-100"  style="height: 95px; margin-bottom:5px;padding:0px 15px;background:#ff9801;border-radius: 5px;">
-              <h4 style="font-weight:bolder;">Old Gym</h4>
-              <center>
-                <h5 style="font-size:40px">120 /
-                  <b style="font-size:25px;">200</b>
-                </h5>
-              </center>
-            </div>
-          </div>
-          <div class="col-md-6" style="padding-left:0px;padding-right:2.5px">
-            <div class="bg-danger o-hidden h-100"  style="height: 100px;padding:0px 15px;background:#434d66;border-radius: 5px;">
-              <h4 style="font-weight:bolder;">PGT</h4>
-              <center>
-                <h5 style="font-size:40px">20 /
-                  <b style="font-size:25px;">100</b>
-                </h5>
-              </center>
-            </div>
-          </div>
-          <div class="col-md-6" style="padding-left:2.5px;padding-right:2.5px">
-            <div class="bg-danger o-hidden h-100"  style="height: 100px;padding:0px 15px;background:#2297f3;border-radius: 5px;">
-              <h4 style="font-weight:bolder;">Patio Minerva</h4>
-              <center>
-                <h5 style="font-size:40px">180 /
-                  <b style="font-size:25px;">200</b>
-                </h5>
-              </center>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-2 hidden-md hidden-sm hidden-xs" style="padding-left:2.5px;padding-right:0px">
-          <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#4db151;border-radius: 5px;">
-            <h3 style="font-weight:bolder;">Entrance</h3>
-            <center>
-              <h5 style="font-size:35px;padding-top:30px;">120 /
-                <b style="font-size:25px;">200</b>
-              </h5>
-            </center>
-          </div>
-        </div> -->
+      
       </div>
           <div class="col-lg-4 no-padding">
             <div class="panel panel-default">
@@ -413,7 +352,7 @@
             <div class="panel panel-default">
               <div class="panel-heading">Incoming Payments</div>
               <div class="panel-body">
-                <div style="overflow:auto">
+                <div class="table-responsive">
                   <table class="table table-bordered table-hover">
                     <thead>
                       <tr>

@@ -23,6 +23,10 @@ class Parking extends Model
     return $this->hasOne('App\Colors','id','color_id');
   }
 
+  public function carRate(){
+    return $this->hasOne('App\Rate','car_id','car_type_id');
+  }
+
   public function carType(){
     return $this->hasOne('App\CarType','id','car_type_id');
   }

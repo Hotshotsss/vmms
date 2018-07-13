@@ -20,7 +20,7 @@
 
 			            </div>
 			            <div class="panel-body">
-			             <div style="overflow:auto;">
+			             <div class="table-responsive">
                      <table width="100%" class="table table-striped table-bordered table-hover" id="dev-table">
                        <div class="panel-body1">
                          <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
@@ -69,7 +69,7 @@
 
                         <div class="col-lg-6">
                             <h3 style="margin-top: 0px;text-align:center;font-weight:bold;">Information</h3>
-                          <div style="overflow:auto;">
+                          <div class="table-responsive">
                             <table class="table table-bordered">
                               <tr>
                                   <td class="col-md-5"> <label>Plate Number: </label> </td>
@@ -84,7 +84,7 @@
                                   <td class="col-md-7" id="monitoring-timein">  </td>
                               </tr>
                               <tr>
-                                  <td class="col-md-5"> <label>Exceeding Hours: </label> </td>
+                                  <td class="col-md-5"> <label>Hours: </label> </td>
                                   <td class="col-md-7" id="monitoring-hours"> </td>
                               </tr>
                               <tr>
@@ -99,7 +99,7 @@
                           </div>
                         </div>
                         <div class="col-lg-6">
-                          <h3 style="margin-top: 0px;text-align:center;;font-weight:bold;">Payments</h3>
+                          <h3 style="margin-top: 0px;text-align:center;font-weight:bold;">Payments</h3>
 
                           <div style="overflow:auto;">
                             <table class="table table-bordered">

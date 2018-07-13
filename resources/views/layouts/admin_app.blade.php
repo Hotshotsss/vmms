@@ -83,55 +83,47 @@
 
                 <div class="sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
-                        <ul class="nav" id="side-menu">
-                            <li class="sidebar-search">
-                                <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                                </div>
-                                <!-- /input-group -->
+                        <ul class="nav" id="side-menu" style="padding-top:10px;">
+                            <li>
+                                <a href="/admin/home"><i class="fas fa-chart-bar fa-fw"></i> Homepage </a>
                             </li>
                             <li>
-                                <a href="/admin/home"><i class="fa fa-bar-chart-o fa-fw"></i> Homepage </a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-gear fa-fw"></i> Parking Monitoring Settings <span class="fa arrow"></span></a>
+                                <a href="#"><i class="fas fa-cogs fa-fw"></i> Parking Monitoring Settings <span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
 
                                     <li>
-                                        <a href="/admin/parking"><i class="fa fa-map-marker fa-fw"></i> Add Parking Location </a>
+                                        <a href="/admin/parking"><i class="fas fa-map-marker-alt fa-fw"></i> Add Parking Location </a>
+                                    </li>
+                                    <li>
+                                        <a href="/admin/purpose"><i class="fas fa-bullseye fa-fw"></i> Add Parking Purpose </a>
                                     </li>
 
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="CarSettings.php"><i class="fa fa-gear fa-fw"></i> Car Settings <span class="fa arrow"></span></a>
+                                <a href="CarSettings.php"><i class="fas fa-cogs fa-fw"></i> Car Settings <span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="/admin/view-car"><i class="fa fa-road fa-fw"></i> Add Car Type </a>
+                                        <a href="/admin/view-car"><i class="fas fa-road fa-fw"></i> Add Car Type </a>
                                     </li>
                                     <li>
-                                        <a href="/admin/view-violation"><i class="fa fa-road fa-fw"></i> Add Violation</a>
+                                      <a href="/admin/flat-rate"><i class="fas fa-pencil-alt fa-fw"></i> Flat Rate Settings </a>
                                     </li>
                                     <li>
-                                        <a href="/admin/discount"><i class="fa  fa-sliders fa-fw"></i> Discount Settings </a>
+                                        <a href="/admin/view-violation"><i class="fas fa-road fa-fw"></i> Add Violation</a>
                                     </li>
                                     <li>
-                                        <a href="/admin/flat-rate"><i class="fa fa-pencil-square fa-fw"></i> Flat Rate Settings </a>
+                                        <a href="/admin/discount"><i class="fas fa-sliders-h fa-fw"></i> Discount Settings </a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="/admin/reports"><i class="fa fa-bar-chart-o fa-fw"></i> View Reports </a>
+                                <a href="/admin/reports"><i class="fas fa-chart-bar fa-fw"></i> View Reports </a>
                             </li>
                             <li>
-                                <a href="/admin/employee-schedule"><i class="fa fa-clock-o fa-fw"></i> Employee Schedule </a>
+                                <a href="/admin/employee-schedule"><i class="fas fa-clock fa-fw"></i> Employee Schedule </a>
                             </li>
                             <!-- <li>
                                 <a href="RateSettings"><i class="fa fa-bar-chart-o fa-fw"></i> Rate Settings </a>

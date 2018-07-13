@@ -22,6 +22,17 @@ $(document).on('click','#edit-parking',function(){
   $('#editParking').modal('show');
 });
 
+
+$(document).on('click','#edit-purpose',function(){
+
+  var values = $(this).data('id');
+
+  $('#editPurpose input[name="purpose"]').val(values.purpose);
+  $('#editPurpose button[name="id"]').val(values.id);
+
+  $('#editPurpose').modal('show');
+});
+
 $(document).on('click','#edit-password',function(){
 
   var values = $(this).data('id');
@@ -63,80 +74,18 @@ $(document).ready(function() {
       center: 'title',
 
     },
-
     displayEventEnd: true,
 
     defaultView: 'month',
-    defaultDate: '2018-03-12',
+    defaultDate: new Date(),
     navLinks: true, // can click day/week names to navigate views
     eventLimit: true, // allow "more" link when too many events
-
-    events: [
-      {
-        title: 'Jason Lopez - Gate Entrance',
-        start: '2018-03-01 08:00:00',
-        end: '2018-03-01 15:00:00',
-        description: 'gate',
-        textColor: 'pink',
-      },
-      {
-        title: 'Joyce Ann',
-        start: '2018-03-01 15:00:00',
-        end: '2018-03-02 21:00:00',
-
-      },
-
-      {
-        title: 'Long Event',
-        start: '2018-03-07',
-        end: '2018-03-10'
-      },
-      {
-        id: 999,
-        title: 'Repeating Event',
-        start: '2018-03-09T16:00:00'
-      },
-      {
-        id: 999,
-        title: 'Repeating Event',
-        start: '2018-03-16T16:00:00'
-      },
-      {
-        title: 'Conference',
-        start: '2018-03-11',
-        end: '2018-03-13'
-      },
-      {
-        title: 'Meeting',
-        start: '2018-03-12T10:30:00',
-        end: '2018-03-12T12:30:00'
-      },
-      {
-        title: 'Lunch',
-        start: '2018-03-12T12:00:00'
-      },
-      {
-        title: 'Meeting',
-        start: '2018-03-12T14:30:00'
-      },
-      {
-        title: 'Happy Hour',
-        start: '2018-03-12T17:30:00'
-      },
-      {
-        title: 'Dinner',
-        start: '2018-03-12T20:00:00'
-      },
-      {
-        title: 'Birthday Party',
-        start: '2018-03-13T07:00:00'
-      },
-      {
-        title: 'Click for Google',
-        url: 'http://google.com/',
-        start: '2018-03-28'
+    events: {
+      url: '/admin/getSched',
+      error: function() {
+        alert('No Schedules');
       }
-    ]
+    },
   });
 
 });

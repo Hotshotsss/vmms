@@ -42,6 +42,7 @@
     background-color: #9c27b0;
     border-color: #9c27b0;
 }
+
 .btn-primary ,.btn-primary:hover,.btn-primary:focus,.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
     color: #fff;
     background-color: #d05ce3;
@@ -138,4 +139,21 @@ min-height: 100%;  background-attachment: fixed;
 .table-hover>tbody>tr:hover>td>b>a, .table-hover>tbody>tr:hover>th>b>a {
     color: white !important;
     text-decoration: underline;
+}
+.modal-header{
+  padding-bottom: 0px;
+}
+.modal-title{
+  font-weight: bolder;
+  font-size: 25px;
+}
+@media (max-width: 767px) {
+    .table-responsive .dropdown-menu {
+        position: static !important;
+    }
+}
+@media (min-width: 768px) {
+    .table-responsive {
+        overflow: visible;
+    }
 }
