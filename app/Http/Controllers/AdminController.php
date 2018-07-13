@@ -118,10 +118,10 @@ class AdminController extends Controller
 
     return view('admin.reports')->with(['cars'=>$car])->with('day','Filter');
   }
-  public function reportPDF(){
+  public function reportPDF($param){
 
     $now = Carbon::now()->subDay();
-    $days28 = Carbon::now()->subDays(365);
+    $days28 = Carbon::now()->subDays($param);
     $car = Parking::whereNotNull('time_out')->whereBetween('time_out',[$days28,$now])->get();
       $pdf = App::make('dompdf.wrapper');
       $pdf->setPaper('legal', 'landscape');
@@ -133,28 +133,28 @@ class AdminController extends Controller
     $days28 = Carbon::now()->subDays(1);
     $car = Parking::whereNotNull('time_out')->whereBetween('time_out',[$days28,$now])->get();
 
-    return view('admin.reports')->with(['cars'=>$car])->with('day','1 Day Ago');
+    return view('admin.reports')->with(['cars'=>$car])->with(['day'=>'1 Day Ago','param'=>'1']);
   }
   public function weekly(){
     $now = Carbon::now()->subDay();
     $days28 = Carbon::now()->subDays(7);
     $car = Parking::whereNotNull('time_out')->whereBetween('time_out',[$days28,$now])->get();
 
-    return view('admin.reports')->with(['cars'=>$car])->with('day','7 Days Ago');
+    return view('admin.reports')->with(['cars'=>$car])->with(['day'=>'7 Days Ago','param'=>'7']);
   }
   public function monthly(){
     $now = Carbon::now()->subDay();
     $days28 = Carbon::now()->subDays(30);
     $car = Parking::whereNotNull('time_out')->whereBetween('time_out',[$days28,$now])->get();
 
-    return view('admin.reports')->with(['cars'=>$car])->with('day','30 Days Ago');
+    return view('admin.reports')->with(['cars'=>$car])->with(['day'=>'30 Days Ago','param'=>'30']);
   }
   public function yearly(){
     $now = Carbon::now()->subDay();
     $days28 = Carbon::now()->subDays(365);
     $car = Parking::whereNotNull('time_out')->whereBetween('time_out',[$days28,$now])->get();
 
-    return view('admin.reports')->with(['cars'=>$car])->with('day','365 Days Ago');
+    return view('admin.reports')->with(['cars'=>$car])->with(['day'=>'365 Days Ago','param'=>'365']);
   }
   public function parking(){
     $slots = ParkingSlot::all();
