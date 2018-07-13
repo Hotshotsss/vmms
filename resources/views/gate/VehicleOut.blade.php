@@ -73,27 +73,27 @@
                             <table class="table table-bordered">
                               <tr>
                                   <td class="col-md-5"> <label>Plate Number: </label> </td>
-                                  <td class="col-md-7" id="monitoring-plate"> </td>
+                                  <td class="col-md-7 input-value" id="monitoring-plate"> </td>
                               </tr>
                               <tr>
                                   <td class="col-md-5"> <label>Vehicle Model: </label> </td>
-                                  <td class="col-md-7" id="monitoring-model"> </td>
+                                  <td class="col-md-7 input-value" id="monitoring-model"> </td>
                               </tr>
                               <tr>
                                   <td class="col-md-5"> <label>Time In: </label> </td>
-                                  <td class="col-md-7" id="monitoring-timein">  </td>
+                                  <td class="col-md-7 input-value" id="monitoring-timein">  </td>
                               </tr>
                               <tr>
                                   <td class="col-md-5"> <label>Hours: </label> </td>
-                                  <td class="col-md-7" id="monitoring-hours"> </td>
+                                  <td class="col-md-7 input-value" id="monitoring-hours"> </td>
                               </tr>
                               <tr>
                                   <td class="col-md-5"> <label>Parking Location: </label> </td>
-                                  <td class="col-md-7" id="monitoring-location">  </td>
+                                  <td class="col-md-7 input-value" id="monitoring-location">  </td>
                               </tr>
                               <tr>
                                   <td class="col-md-5"> <label>Violation: </label> </td>
-                                  <td class="col-md-7" id="monitoring-violation">  </td>
+                                  <td class="col-md-7 input-value" id="monitoring-violation">  </td>
                               </tr>
                             </table>
                           </div>
@@ -104,20 +104,24 @@
                           <div style="overflow:auto;">
                             <table class="table table-bordered">
                               <tr>
-                                  <td class="col-md-5"> <label>First 3 Hours: </label> </td>
-                                  <td class="col-md-7"> 40.00 </td>
+                                  <td class="col-md-5 input-value" id="first-hours-label" style="font-weight:bold"> <label>First 3 Hours: </label> </td>
+                                  <td class="col-md-7 input-value" id="first-hours-value"> 40.00 </td>
                               </tr>
                               <tr>
                                   <td class="col-md-5"> <label>Total Rate of Extension: </label> </td>
-                                  <td class="col-md-7" id="monitoring-exceeding"> </td>
+                                  <td class="col-md-7 input-value" id="monitoring-exceeding"> </td>
                               </tr>
                               <tr>
                                   <td class="col-md-5"> <label>Penalty: </label> </td>
-                                  <td class="col-md-7" id="monitoring-penalty">  </td>
+                                  <td class="col-md-7 input-value" id="monitoring-penalty">  </td>
+                              </tr>
+                              <tr>
+                                  <td class="col-md-5"> <label>Less: </label> </td>
+                                  <td class="col-md-7 input-value" id="monitoring-reason">  </td>
                               </tr>
                               <tr>
                                   <td class="col-md-5"> <label>Total Price: </label> </td>
-                                  <td class="col-md-7" id="monitoring-total">  </td>
+                                  <td class="col-md-7 input-value" id="monitoring-total">  </td>
                               </tr>
                             </table>
                           </div>
@@ -125,6 +129,12 @@
 
 
                   </div>
+                  <div class="form-group">
+                    <div class="col-lg-6">
+                    <label><input type="checkbox" name="hospital_proof"> Doctor's Signature Proof?</label>
+                  </div>
+                  </div>
+
 		          </div>
 		           <div class="modal-footer" style="border-color:white;">
 		            <button type="submit" name="out" class="btn btn-success" >Check Out</button>

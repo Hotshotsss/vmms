@@ -5,8 +5,6 @@
 
 <div class="col-lg-12">
     <center><h1 class="page-header">Vehicle Monitoring</h1></center>
-
-
     <div class="row">
  			    <div class="col-lg-12">
  			        <div class="panel panel-default">

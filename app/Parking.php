@@ -8,7 +8,7 @@ class Parking extends Model
 {
 
   protected $fillable = [
-    'car_type_id','location_id','vehicle_model','vehicle_color','remarks','plate_number','parking_reason','time_in','time_out','violation','penalty','detailed_location','payment_status'
+    'car_type_id','location_id','vehicle_model','vehicle_color','hospital_proof','remarks','plate_number','parking_reason','time_in','time_out','violation','penalty','detailed_location','payment_status'
   ];
 
   public function violations(){

@@ -107,7 +107,7 @@ class GateController extends Controller
       $car->vehicle_color = Input::get("txt-vehiclecolor");
       $car->remarks = Input::get("txt-remarks");
       $car->time_in = Carbon::now();
-
+      $car->hospital_proof = 0;
       $car->save();
       return redirect()->back();
 
@@ -115,7 +115,6 @@ class GateController extends Controller
 
     public function vehicleOutView(){
       $data = Parking::where('time_out',null)->with(['violations.violation_name','location','carRate'])->get();
-
       return view('gate.VehicleOut')->with('car',$data);
     }
 
@@ -140,12 +139,52 @@ class GateController extends Controller
 
     public function updateParking(Request $request){
       $data = Parking::find($request->out);
-
+      $proof = $request->hospital_proof == null ? 0 : 1;
       $data->time_out = Carbon::now();
-
+      $data->hospital_proof = $proof;
       $data->save();
-      return redirect()->back();
 
+      $total = $this->calculatePayments($data);
+
+      return redirect()->back();
+    }
+
+    public function calculatePayments($value){
+      if($value->parking_reason == 1 && $value->hospital_proof){
+        $days = ($value->time_out)->diffInDays($value->time_in);
+        return 25 * $days;
+      }else if($value->parking_reason == 2){
+        $minutes = ($value->time_out)->diffInMinutes($value->time_in);
+        if($minutes < 16){
+          return '0';
+        }else{
+          return  $this->normalCalculate($value);
+        }
+      }else if($value->parking_reason == 3){
+        return '0';
+      }else{
+        return $this->normalCalculate($value);
+      }
+    }
+    public function normalCalculate($value){
+      $hours = ($value->time_out)->diffInHours($value->time_in);
+      $violations = $value->violations;
+      $car_rate = $value->carRate;
+
+      $standard_hours = $car_rate->standard_hours;
+      $standard_rate = $car_rate->standard_rate;
+      $hourly_rate = $car_rate->hour_rate;
+
+      $penalty = $violations->sum('violation_name.penalty');
+      $exceedingHours = 0;
+
+      if($hours > $standard_hours){
+        $exceedingHours = ($hours - $standard_hours) * $hourly_rate;
+      }
+
+      $total = $exceedingHours + $standard_rate + $penalty;
+
+      return $total;
     }
 
 }
