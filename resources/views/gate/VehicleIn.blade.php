@@ -15,8 +15,8 @@
         <label>Vehicle Model</label>
         <input type = "text" class = "form-control" name = "txt-model" placeholder="Enter Model" required>
         <label>Vehicle Type</label>
-        <select class = "form-control" name = "txt-vehicletype">
-
+        <select class = "form-control" name = "txt-vehicletype" required>
+          <option value="" disabled selected>Select Vehicle Type</option>
           @foreach ($vehicle as $value)
           <option value="{{$value->id}}">{{$value->type}}</option>
           @endforeach
@@ -34,8 +34,8 @@
 
         </select>
         <label>Purpose</label>
-        <select class = "form-control" name = "txt-purpose">
-
+        <select class = "form-control" name = "txt-purpose" required>
+          <option value="" disabled selected>Select Purpose</option>
           @foreach ($purpose as $value)
           <option value="{{$value->id}}">{{$value->purpose}}</option>
           @endforeach

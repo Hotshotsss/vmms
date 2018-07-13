@@ -36,6 +36,11 @@ Route::prefix('admin')->group(function () {
     Route::post('add-location','AdminController@addParking');
     Route::post('edit-parking','AdminController@editParking');
     Route::post('delete-parking','AdminController@deleteParking');
+    //Parking Purpose
+    Route::get('purpose','AdminController@purpose');
+    Route::post('add-purpose','AdminController@addPurpose');
+    Route::post('edit-purpose','AdminController@editPuropose');
+    Route::post('delete-purpose','AdminController@deletePurpose');
     // Route::get('RateSettings','GateController@RateSets');
     Route::get('reports','AdminController@reports');
     Route::get('reports/daily','AdminController@daily');

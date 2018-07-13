@@ -22,8 +22,9 @@ class CreateParkingTable extends Migration
             $table->string('parking_reason');
             $table->dateTime('time_in');
             $table->dateTime('time_out')->nullable();
-            $table->tinyInteger('violation')->nullable();
+            $table->string('vehicle_color')->nullable();
             $table->decimal('penalty',11,2)->nullable();
+            $table->string('remarks')->nullable();
             $table->string('detailed_location')->nullable();
             $table->string('payment_status')->nullable();
             $table->timestamps();

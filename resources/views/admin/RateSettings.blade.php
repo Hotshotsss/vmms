@@ -36,7 +36,7 @@
             <div class="panel panel-default">
               <div class="panel-heading">Incoming Payments</div>
               <div class="panel-body">
-                <div style="overflow:auto">
+                <div class="table-responsive">
                   <table class="table table-bordered table-hover">
                     <thead>
                       <tr>

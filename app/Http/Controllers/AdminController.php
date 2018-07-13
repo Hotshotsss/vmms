@@ -10,6 +10,7 @@ use App\Rate;
 use App\Parking;
 use App\ParkingSlot;
 use App\EmployeeSchedule;
+use App\Purpose;
 use Carbon\Carbon;
 use Validator;
 use DB;
@@ -176,6 +177,38 @@ class AdminController extends Controller
       $parking = ParkingSlot::find($request->id)->delete();
       return redirect()->back()->with('success','Parking Location Deleted!');
     }
+
+    public function purpose(){
+      $slots = Purpose::all();
+
+      return view('admin.purpose')->with(['purpose'=>$slots]);
+    }
+    public function addPurpose(Request $request){
+
+      Validator::make($request->all(), [
+        'purpose' => 'required|unique:purpose|max:155'
+        ])->validate();
+
+        $location = new Purpose;
+        $location->purpose = $request->purpose;
+
+        $location->save();
+
+        return redirect()->back()->with('success','Parking Purpose Added!');
+      }
+      public function editPuropose(Request $request){
+
+        $parking = Purpose::find($request->id);
+
+        $parking->purpose = $request->purpose;
+        $parking->save();
+        return redirect()->back()->with('success','Parking Purpose Edited!');
+      }
+      public function deletePurpose(Request $request){
+
+        $parking = Purpose::find($request->id)->delete();
+        return redirect()->back()->with('success','Parking Purpose Deleted!');
+      }
 
     public function viewSchedule(){
       $users = User::all();

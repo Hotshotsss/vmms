@@ -114,7 +114,7 @@ class GateController extends Controller
     }
 
     public function vehicleOutView(){
-      $data = Parking::where('time_out',null)->with(['violations.violation_name','location'])->get();
+      $data = Parking::where('time_out',null)->with(['violations.violation_name','location','carRate'])->get();
 
       return view('gate.VehicleOut')->with('car',$data);
     }
