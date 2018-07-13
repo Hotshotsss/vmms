@@ -31,3 +31,8 @@ $(document).on('click','#view-details',function(){
   $('#vehicleMonitoring button[name="out"]').val(values.id);
   $('#vehicleMonitoring').modal('show');
 });
+
+$(document).on('click','#check-out',function(){
+  location.reload();
+  $('#vehicleMonitoring').modal('hide');
+});

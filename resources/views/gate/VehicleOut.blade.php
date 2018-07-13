@@ -127,7 +127,7 @@
                   </div>
 		          </div>
 		           <div class="modal-footer" style="border-color:white;">
-		            <button type="submit" name="out" class="btn btn-success" >Check Out</button>
+		            <button  type="submit" name="out" class="btn btn-success" id="check-out" formtarget="_blank" >Check Out</button>
 		          </div>
 		         {!!Form::close()!!}
       </div>

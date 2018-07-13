@@ -144,7 +144,12 @@ class GateController extends Controller
       $data->time_out = Carbon::now();
 
       $data->save();
-      return redirect()->back();
+
+      $pdf = App::make('dompdf.wrapper');
+      $customPaper = array(0,0,230,300);
+      $pdf->setPaper($customPaper);
+      $pdf->loadView('gate.PDF');
+      return $pdf->stream();
 
     }
 
