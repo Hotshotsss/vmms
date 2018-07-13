@@ -62,6 +62,7 @@
       <div class = "modal-content modal-lg">
             {!! Form::open(['url'=>'gate/update-parking','method'=>'post','id'=>'checkOut-submit']) !!}
 		        <div class = "modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
 		          <h4 class="modal-title" id="myModalLabel">Details</h4>
 		        </div>
 		           <div class="modal-body">

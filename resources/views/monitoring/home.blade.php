@@ -198,4 +198,59 @@
   </div>
 </div>
 
+@if(Auth::check() && Auth::user()->temporary_password)
+<div id="editPassword" data-backdrop="static" data-keyboard="false" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <!-- Modal content-->
+    {{Form::open(['url'=>'gate/edit-password','method'=>'post'])}}
+    <div class="modal-content">
+      <div class="modal-header">
+    
+        <center><h2 class="modal-title"><b>Change Password</b></h2></center>
+      </div>
+
+      @if(isset($errors) && count($errors->password) > 0)
+      <div id="div-login-msg" class="alert alert-danger">
+        @foreach ($errors->password->all() as $error)
+        <li style="list-style: none;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>{{ $error}}</li>
+        @endforeach
+      </div>
+      @endif
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label> Username: </label>
+              <input type="text" readonly name="username" class="form-control" placeholder="Enter Username" value="{{Auth::user()->username}}" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label> New Password: </label>
+              <input type='password'  class="form-control" maxlength="255"  name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 7 or more characters" placeholder="Enter Password" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label> Confirm Password:</label>
+              <input type='password'  class="form-control" maxlength="255" name="password_confirmation" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 7 or more characters" placeholder="Enter Confirm Passwod" required>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <center>
+            <button type="submit" class="btn btn-primary" value="{{Auth::user()->id}}" name="change">Submit</button>
+          </center>
+        </div>
+      </div>
+    </div>
+    {{Form::close()}}
+  </div>
+</div>
+@endif
+
 @endsection

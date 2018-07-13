@@ -69,3 +69,7 @@ $(document).on('click','#view-details',function(){
 // $(document).on('submit','#checkOut-submit',function(){
 //   location.reload();
 // });
+
+if($('#editPassword').length){
+  $('#editPassword').modal('show');
+}

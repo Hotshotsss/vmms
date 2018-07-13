@@ -101,3 +101,6 @@ $(document).ready(function() {
   });
 
 });
+if($('#editPassword').length){
+  $('#editPassword').modal('show');
+}

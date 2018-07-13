@@ -1,3 +1,7 @@
+if($('#editPassword').length){
+  $('#editPassword').modal('show');
+}
+
 /*Violation*/
 $('.select-violation').on('change', function() {
   var violation = $(this);

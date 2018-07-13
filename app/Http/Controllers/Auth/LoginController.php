@@ -16,20 +16,6 @@ class LoginController extends Controller
   protected $referrer;
   protected $type;
 
-  public function __construct(){
-    // $url = \URL::previous();
-    //
-    // if(str_contains($url,'gate')){
-    //   $this->referrer = 'gate';
-    //   $this->type = 1;
-    // }else if(str_contains($url,'monitor')){
-    //   $this->referrer = 'monitor';
-    //   $this->type = 2;
-    // }else{
-    //   $this->referrer = 'admin';
-    //   $this->type = 0;
-    // }
-  }
   /**
    * Show the application's login form.
    *
@@ -95,7 +81,6 @@ class LoginController extends Controller
    */
   protected function attemptLogin(Request $request)
   {
-
       return $this->guard()->attempt(
           $this->credentials($request), $request->filled('remember')
       );

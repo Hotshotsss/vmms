@@ -45,68 +45,60 @@
     </div>
   </a>
 </div>
-<!--
-<div class="col-lg-6 no-padding">
-  <a href="vehicle-out">
-    <div class="report" onmouseover="bigReport()" onmouseout="normalReport()">
-      <div class="panel-body centerContent reportContent">
+
+@if(Auth::check() && Auth::user()->temporary_password)
+<div id="editPassword" data-backdrop="static" data-keyboard="false" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <!-- Modal content-->
+    {{Form::open(['url'=>'gate/edit-password','method'=>'post'])}}
+    <div class="modal-content">
+      <div class="modal-header">
+      
+        <center><h2 class="modal-title"><b>Change Password</b></h2></center>
+      </div>
+
+      @if(isset($errors) && count($errors->password) > 0)
+      <div id="div-login-msg" class="alert alert-danger">
+        @foreach ($errors->password->all() as $error)
+        <li style="list-style: none;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i>{{ $error}}</li>
+        @endforeach
+      </div>
+      @endif
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label> Username: </label>
+              <input type="text" readonly name="username" class="form-control" placeholder="Enter Username" value="{{Auth::user()->username}}" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label> New Password: </label>
+              <input type='password'  class="form-control" maxlength="255"  name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 7 or more characters" placeholder="Enter Password" required>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-group">
+              <label> Confirm Password:</label>
+              <input type='password'  class="form-control" maxlength="255" name="password_confirmation" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 7 or more characters" placeholder="Enter Confirm Passwod" required>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
           <center>
-              <i class="fas fa-sign-out-alt" style="font-size:120px"></i>
-            <h1>Vehicle Out</h1>
-        </center>
-      </div>
-    </div>
-  </a>
-</div> -->
-
-<!-- <div class="col-lg-6">
-  <div class="panel-body">
-      <center><a href="vehicle-monitoring-in"><img src = "..\img\search.png" width = "100px" height="100px"></a></center>
-      <center><span><h2>Vehicle Monitoring In</h2></span></center>
-  </div>
-</div> -->
-
-  <!-- <div class="col-lg-12 no-padding" style="min-height: 520px;">
-    <a href="vehicle-in">
-      <div class="parking" onmouseover="bigParking()" onmouseout="normalParking()">
-        <div class="panel-body centerContent parkingContent">
-            <center>
-              <i class="fas fa-sign-out-alt" aria-hidden="true" style="font-size:120px"></i>
-              <h1>Vehicle In</h1>
+            <button type="submit" class="btn btn-primary" value="{{Auth::user()->id}}" name="change">Submit</button>
           </center>
         </div>
       </div>
-    </a>
-  </div>
-
-  <div class="col-lg-12 no-padding">
-    <a href="menu.php?webpage=vehicle_report">
-      <div class="report" onmouseover="bigReport()" onmouseout="normalReport()">
-        <div class="panel-body centerContent reportContent">
-            <center>
-                <i class="fas fa-chart-line" style="font-size:120px"></i>
-              <h1>Vehicle Report</h1>
-          </center>
-        </div>
-      </div>
-    </a>
-
-  </div>
- -->
-
-    <!-- <div class="col-lg-6">
-      <div class="panel-body">
-          <center><a href="vehicle-out"><img src = "..\img\signout.png" width = "100px" height="100px"></a></center>
-          <center><span><h2>Vehicle Out</h2></span></center>
-      </div>
     </div>
-  </div> -->
-
-    <!-- <div class="col-lg-6">
-      <div class="panel-body">
-          <center><a href="vehicle-monitoring-out"><img src = "..\img\search.png" width = "100px" height="100px"></a></center>
-          <center><span><h2>Vehicle Monitoring Out</h2></span></center>
-      </div>
-    </div> -->
+    {{Form::close()}}
+  </div>
+</div>
+@endif
 
   @endsection

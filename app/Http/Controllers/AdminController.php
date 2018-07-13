@@ -14,11 +14,13 @@ use App\Purpose;
 use Carbon\Carbon;
 use Validator;
 use DB;
+use Hash;
 use PDF;
 use App;
 class AdminController extends Controller
 {
   public function home(Request $request){
+  
     $slots = ParkingSlot::all();
     $parkings = Parking::whereNull('time_out')->count();
 
@@ -307,6 +309,7 @@ class AdminController extends Controller
       $user = User::find($request->change);
 
       $user->password = Hash::make($request->password);
+      $user->temporary_password = null;
       $user->save();
 
       return redirect()->back()->with('success','Password Updated!');

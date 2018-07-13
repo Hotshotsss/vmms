@@ -79,6 +79,7 @@ Route::prefix('monitoring')->group(function () {
   Route::middleware(['monitor','revalidate'])->group(function () {
 
     Route::get('home', 'MonitoringController@Home');
+    Route::post('edit-password', 'AdminController@editPassword');
     Route::post('add-location', 'MonitoringController@addLocation');
     Route::post('edit-location', 'MonitoringController@editLocation');
     Route::post('add-violation', 'MonitoringController@addViolation');
@@ -109,6 +110,7 @@ Route::prefix('gate')->group(function () {
     Route::get('vehicle-monitoring-in', 'GateController@vehicleMonitoringIn');
     Route::get('vehicle-monitoring-out', 'GateController@vehicleMonitoringOut');
 
+    Route::post('edit-password', 'AdminController@editPassword');
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
   });
 });
