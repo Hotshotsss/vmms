@@ -43,7 +43,7 @@ Route::prefix('admin')->group(function () {
     Route::get('reports/weekly','AdminController@weekly');
     Route::get('reports/monthly','AdminController@monthly');
     Route::get('reports/yearly','AdminController@yearly');
-    Route::get('reportPDF','AdminController@reportPDF');
+    Route::get('reportPDF/{param}','AdminController@reportPDF');
     //FlatRate
     Route::get('flat-rate','AdminController@flatRate');
     Route::post('add-rate','AdminController@addRate');
