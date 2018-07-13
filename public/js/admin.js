@@ -22,6 +22,17 @@ $(document).on('click','#edit-parking',function(){
   $('#editParking').modal('show');
 });
 
+
+$(document).on('click','#edit-purpose',function(){
+
+  var values = $(this).data('id');
+
+  $('#editPurpose input[name="purpose"]').val(values.purpose);
+  $('#editPurpose button[name="id"]').val(values.id);
+
+  $('#editPurpose').modal('show');
+});
+
 $(document).on('click','#edit-password',function(){
 
   var values = $(this).data('id');
@@ -72,7 +83,7 @@ $(document).ready(function() {
     events: {
       url: '/admin/getSched',
       error: function() {
-        alert('error');
+        alert('No Schedules');
       }
     },
   });

@@ -37,6 +37,11 @@ Route::prefix('admin')->group(function () {
     Route::post('add-location','AdminController@addParking');
     Route::post('edit-parking','AdminController@editParking');
     Route::post('delete-parking','AdminController@deleteParking');
+    //Parking Purpose
+    Route::get('purpose','AdminController@purpose');
+    Route::post('add-purpose','AdminController@addPurpose');
+    Route::post('edit-purpose','AdminController@editPuropose');
+    Route::post('delete-purpose','AdminController@deletePurpose');
     // Route::get('RateSettings','GateController@RateSets');
     Route::get('reports','AdminController@reports');
     Route::get('reports/daily','AdminController@daily');
@@ -93,11 +98,11 @@ Route::prefix('gate')->group(function () {
 
     Route::get('home', 'GateController@menu');
     // vehicle in
-    Route::get('vehicle-in', 'GateController@vehicleIn');
+    Route::get('vehicle-in', 'GateController@vehicleIn')->middleware('entrance');
 
     Route::post('add-in', 'GateController@addIn');
     // vehicle out
-    Route::get('vehicle-out', 'GateController@vehicleOutView');
+    Route::get('vehicle-out', 'GateController@vehicleOutView')->middleware('exitg');
     Route::post('update-parking','GateController@updateParking');
 
     // vehicle monitoring

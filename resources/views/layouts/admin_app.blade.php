@@ -94,6 +94,9 @@
                                     <li>
                                         <a href="/admin/parking"><i class="fas fa-map-marker-alt fa-fw"></i> Add Parking Location </a>
                                     </li>
+                                    <li>
+                                        <a href="/admin/purpose"><i class="fas fa-bullseye fa-fw"></i> Add Parking Purpose </a>
+                                    </li>
 
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -105,13 +108,13 @@
                                         <a href="/admin/view-car"><i class="fas fa-road fa-fw"></i> Add Car Type </a>
                                     </li>
                                     <li>
+                                      <a href="/admin/flat-rate"><i class="fas fa-pencil-alt fa-fw"></i> Flat Rate Settings </a>
+                                    </li>
+                                    <li>
                                         <a href="/admin/view-violation"><i class="fas fa-road fa-fw"></i> Add Violation</a>
                                     </li>
                                     <li>
                                         <a href="/admin/discount"><i class="fas fa-sliders-h fa-fw"></i> Discount Settings </a>
-                                    </li>
-                                    <li>
-                                        <a href="/admin/flat-rate"><i class="fas fa-pencil-alt fa-fw"></i> Flat Rate Settings </a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
