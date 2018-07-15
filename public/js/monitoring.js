@@ -42,3 +42,17 @@ $(document).on('click','#edit-location',function(){
 $(document).on('click','.close-violation',function(){
   $("#editLocation").modal("hide");
 });
+
+/*Violation*/
+$('.select-color').on('change', function() {
+  var color = $(this);
+  $('#valueColor').text(color.find(":selected").text());
+  $('#colorName').val(color.val());
+  $("#confirmColor button[type='submit']").val($(this).data('id').id);
+
+  $("#confirmColor").modal("show");
+});
+
+$(document).on('click','.close-color',function(){
+  $("#confirmColor").modal("hide");
+});

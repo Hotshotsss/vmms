@@ -5,6 +5,7 @@ $(document).on('click','#view-details',function(){
   var hours = Math.ceil(Math.abs(checkin-timeout)/36e5);
   var violations = values.violations;
   var totalPenalty = 0;
+  var tr_id = $(this).parents('tr').attr('id');
 
   var standard_hours = values.car_rate.standard_hours;
   var standard_rate = values.car_rate.standard_rate;
@@ -54,6 +55,7 @@ $(document).on('click','#view-details',function(){
   $('#monitoring-model').text(values.vehicle_model);
   $('#monitoring-timein').text(values.time_in);
   $('#monitoring-hours').text(hours);
+  $('#vehicleMonitoring #checkOut-submit').attr('data-tr-id',tr_id);
   $('#first-hours-label').text(standard_hours_text);
   $('#first-hours-value').text(Number(standard_rate).toFixed(2).toLocaleString('en'));
   $('#monitoring-exceeding').text(Number(exceedinghours).toFixed(2).toLocaleString('en'));
@@ -66,6 +68,8 @@ $(document).on('click','#view-details',function(){
   $('#vehicleMonitoring').modal('show');
 });
 
-// $(document).on('submit','#checkOut-submit',function(){
-//   location.reload();
-// });
+$(document).on('submit','#checkOut-submit',function(){
+  $('#vehicleMonitoring').modal('hide');
+  console.log($(this).data('tr-id'));
+  $('#'+$(this).data('tr-id')).remove();
+});

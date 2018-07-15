@@ -48,4 +48,14 @@ class MonitoringController extends Controller
 
         return redirect()->back()->with('success','success');
     }
+
+    public function addColor(Request $request){
+        // dd($request);
+        $color = Parking::find($request->id);
+        $color->vehicle_color = $request->colorName;
+
+        $color->save();
+
+        return redirect()->back()->with('success','success');
+    }
 }

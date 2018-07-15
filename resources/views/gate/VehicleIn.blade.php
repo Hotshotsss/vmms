@@ -22,17 +22,7 @@
           @endforeach
 
         </select>
-        <label>Vehicle Color</label>
-        <select class = "form-control" name = "txt-vehiclecolor">
 
-          <option value="Red">Red</option>
-          <option value="Blue">Blue</option>
-          <option value="Yellow">Yellow</option>
-          <option value="Black">Black</option>
-          <option value="Orange">Orange</option>
-          <option value="White">White</option>
-
-        </select>
         <label>Purpose</label>
         <select class = "form-control" name = "txt-purpose" required>
           <option value="" disabled selected>Select Purpose</option>
@@ -41,8 +31,7 @@
           @endforeach
 
         </select>
-        <label>Remarks</label>
-        <textarea class = "form-control" name = "txt-remarks" placeholder="Enter Remarks" required></textarea>
+
         <br>
         <center><button type = "submit" name = "btn-in" class = "btn btn-primary">Save</button></center>
       </div>

@@ -34,6 +34,8 @@
                   <th>Vehicle Color</th>
                   <th>Vehicle Remarks</th>
                   <th>Purpose</th>
+                  <th>Add Color</th>
+                  <th>Add Remarks</th>
                   <th>Existing Violation</th>
                   <th>Location</th>
                   <th>Add Violation</th>
@@ -50,6 +52,22 @@
                   <th>{{$value->vehicle_color}}</th>
                   <th>{{$value->remarks}}</th>
                   <th>{{$value->inPurpose->purpose}}</th>
+                  <th>
+                    <select class = "form-control select-color" data-id="{{$value}}" name = "txt-vehiclecolor">
+
+                      <option value="Red">Red</option>
+                      <option value="Blue">Blue</option>
+                      <option value="Yellow">Yellow</option>
+                      <option value="Black">Black</option>
+                      <option value="Orange">Orange</option>
+                      <option value="White">White</option>
+
+                    </select>
+                  </th>
+                  <th>
+                    <input type="text" name="txt-remarks" value="remarks" placeholder="Enter Remarks">
+                    <center><button type="submit" class="btn btn-primary open-remarks" name="id">Submit</button></center>
+                  </th>
                   <th>
                     @foreach($value->violations as $violation)
                     <li>{{$violation->violation_name->violation}}</li>
@@ -188,6 +206,68 @@
               <button type="button" class="btn btn-danger close-violation" name="button">Cancel</button>
 
             </div>
+          </center>
+
+        </div>
+      </div>
+
+      {!!Form::close()!!}
+    </div>
+  </div>
+</div>
+
+<div id="confirmColor" class="modal fade">
+  <div class = "modal-dialog modal-sm ">
+    <div class = "modal-content">
+      {!! Form::open(['url'=>'monitoring/add-color','method'=>'post']) !!}
+      <div class = "modal-header">
+        <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <div id ="d1" style="visibility: hidden;">Display</div>
+
+          <center>
+
+            <p id="color">Add Color :
+              <b id="valueColor"></b>
+              <input id="colorName" type="hidden" name="colorName">
+            </p>
+
+            <button type="submit" class="btn btn-primary" name="id">Yes</button>
+            <button type="button" class="btn btn-danger close-color" name="button">No</button>
+
+          </center>
+
+        </div>
+      </div>
+
+      {!!Form::close()!!}
+    </div>
+  </div>
+</div>
+
+<div id="confirmRemarks" class="modal fade">
+  <div class = "modal-dialog modal-sm ">
+    <div class = "modal-content">
+      {!! Form::open(['url'=>'monitoring/add-color','method'=>'post']) !!}
+      <div class = "modal-header">
+        <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <div id ="d1" style="visibility: hidden;">Display</div>
+
+          <center>
+
+            <p id="color">Add Color :
+              <b id="valueColor"></b>
+              <input id="colorName" type="hidden" name="colorName">
+            </p>
+
+            <button type="submit" class="btn btn-primary" name="id">Yes</button>
+            <button type="button" class="btn btn-danger close-color" name="button">No</button>
+
           </center>
 
         </div>

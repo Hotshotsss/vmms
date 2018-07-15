@@ -1,0 +1,27 @@
+
+
+*Discount Settings
+-wala pa laman??
+
+*Employee Schedule
+-wala way pra madelete yung schedule? or edit
+
+*User Settings
+-design nung table nagkakaroon ng scroll bar pag click nung action
+
+
+Gate Side
+*Vehicle In
+-yung vehicle color and remarks sa monitoring yun, pakilipat na lang - done
+-ayaw ma enter ng data, nag eerror
+
+Exit Gate
+-may error na lumabas nung tinry ko siyang i-out
+-yung ticket d ko nakta
+
+
+Asan pala yung Map Figure? 
+
+Pwede pakilagay din yung Available Slots sa may Gate side? 
+
+

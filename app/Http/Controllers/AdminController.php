@@ -16,6 +16,7 @@ use Validator;
 use DB;
 use PDF;
 use App;
+use Hash;
 class AdminController extends Controller
 {
   public function home(Request $request){
@@ -67,6 +68,17 @@ class AdminController extends Controller
     $newViolation->save();
 
     return redirect()->back()->with('success','success');
+  }
+
+  public function adminEditViolation(Request $request){
+
+    $violations = Violation::find($request->id);
+
+    $violations->violation = $request->violation;
+    $violations->penalty = $request->penalty;
+    $violations->save();
+
+    return redirect()->back()->with('success','Violation Details Edited!');
   }
 
   public function adminDeleteViolation(Request $request){

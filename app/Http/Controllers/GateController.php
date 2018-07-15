@@ -104,8 +104,6 @@ class GateController extends Controller
       $car->vehicle_model = Input::get("txt-model");
       $car->parking_reason = Input::get("txt-purpose");
       $car->car_type_id = Input::get("txt-vehicletype");
-      $car->vehicle_color = Input::get("txt-vehiclecolor");
-      $car->remarks = Input::get("txt-remarks");
       $car->time_in = Carbon::now();
       $car->hospital_proof = 0;
       $car->save();
@@ -150,9 +148,11 @@ class GateController extends Controller
       $customPaper = array(0,0,230,300);
       $pdf->setPaper($customPaper);
       $pdf->loadView('gate.PDF',compact('data'));
+
       return $pdf->stream();
-      // return redirect()->back();
     }
+
+
 
     public function calculatePayments($value){
       if(($value->parking_reason == 1 && $value->hospital_proof)){
