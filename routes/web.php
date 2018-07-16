@@ -84,6 +84,9 @@ Route::prefix('monitoring')->group(function () {
     Route::post('edit-location', 'MonitoringController@editLocation');
     Route::post('add-violation', 'MonitoringController@addViolation');
     Route::post('add-color', 'MonitoringController@addColor');
+    Route::post('edit-color', 'MonitoringController@editColor');
+    Route::post('add-remarks', 'MonitoringController@addRemarks');
+    Route::post('edit-remarks', 'MonitoringController@editRemarks');
 
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
   });

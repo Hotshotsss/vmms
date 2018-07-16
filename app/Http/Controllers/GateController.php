@@ -158,7 +158,7 @@ class GateController extends Controller
       if(($value->parking_reason == 1 && $value->hospital_proof)){
         $days = ($value->time_out)->diffInDays($value->time_in);
         return 25 * $days;
-      }else if($value->parking_reason == 2){
+      }else if($value->parking_reason == 2){//add delivery
         $minutes = ($value->time_out)->diffInMinutes($value->time_in);
         if($minutes < 16){
           return '0';

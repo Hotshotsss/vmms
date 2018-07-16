@@ -31,12 +31,10 @@
                   <th>Plate Number</th>
                   <th>Vehicle Model</th>
                   <th>Vehicle Type</th>
-                  <th>Vehicle Color</th>
-                  <th>Vehicle Remarks</th>
                   <th>Purpose</th>
-                  <th>Add Color</th>
-                  <th>Add Remarks</th>
                   <th>Existing Violation</th>
+                  <th>Remarks</th>
+                  <th>Add Color</th>
                   <th>Location</th>
                   <th>Add Violation</th>
                 </tr>
@@ -49,29 +47,35 @@
                   <th>{{$value->plate_number}}</th>
                   <th>{{$value->vehicle_model}}</th>
                   <th>{{$value->carType->type}}</th>
-                  <th>{{$value->vehicle_color}}</th>
-                  <th>{{$value->remarks}}</th>
                   <th>{{$value->inPurpose->purpose}}</th>
                   <th>
+                    @foreach($value->violations as $violation)
+                    <li>{{$violation->violation_name->violation}}</li>
+                    @endforeach
+                  </th>
+                  <th>
+                    @if($value->remarks)
+                    {{$value->remarks}}
+                    <b><a href="#!" data-id="{{$value}}" id="edit-remarks" style="float:right;">edit</a></b>
+                    @else
+                    <center><a href="#!" data-id="{{$value}}" type="submit" id="open-remarks" class="btn btn-primary" name="id">Add</a></center>
+                    @endif
+                  </th>
+                  <th>
+                    @if($value->vehicle_color)
+                    {{$value->vehicle_color}}
+                    <b><a href="#!" data-id="{{$value}}" id="edit-color" style="float:right;">edit</a></b>
+                    @else
                     <select class = "form-control select-color" data-id="{{$value}}" name = "txt-vehiclecolor">
-
+                      <option disabled selected>Select Color:</option>
                       <option value="Red">Red</option>
                       <option value="Blue">Blue</option>
                       <option value="Yellow">Yellow</option>
                       <option value="Black">Black</option>
                       <option value="Orange">Orange</option>
                       <option value="White">White</option>
-
                     </select>
-                  </th>
-                  <th>
-                    <input type="text" name="txt-remarks" value="remarks" placeholder="Enter Remarks">
-                    <center><button type="submit" class="btn btn-primary open-remarks" name="id">Submit</button></center>
-                  </th>
-                  <th>
-                    @foreach($value->violations as $violation)
-                    <li>{{$violation->violation_name->violation}}</li>
-                    @endforeach
+                    @endif
                   </th>
                   <th>
                     @if($value->location_id)
@@ -247,10 +251,10 @@
   </div>
 </div>
 
-<div id="confirmRemarks" class="modal fade">
+<div id="editColor" class="modal fade">
   <div class = "modal-dialog modal-sm ">
     <div class = "modal-content">
-      {!! Form::open(['url'=>'monitoring/add-color','method'=>'post']) !!}
+      {!! Form::open(['url'=>'monitoring/edit-color','method'=>'post']) !!}
       <div class = "modal-header">
         <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
       </div>
@@ -260,13 +264,81 @@
 
           <center>
 
-            <p id="color">Add Color :
-              <b id="valueColor"></b>
-              <input id="colorName" type="hidden" name="colorName">
-            </p>
+            <select class = "form-control select-editcolor" data-id="{{$value}}" name = "color">
+              <option disabled selected>Select Color:</option>
+              <option value="Red">Red</option>
+              <option value="Blue">Blue</option>
+              <option value="Yellow">Yellow</option>
+              <option value="Black">Black</option>
+              <option value="Orange">Orange</option>
+              <option value="White">White</option>
+            </select>
+            <br>
 
             <button type="submit" class="btn btn-primary" name="id">Yes</button>
             <button type="button" class="btn btn-danger close-color" name="button">No</button>
+
+          </center>
+
+        </div>
+      </div>
+
+      {!!Form::close()!!}
+    </div>
+  </div>
+</div>
+
+<div id="addRemarks" class="modal fade">
+  <div class = "modal-dialog modal-sm ">
+    <div class = "modal-content">
+      {!! Form::open(['url'=>'monitoring/add-remarks','method'=>'post']) !!}
+      <div class = "modal-header">
+        <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <div id ="d1" style="visibility: hidden;">Display</div>
+
+          <center>
+
+            <p id="remarks">Add Remarks :
+              <b id="valueRemarks"></b>
+              <input id="remarks" class = "form-control" type="text" name="remarks" placeholder="Please enter remarks">
+            </p>
+
+            <button type="submit" class="btn btn-primary" name="id">Yes</button>
+            <button type="button" class="btn btn-danger close-remarks" name="button">No</button>
+
+          </center>
+
+        </div>
+      </div>
+
+      {!!Form::close()!!}
+    </div>
+  </div>
+</div>
+
+<div id="editRemarks" class="modal fade">
+  <div class = "modal-dialog modal-sm ">
+    <div class = "modal-content">
+      {!! Form::open(['url'=>'monitoring/edit-remarks','method'=>'post']) !!}
+      <div class = "modal-header">
+        <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <div id ="d1" style="visibility: hidden;">Display</div>
+
+          <center>
+
+            <p id="remarks">Edit Remarks :
+              <b id="valueRemarks"></b>
+              <input id="remarks" class = "form-control" type="text" name="remarks" placeholder="Please enter remarks">
+            </p>
+
+            <button type="submit" class="btn btn-primary" name="id">Yes</button>
+            <button type="button" class="btn btn-danger close-editremarks" name="button">No</button>
 
           </center>
 

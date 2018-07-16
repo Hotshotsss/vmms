@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class MonitoringController extends Controller
 {
     public function Home(){
-        $data = Parking::all(); //Parking
+        $data = Parking::all()->where('time_out',null); //Parking
         $violation = Violation::all();
         $parkinglocation = ParkingSlot::orderBy('parking_name','DESC')->get();
         // dd($parkinglocation[5 ]->parking_name);
@@ -55,6 +55,36 @@ class MonitoringController extends Controller
         $color->vehicle_color = $request->colorName;
 
         $color->save();
+
+        return redirect()->back()->with('success','success');
+    }
+
+    public function editColor(Request $request){
+        // dd($request);
+        $color = Parking::find($request->id);
+        $color->vehicle_color = $request->color;
+
+        $color->save();
+
+        return redirect()->back()->with('success','success');
+    }
+
+    public function addRemarks(Request $request){
+        // dd($request);
+        $remarks = Parking::find($request->id);
+        $remarks->remarks = $request->remarks;
+
+        $remarks->save();
+
+        return redirect()->back()->with('success','success');
+    }
+
+    public function editRemarks(Request $request){
+        // dd($request);
+        $remarks = Parking::find($request->id);
+        $remarks->remarks = $request->remarks;
+
+        $remarks->save();
 
         return redirect()->back()->with('success','success');
     }
