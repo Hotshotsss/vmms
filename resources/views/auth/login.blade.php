@@ -1,20 +1,20 @@
 @extends('layouts.login')
 @section('content')
-<div class="container" style="position:absolute;bottom:150px;left:0;right:0;">
-    <div class="row justify-content-center">
-        <div class="col-md-5">
-            <div class="card" style="border-color: #d05ce3;">
-                <div class="card-header" style="background:#d05ce3;color:white;">
-                  <center>
-                    VMMS
+<div class="container">
+    <div class="row">
+      <div class="col-lg-7 col-md-6 col-sm-12 hidden-xs">
+        <img src="images/owl-logo.png" alt="" style="width:100%;">
+      </div>
+        <div class="col-lg-5 col-md-6 col-sm-12">
+            <div class="card" style="border-color: rgba(208, 92, 227, 0);background: #ffc0cb00;color: #a13871;">
+                <div class="card-body" style="background: transparent;">
+                  <center style="padding-top:  20px;background:  white;">
+                    <img src="images/logo.jpg" alt="" class="logoPng">
                   </center>
-                </div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login') }}" style="background:  white;padding-bottom:  40px;">
                         @csrf
                         <div class="form-group row">
-  <div class="col-md-12" style="padding-left:10px">
+                        <div class="col-md-12" style="padding-left:10px">
 
                         @if($errors->has('notAllowed'))
                         <center>
@@ -25,7 +25,7 @@
                       </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('Username') }}</label>
+                            <label for="email" class="col-sm-4 col-form-label text-md-right" style="font-weight:bolder;font-size:16px;">{{ __('Username') }}</label>
                             <div class="col-md-6">
                                 <input id="email" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
 
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right" style="font-weight:bolder;font-size:16px;">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
@@ -55,16 +55,16 @@
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> {{ __('Remember Me') }}
+                                    <label style="font-weight:bolder;font-size:14px;">
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }} > {{ __('Remember Me') }}
                                     </label>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary" style="width:100%;">
                                     {{ __('Login') }}
                                 </button>
                             </div>
