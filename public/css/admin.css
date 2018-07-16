@@ -1,3 +1,10 @@
+
+.page-header {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    color: #8d2ea0;
+    font-weight: bolder;
+}
 .navbar-default{
   background-color: #6a0080;
   border-color: #6a0080;
@@ -156,4 +163,32 @@ min-height: 100%;  background-attachment: fixed;
     .table-responsive {
         overflow: visible;
     }
+}
+@media(min-width:1024px){
+  .leftParking{
+    border-left: 2px solid white;
+  }
+}
+@media(max-width:768px){
+  .leftParking h1{
+    font-size:40px !important;
+  }
+  .h1Parking{
+    font-size:30px !important;
+  }
+  .responsiveTotal{
+    padding-top:20px;
+  }
+}
+@media(max-width:500px){
+  .leftParking h1{
+    font-size:30px !important;
+  }
+  .leftParking h1 b{
+    font-size:20px !important;
+  }
+  .h1Parking{
+    font-size:25px !important;
+  }
+}
 }
