@@ -90,17 +90,14 @@
       <div class="modal-body">
         <div class="panel-body">
           {!!Form::open(['url'=>'admin/edit-violation','method'=>'post']) !!}
+
           <div class="form-group">
-            <label>Parking Name</label>
-            <input readonly class="form-control" name="parking_name"  readonly value="">
+            <label>Violation</label>
+            <input type="text" class="form-control" placeholder="Enter Violation" name="violation" required>
           </div>
           <div class="form-group">
-            <label>Description</label>
-            <input type="text" class="form-control" placeholder="Enter Standard Rate" name="description" required>
-          </div>
-          <div class="form-group">
-            <label>Slots</label>
-            <input type="text" class="form-control" placeholder="Enter Standard Hours" name="slots" required>
+            <label>Penalty</label>
+            <input type="text" class="form-control" placeholder="Enter Penalty" name="penalty" required>
           </div>
         </div>
       </div>

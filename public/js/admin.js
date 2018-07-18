@@ -26,10 +26,9 @@ $(document).on('click','#edit-violation',function(){
 
   var values = $(this).data('id');
 
-  $('#editParking input[name="parking_name"]').val(values.parking_name);
-  $('#editParking input[name="description"]').val(values.description);
-  $('#editParking input[name="slots"]').val(values.number_of_slots);
-  $('#editParking button[name="id"]').val(values.id);
+  $('#editViolation input[name="violation"]').val(values.violation);
+  $('#editViolation input[name="penalty"]').val(values.penalty);
+  $('#editViolation button[name="id"]').val(values.id);
 
   $('#editViolation').modal('show');
 });

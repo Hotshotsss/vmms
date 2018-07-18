@@ -61,6 +61,7 @@ Route::prefix('admin')->group(function () {
     Route::post('delete-car','AdminController@deleteCar');
     Route::get('view-violation','AdminController@viewViolations');
     Route::post('add-violation','AdminController@adminAddViolation');
+    Route::post('edit-violation','AdminController@adminEditViolation');
     Route::post('delete-violation','AdminController@adminDeleteViolation');
     //Employee schedule
     Route::get('employee-schedule','AdminController@viewSchedule');
@@ -83,6 +84,10 @@ Route::prefix('monitoring')->group(function () {
     Route::post('add-location', 'MonitoringController@addLocation');
     Route::post('edit-location', 'MonitoringController@editLocation');
     Route::post('add-violation', 'MonitoringController@addViolation');
+    Route::post('add-color', 'MonitoringController@addColor');
+    Route::post('edit-color', 'MonitoringController@editColor');
+    Route::post('add-remarks', 'MonitoringController@addRemarks');
+    Route::post('edit-remarks', 'MonitoringController@editRemarks');
 
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
   });
@@ -105,6 +110,8 @@ Route::prefix('gate')->group(function () {
     // vehicle out
     Route::get('vehicle-out', 'GateController@vehicleOutView')->middleware('exitg');
     Route::post('update-parking','GateController@updateParking');
+
+    Route::get('ticket-pdf/{$data}','GateController@generate_pdf');
 
     // vehicle monitoring
     Route::get('vehicle-monitoring-in', 'GateController@vehicleMonitoringIn');
