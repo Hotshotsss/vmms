@@ -292,10 +292,11 @@ class AdminController extends Controller
         }
       }
 
-      $conflict = $this->checkSchedConflict($request);
+      $conflict = $this->checkSchedConflictEdit($request);
       if($conflict->isNotEmpty()){
         return redirect()->back()->withInput()->withErrors(['conflict'=>'Oh no! There is a conflict with the schedule you entered.']);
       }
+
       $sched = EmployeeSchedule::find($request->edit);
       $sched->user_id = $request->user;
       $sched->assigned_at = $at;
@@ -306,6 +307,21 @@ class AdminController extends Controller
       $sched->save();
 
       return redirect()->back()->with('success','Schedule Edited!');
+    }
+
+    public function checkSchedConflictEdit($request){
+      $in = Carbon::parse($request->from_date.' '.$request->time_in);
+      $out = Carbon::parse($request->to_date.' '.$request->time_out);
+
+      $conflict = EmployeeSchedule::where('user_id',$request->user)->where('id','!=',$request->edit)
+      ->where(function ($query) use($in,$out){
+        $query->where('date_from','<=',$out->format('Y-m-d'))
+        ->where('date_to','>=',$in->format('Y-m-d'))
+        ->where('time_in','<=',$out->format('H:i:s'))
+        ->where('time_out','>=',$in->format('H:i:s'));
+      })->get();
+
+      return $conflict;
     }
 
     public function checkSchedConflict($request){

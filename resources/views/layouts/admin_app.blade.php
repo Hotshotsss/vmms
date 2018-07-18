@@ -99,7 +99,7 @@
                     <li>
                       <a href="/admin/view-violation"><i class="fas fa-road fa-fw"></i> Add Violation</a>
                     </li>
-                  
+
                   </ul>
                   <!-- /.nav-second-level -->
                 </li>
@@ -144,7 +144,7 @@
 
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('js/jquery-ui.js')}}"></script>
-<script src="{{asset('js/bootstrap.min.css')}}"></script>
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/admin.js')}}" type="text/javascript"></script>
 <script src="{{ asset('js/moment.min.js')}}"></script>
 <script src="{{ asset('js/fullcalendar.min.js')}}"></script>

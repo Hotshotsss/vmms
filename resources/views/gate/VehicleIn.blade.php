@@ -40,6 +40,7 @@
         <center><button type = "submit" name = "btn-in" class = "btn btn-primary">Save</button></center>
       </div>
     </div>
+
     <div class="col-md-8" style="color:white;">
       <div class="col-md-12 col-xs-6 responsiveTotal" style="padding-left:0px;padding-right:2.5px;padding-bottom:5px;">
         <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#4db151;border-radius:5px;">
@@ -49,63 +50,27 @@
           <div class="col-md-8" style="padding-top:10px">
             <div style="padding-left:12px;" class="leftParking">
               <h2 style="font-weight:bolder;" class="h1Parking">Total Slots</h2>
-              <h1 style="font-size:60px">1 /
-                <b style="font-size:30px;">3</b>
+              <h1 style="font-size:60px">{{$parkings}} /
+                <b style="font-size:30px;">{{$slots->sum('number_of_slots')}}</b>
               </h1>
             </div>
           </div>
         </div>
       </div>
+
+      @foreach($slots as $slot)
       <div class="col-md-4 col-xs-6" style="padding-left:2.5px;padding-right:2.5px;padding-bottom:5px;">
        <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#79c4bb;border-radius: 5px;">
-         <h3 style="font-weight:bolder;padding-top:20px;">Yey</h3>
+         <h3 style="font-weight:bolder;padding-top:20px;">{{ucwords(strtolower($slot->parking_name))}}</h3>
          <center>
-           <h5 style="font-size:35px;padding-top:30px;">23/
-             <b style="font-size:25px;">15</b>
+           <h5 style="font-size:35px;padding-top:30px;">{{$slot->parked->count()}}/
+             <b style="font-size:25px;">{{$slot->number_of_slots}}</b>
            </h5>
          </center>
        </div>
      </div>
-     <div class="col-md-4 col-xs-6" style="padding-left:2.5px;padding-right:2.5px;padding-bottom:5px;">
-      <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#79c4bb;border-radius: 5px;">
-        <h3 style="font-weight:bolder;padding-top:20px;">Yey</h3>
-        <center>
-          <h5 style="font-size:35px;padding-top:30px;">23/
-            <b style="font-size:25px;">15</b>
-          </h5>
-        </center>
-      </div>
-    </div>
-    <div class="col-md-4 col-xs-6" style="padding-left:2.5px;padding-right:2.5px;padding-bottom:5px;">
-     <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#79c4bb;border-radius: 5px;">
-       <h3 style="font-weight:bolder;padding-top:20px;">Yey</h3>
-       <center>
-         <h5 style="font-size:35px;padding-top:30px;">23/
-           <b style="font-size:25px;">15</b>
-         </h5>
-       </center>
-     </div>
-   </div>
-   <div class="col-md-4 col-xs-6" style="padding-left:2.5px;padding-right:2.5px;padding-bottom:5px;">
-    <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#79c4bb;border-radius: 5px;">
-      <h3 style="font-weight:bolder;padding-top:20px;">Yey</h3>
-      <center>
-        <h5 style="font-size:35px;padding-top:30px;">23/
-          <b style="font-size:25px;">15</b>
-        </h5>
-      </center>
-    </div>
-  </div>
-  <div class="col-md-4 col-xs-6" style="padding-left:2.5px;padding-right:2.5px;padding-bottom:5px;">
-   <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#79c4bb;border-radius: 5px;">
-     <h3 style="font-weight:bolder;padding-top:20px;">Yey</h3>
-     <center>
-       <h5 style="font-size:35px;padding-top:30px;">23/
-         <b style="font-size:25px;">15</b>
-       </h5>
-     </center>
-   </div>
- </div>
+     @endforeach
+
 
     </div>
 

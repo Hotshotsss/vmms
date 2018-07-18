@@ -36,7 +36,7 @@
 </div>
 
 @if(Auth::check() && Auth::user()->temporary_password)
-<div id="editPassword" data-backdrop="static" data-keyboard="false" class="modal fade" role="dialog">
+<div id="editPassword2" data-backdrop="static" data-keyboard="false" class="modal fade" role="dialog">
   <div class="modal-dialog modal-md">
     <!-- Modal content-->
     {{Form::open(['url'=>'admin/edit-password','method'=>'post'])}}

@@ -6,10 +6,11 @@ $(document).on('click','#view-details',function(){
   var violations = values.violations;
   var totalPenalty = 0;
   var tr_id = $(this).parents('tr').attr('id');
+  row_id = tr_id;
 
-  var standard_hours = values.car_rate.standard_hours;
-  var standard_rate = values.car_rate.standard_rate;
-  var hourly_rate = values.car_rate.hour_rate;
+  var standard_hours = values.car_rate ? values.car_rate.standard_hours : 0 ;
+  var standard_rate = values.car_rate ? values.car_rate.standard_rate : 0;
+  var hourly_rate = values.car_rate ? values.car_rate.hour_rate : 0;
 
   var violationsList = [];
 
@@ -26,24 +27,21 @@ $(document).on('click','#view-details',function(){
   var less = null;
 
   if(values.parking_reason == 1 && values.hospital_proof == 1){
-    var days = Math.round((new Date() - new Date(values.time_in)) / (1000 * 60 * 60 * 24));
+    var days = Math.ceil((new Date() - new Date(values.time_in)) / (1000 * 60 * 60 * 24));
     standard_hours_text = 'Per day';
     standard_rate = 25;
     exceedinghours = 0;
     days = days == 0 ? 1 : days;
     less = 'Patient Discount';
     total = 25 * days;
-  }else if(values.parking_reason == 2){
-    var minutes = Math.round((new Date().getTime() - new Date(values.time_in).getTime()) / 60000);
+  }else if(values.parking_reason == 2 || values.parking_reason == 3){
+    var minutes = Math.ceil((new Date().getTime() - new Date(values.time_in).getTime()) / 60000);
     if(minutes < 16){
       total = 0;
-      less = 'Drop By';
+      less = 'Drop By/Delivery';
     }else{
       total = exceedinghours + standard_rate;
     }
-  }else if(values.parking_reason == 3){
-    less = 'Delivery';
-    total = 0;
   }else{
 
     total = exceedinghours + standard_rate;
@@ -73,8 +71,9 @@ if($('#editPassword').length){
   $('#editPassword').modal('show');
 }
 
+var row_id = null;
+
 $(document).on('submit','#checkOut-submit',function(){
   $('#vehicleMonitoring').modal('hide');
-  console.log($(this).data('tr-id'));
-  $('#'+$(this).data('tr-id')).remove();
+  $('#'+row_id).remove();
 });

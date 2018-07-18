@@ -51,9 +51,6 @@
                       <i class="fa fa-user fa-fw"></i>Hello {{Auth::user()->name}}  <i class="fa fa-caret-down"></i>
                   </a>
                   <ul class="dropdown-menu dropdown-user">
-                      <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                      </li>
-                      <li class="divider"></li>
                       <li>
                         <a href="/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                           Logout
@@ -83,7 +80,7 @@
 
 </html>
 <script src="{{asset('js/jquery.min.js')}}"></script>
-<script src="{{asset('js/bootstrap.min.js')}}"></script>
+<script src="{{asset('js/app.js')}}"></script>
 
 <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> -->
 <!-- <script src="../vendor/bootstrap/js/bootstrap.min.js"></script> -->

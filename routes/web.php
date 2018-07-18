@@ -11,6 +11,7 @@
 |
 */
 
+
 //Add all the routes for the admin here
 Route::prefix('admin')->group(function () {
 
@@ -55,6 +56,7 @@ Route::prefix('admin')->group(function () {
     Route::post('edit-rate','AdminController@editRate');
     //Discount
     Route::get('discount','AdminController@discount');
+
     //Car Settings
     Route::get('view-car','AdminController@viewCar');
     Route::post('add-car','AdminController@addCar');

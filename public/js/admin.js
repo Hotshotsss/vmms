@@ -112,38 +112,34 @@ function getEvent(data){
     $(ito+' select[name="time_in"]').val(moment(data.start).format('H:mm'));
     $(ito+' select[name="time_out"]').val(moment(data.end).format('H:mm'));
 
+
     //create hidden id
     $('<input>').attr({
     type: 'hidden',
     name: 'edit',
     value: data.id
-   }).appendTo(ito);
+  }).appendTo(ito+' form');
 
     $(ito).modal('show');
-  }
-  else if(assignment == 1){
-    var ito = '#edit-monitoring';
-    $(ito+' select[name="user"]').val(data.user_id);
-    $(ito+' input[name="from_date"]').val(moment(data.start).format('MM/DD/YYYY'));
-    $(ito+' input[name="to_date"]').val(moment(data.end).format('MM/DD/YYYY'));
-    $(ito+' select[name="time_in"]').val(moment(data.start).format('H:mm'));
-    $(ito+' select[name="time_out"]').val(moment(data.end).format('H:mm'));
-
-    $('<input>').attr({
-    type: 'hidden',
-    name: 'edit',
-    value: data.id
-   }).appendTo(ito);
-
-
-    $(ito).modal('show');
-
   }
   else{
-    var ito = '#edit-gate';
-    if(data.assigned_at == 2){
+    var ito = '#edit-guard';
+    if(data.assigned_at == 1){
+      $('#assignment_label').text('Monitoring');
+      $('#sched').val(1);
+      $('#edit-guard input[name="gate_loc"]').attr('disabled',true);
+      $('#assignment').hide();
+    }else if(data.assigned_at == 2){
+      $('#assignment_label').text('Gate');
+      $('#sched').val(2);
+      $('#edit-guard input[name="gate_loc"]').attr('disabled',false);
+      $('#assignment').show();
       $(ito+' input[name="gate_loc"][value="2"]').prop('checked',true);
     }else{
+      $('#sched').val(2);
+      $('#assignment_label').text('Gate');
+      $('#edit-guard input[name="gate_loc"]').attr('disabled',false);
+      $('#assignment').show();
       $(ito+' input[name="gate_loc"][value="3"]').prop('checked',true);
     }
 
@@ -157,12 +153,24 @@ function getEvent(data){
     type: 'hidden',
     name: 'edit',
     value: data.id
-   }).appendTo(ito);
-   
+  }).appendTo(ito+' form');
+
     $(ito).modal('show');
   }
 }
 
-if($('#editPassword').length){
-  $('#editPassword').modal('show');
+$(document).on('change','#sched',function(){
+    if(this.value == 1){
+        $('#assignment_label').text('Monitoring');
+        $('#edit-guard input[name="gate_loc"]').attr('disabled',true);
+        $('#assignment').hide();
+    }else{
+        $('#assignment_label').text('Gate');
+        $('#edit-guard input[name="gate_loc"]').attr('disabled',false);
+        $('#assignment').show();
+    }
+});
+
+if($('#editPassword2').length){
+  $('#editPassword2').modal('show');
 }

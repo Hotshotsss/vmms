@@ -142,7 +142,7 @@
                           <li class="divider"></li>
                           <li>
                             {{Form::open(['url'=>'admin/delete-user','method'=>'post','onsubmit'=>'return confirm("Are you sure you want to delete this user?")'])}}
-                            <button style="display: flex;-webkit-appearance: caret;padding: 3px 20px;background:none;font-weight:normal" type="submit" name="delete" value="{{$value->id}}">Delete User</button>
+                            <button style="display: flex;-webkit-appearance: caret;padding: 3px 20px;background:none;font-weight:normal;color:#333" type="submit" name="delete" value="{{$value->id}}">Delete User</button>
                             {{Form::close()}}
                           </li>
                         </ul>

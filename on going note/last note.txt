@@ -1,0 +1,8 @@
+Plate number
+Total Hours
+First 4 hours - PHP 40
+Rate per hour - P10
+Total: 50
+Date
+Purpose
+Time in - Time-out
