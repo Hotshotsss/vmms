@@ -17,11 +17,11 @@ use DB;
 use Hash;
 use PDF;
 use App;
-use Hash;
+
 class AdminController extends Controller
 {
   public function home(Request $request){
-  
+
     $slots = ParkingSlot::all();
     $parkings = Parking::whereNull('time_out')->count();
 
@@ -51,6 +51,10 @@ class AdminController extends Controller
 
   public function deleteCar(Request $request){
     $type = CarType::find($request->type_number)->delete();
+
+    if($type){
+      Rate::where('car_id',$request->type_number)->delete();
+    }
 
     return redirect()->back()->with('success','success');
   }
@@ -274,6 +278,34 @@ class AdminController extends Controller
       $sched->save();
 
       return redirect()->back()->with('success','Schedule Added!');
+    }
+
+    public function editSchedule(Request $request){
+      $at = $request->sched_btn;
+
+      if($at == "2"){
+        if($request->has('gate_loc')){
+          $at = $request->gate_loc;
+        }
+        else{
+          return redirect()->back()->with(['error','Somethings wrong with your input!']);
+        }
+      }
+
+      $conflict = $this->checkSchedConflict($request);
+      if($conflict->isNotEmpty()){
+        return redirect()->back()->withInput()->withErrors(['conflict'=>'Oh no! There is a conflict with the schedule you entered.']);
+      }
+      $sched = EmployeeSchedule::find($request->edit);
+      $sched->user_id = $request->user;
+      $sched->assigned_at = $at;
+      $sched->date_from = Carbon::parse($request->from_date)->format('Y-m-d');
+      $sched->date_to = Carbon::parse($request->to_date)->format('Y-m-d');
+      $sched->time_in = $request->time_in;
+      $sched->time_out = $request->time_out;
+      $sched->save();
+
+      return redirect()->back()->with('success','Schedule Edited!');
     }
 
     public function checkSchedConflict($request){

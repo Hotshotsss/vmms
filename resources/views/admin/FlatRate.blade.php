@@ -52,7 +52,7 @@
           <div class="panel-heading">Parking Location Details</div>
           <div class="panel-body">
             @if($rate->isNotEmpty())
-            <div style="overflow:auto;">
+            <div class="table-responsive">
               <table class="table table-bordered table-hover">
                 <thead>
                   <tr>

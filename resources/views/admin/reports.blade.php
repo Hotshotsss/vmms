@@ -50,10 +50,10 @@
                                  <th>{{$value->time_out}}</th>
                                  <th>{{$value->plate_number}}</th>
                                  <th>{{$value->vehicle_model}}</th>
-                                 <th>{{$value->carType->type}}</th>
+                                 <th>{{$value->carType ? $value->carType->type : "N/A"}}</th>
                                  <th>{{$value->vehicle_color}}</th>
                                  <th>{{$value->remarks}}</th>
-                                 <th>{{$value->inPurpose->purpose}}</th>
+                                 <th>{{$value->inPurpose ? $value->inPurpose->purpose : "N/A"}}</th>
                                  <th>{{$value->time_in}}</th>
                           </tr>
                          @endforeach

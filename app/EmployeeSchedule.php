@@ -10,7 +10,6 @@ class EmployeeSchedule extends Model
     'assigned_at','user_id','date_from','date_to','repeater'
   ];
 
-  protected $hidden = ['assigned_at','user_id'];
   protected $appends = ['title','color'];
 
 

@@ -39,7 +39,7 @@
 <div id="editPassword" data-backdrop="static" data-keyboard="false" class="modal fade" role="dialog">
   <div class="modal-dialog modal-md">
     <!-- Modal content-->
-    {{Form::open(['url'=>'gate/edit-password','method'=>'post'])}}
+    {{Form::open(['url'=>'admin/edit-password','method'=>'post'])}}
     <div class="modal-content">
       <div class="modal-header">
 

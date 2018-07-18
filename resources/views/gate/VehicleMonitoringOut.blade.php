@@ -19,7 +19,7 @@
 
  			            </div>
  			            <div class="panel-body">
-   			           <div style="overflow:auto;">
+   			           <div class="table-responsive">
                      <table width="100%" class="table table-striped table-bordered table-hover" id="dev-table">
                         <div class="panel-body1">
                          <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />

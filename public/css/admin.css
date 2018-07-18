@@ -12,6 +12,9 @@
 .wrapper{
   background: #9c27b0;
 }
+.fc-event{
+    cursor: pointer;
+}
 
 .sidebar ul li a.active {
     background-color: #d05ce3;

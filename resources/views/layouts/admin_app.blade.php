@@ -88,7 +88,7 @@
                   <!-- /.nav-second-level -->
                 </li>
                 <li>
-                  <a href="CarSettings.php"><i class="fas fa-cogs fa-fw"></i> Car Settings <span class="fa arrow"></span></a>
+                  <a href="#!"><i class="fas fa-cogs fa-fw"></i> Car Settings <span class="fa arrow"></span></a>
                   <ul class="nav nav-second-level">
                     <li>
                       <a href="/admin/view-car"><i class="fas fa-road fa-fw"></i> Add Car Type </a>
@@ -99,9 +99,7 @@
                     <li>
                       <a href="/admin/view-violation"><i class="fas fa-road fa-fw"></i> Add Violation</a>
                     </li>
-                    <li>
-                      <a href="/admin/discount"><i class="fas fa-sliders-h fa-fw"></i> Discount Settings </a>
-                    </li>
+                  
                   </ul>
                   <!-- /.nav-second-level -->
                 </li>
@@ -153,10 +151,6 @@
 
 <!-- Metis Menu Plugin JavaScript -->
 <script src="{{ url ('vendor/metisMenu/metisMenu.min.js')}}"></script>
-
-<!-- Morris Charts JavaScript -->
-<script src="{{ url ('vendor/raphael/raphael.min.js')}}"></script>
-<script src="{{ url ('vendor/morrisjs/morris.min.js')}}"></script>
 
 <!-- Custom Theme JavaScript -->
 <script src="{{ url ('dist/js/sb-admin-2.js')}}"></script>

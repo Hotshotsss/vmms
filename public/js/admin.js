@@ -97,9 +97,72 @@ $(document).ready(function() {
         alert('No Schedules');
       }
     },
+    eventClick: getEvent
   });
 
 });
+
+function getEvent(data){
+  var assignment = data.assigned_at;
+  if(assignment == 0){
+    var ito = '#edit-admin';
+    $(ito+' select[name="user"]').val(data.user_id);
+    $(ito+' input[name="from_date"]').val(moment(data.start).format('MM/DD/YYYY'));
+    $(ito+' input[name="to_date"]').val(moment(data.end).format('MM/DD/YYYY'));
+    $(ito+' select[name="time_in"]').val(moment(data.start).format('H:mm'));
+    $(ito+' select[name="time_out"]').val(moment(data.end).format('H:mm'));
+
+    //create hidden id
+    $('<input>').attr({
+    type: 'hidden',
+    name: 'edit',
+    value: data.id
+   }).appendTo(ito);
+
+    $(ito).modal('show');
+  }
+  else if(assignment == 1){
+    var ito = '#edit-monitoring';
+    $(ito+' select[name="user"]').val(data.user_id);
+    $(ito+' input[name="from_date"]').val(moment(data.start).format('MM/DD/YYYY'));
+    $(ito+' input[name="to_date"]').val(moment(data.end).format('MM/DD/YYYY'));
+    $(ito+' select[name="time_in"]').val(moment(data.start).format('H:mm'));
+    $(ito+' select[name="time_out"]').val(moment(data.end).format('H:mm'));
+
+    $('<input>').attr({
+    type: 'hidden',
+    name: 'edit',
+    value: data.id
+   }).appendTo(ito);
+
+
+    $(ito).modal('show');
+
+  }
+  else{
+    var ito = '#edit-gate';
+    if(data.assigned_at == 2){
+      $(ito+' input[name="gate_loc"][value="2"]').prop('checked',true);
+    }else{
+      $(ito+' input[name="gate_loc"][value="3"]').prop('checked',true);
+    }
+
+    $(ito+' select[name="user"]').val(data.user_id);
+    $(ito+' input[name="from_date"]').val(moment(data.start).format('MM/DD/YYYY'));
+    $(ito+' input[name="to_date"]').val(moment(data.end).format('MM/DD/YYYY'));
+    $(ito+' select[name="time_in"]').val(moment(data.start).format('H:mm'));
+    $(ito+' select[name="time_out"]').val(moment(data.end).format('H:mm'));
+
+    $('<input>').attr({
+    type: 'hidden',
+    name: 'edit',
+    value: data.id
+   }).appendTo(ito);
+   
+    $(ito).modal('show');
+  }
+}
+
 if($('#editPassword').length){
   $('#editPassword').modal('show');
 }

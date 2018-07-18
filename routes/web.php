@@ -66,6 +66,7 @@ Route::prefix('admin')->group(function () {
     //Employee schedule
     Route::get('employee-schedule','AdminController@viewSchedule');
     Route::post('add-sched','AdminController@addSchedule');
+    Route::post('edit-sched','AdminController@editSchedule');
     //logout
     Route::post('logout', 'Auth\LoginController@logout')->name('logout');
   });

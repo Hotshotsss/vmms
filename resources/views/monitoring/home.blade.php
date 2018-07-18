@@ -20,7 +20,7 @@
 
         </div>
         <div class="panel-body">
-          <div style="overflow:auto;">
+          <div class="table-responsive">
             <table width="100%" class="table table-striped table-bordered table-hover" id="dev-table">
               <div class="panel-body1">
                 <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
@@ -225,10 +225,10 @@
 <div id="editPassword" data-backdrop="static" data-keyboard="false" class="modal fade" role="dialog">
   <div class="modal-dialog modal-md">
     <!-- Modal content-->
-    {{Form::open(['url'=>'gate/edit-password','method'=>'post'])}}
+    {{Form::open(['url'=>'monitoring/edit-password','method'=>'post'])}}
     <div class="modal-content">
       <div class="modal-header">
-    
+
         <center><h2 class="modal-title"><b>Change Password</b></h2></center>
       </div>
 
