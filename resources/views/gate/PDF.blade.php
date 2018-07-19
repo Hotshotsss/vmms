@@ -88,8 +88,10 @@ body { margin: 0px; }
     </table>
     <table style="width:270px">
       <tr>
-        <td width="15%;" style="font-weight:bolder;">Total Hours : </td>
-        <td width="48%;" style="border-bottom:.1px solid black;">{{$total['duration']}} Hours</td>
+        <td width="15%;" style="font-weight:bolder;">Total Hours:</td>
+        <td width="18%;" style="border-bottom:.1px solid black;">{{$total['duration']}}</td>
+        <td width="12%;">Penalty:</td>
+        <td width="18%;" style="border-bottom:.1px solid black;">PHP {{$total['penalty']}}</td>
         <td width="15%;" style="font-weight:bolder;">Total:</td>
         <td width="22%;" style="border-bottom:.1px solid black;">PHP {{number_format($total['amount'],2)}}</td>
       </tr>

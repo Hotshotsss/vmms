@@ -3,11 +3,11 @@
 <div id="page-wrapper" style="padding-top:20px;">
   <div id="data-content">
     <div class="row" style="color:white;">
-      <div class="col-lg-12" style="padding-left:0px;padding-right:2.5px;height:400px;padding-bottom:5px;">
+      <div class="col-lg-12" style="padding-left:0px;padding-right:2.5px;height:400px;padding-bottom:10px;">
         <div id="map" style="height:100%"></div>
       </div>
       <div class="col-lg-12 col-md-8 col-xs-6" style="padding-left:0px;padding-right:2.5px;padding-bottom:5px;">
-        <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#4db151;border-radius:5px;">
+        <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#F50057;border-radius:5px;">
           <div class="col-md-4 hidden-sm hidden-xs">
             <i class="fas fa-parking" style="font-size:140px;padding-top:20px;"></i>
           </div>
@@ -24,7 +24,7 @@
 
       @foreach($slots as $slot)
       <div class="col-md-4 col-xs-6" style="padding-left:2.5px;padding-right:2.5px;padding-bottom:5px;">
-        <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#79c4bb;border-radius: 5px;">
+        <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#3D5AFE;border-radius: 5px;">
           <h3 style="font-weight:bolder;">{{ucwords(strtolower($slot->parking_name))}}</h3>
           <center>
             <h5 style="font-size:35px;padding-top:30px;">{{$slot->parked->count()}}/
@@ -92,5 +92,5 @@
   </div>
 </div>
 @endif
-<!-- /#page-wrapper -->
+
 @endsection

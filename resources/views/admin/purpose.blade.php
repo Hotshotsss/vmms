@@ -62,12 +62,14 @@
                           </button>
                           <ul class="dropdown-menu" role="menu">
                             <li><a href="#" id="edit-purpose" data-id="{{$value}}">Edit</a></li>
+                            @if(!in_array($value->id,[1,2,3]))
                             <li class="divider"></li>
                             <li>
                             {{Form::open(['url'=>'admin/delete-purpose','method'=>'post','onsubmit'=>'return confirm("Are you sure you want to delete this slot?")'])}}
                               <button style="display: flex;-webkit-appearance: caret;padding: 3px 20px;background:none;font-weight:normal;color:black !important;" type="submit" name="id" value="{{$value->id}}">Delete</button>
                             {{Form::close()}}
-                          </li>
+                            </li>
+                            @endif
                           </ul>
                         </div>
 
@@ -96,9 +98,12 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Edit Rates</h4>
       </div>
-      <div class="modal-body">
+      {!!Form::open(['url'=>'admin/edit-purpose','method'=>'post']) !!}
+      <div class="modal-body" >
+      <div id="purpose-body">
+
+      </div>
         <div class="panel-body">
-          {!!Form::open(['url'=>'admin/edit-purpose','method'=>'post']) !!}
           <div class="form-group">
             <label>Purpose Name</label>
             <input class="form-control" required name="purpose" value="">

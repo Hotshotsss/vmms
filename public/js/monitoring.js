@@ -57,6 +57,7 @@ $('.select-color').on('change', function() {
   $("#confirmColor").modal("show");
 });
 
+
 $(document).on('click','.close-color',function(){
   $("#confirmColor").modal("hide");
 });

@@ -23,7 +23,7 @@
           <div class="table-responsive">
             <table width="100%" class="table table-striped table-bordered table-hover" id="dev-table">
               <div class="panel-body1">
-                <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+                <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter" />
               </div><br>
               <thead>
                 <tr>
@@ -34,7 +34,7 @@
                   <th>Purpose</th>
                   <th>Existing Violation</th>
                   <th>Remarks</th>
-                  <th>Add Color</th>
+                  <th>Color</th>
                   <th>Location</th>
                   <th>Add Violation</th>
                 </tr>
@@ -66,7 +66,8 @@
                     {{$value->vehicle_color}}
                     <b><a href="#!" data-id="{{$value}}" id="edit-color" style="float:right;">edit</a></b>
                     @else
-                    <select class = "form-control select-color" data-id="{{$value}}" name = "txt-vehiclecolor">
+
+                    <select class = "form-control select-color"  name = "txt-vehiclecolor">
                       <option disabled selected>Select Color:</option>
                       <option value="Red">Red</option>
                       <option value="Blue">Blue</option>
@@ -220,7 +221,6 @@
   </div>
 </div>
 
-<<<<<<< HEAD
 @if(Auth::check() && Auth::user()->temporary_password)
 <div id="editPassword" data-backdrop="static" data-keyboard="false" class="modal fade" role="dialog">
   <div class="modal-dialog modal-md">
@@ -275,7 +275,7 @@
   </div>
 </div>
 @endif
-=======
+
 <div id="confirmColor" class="modal fade">
   <div class = "modal-dialog modal-sm ">
     <div class = "modal-content">
@@ -405,6 +405,6 @@
     </div>
   </div>
 </div>
->>>>>>> 476b9fea28b6b447d2bbe37c6df28b00be00c11b
+
 
 @endsection

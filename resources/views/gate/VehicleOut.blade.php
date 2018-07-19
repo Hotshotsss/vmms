@@ -131,12 +131,11 @@
 
 
         </div>
-        <div class="form-group">
+        <div class="form-group" id="proof">
           <div class="col-lg-6">
             <label><input type="checkbox" name="hospital_proof"> Doctor's Signature Proof?</label>
           </div>
         </div>
-
       </div>
       <div class="modal-footer" style="border-color:white;">
         <button  type="submit" name="out" class="btn btn-success" formtarget="_blank">Check Out</button>

@@ -25,6 +25,7 @@ class CreateParkingTable extends Migration
             $table->string('vehicle_color')->nullable();
             $table->decimal('penalty',11,2)->nullable();
             $table->string('remarks')->nullable();
+            $table->tinyInteger('hospital_proof')->nullable();
             $table->string('detailed_location')->nullable();
             $table->string('payment_status')->nullable();
             $table->timestamps();

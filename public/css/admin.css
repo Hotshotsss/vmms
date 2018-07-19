@@ -194,4 +194,13 @@ min-height: 100%;  background-attachment: fixed;
     font-size:25px !important;
   }
 }
+
+.footer {
+   left: 0;
+   bottom: 0;
+   height: 30px;
+   width: 100%;
+   background-color: #D1C4E9;
+   color: #333;
+   text-align: center;
 }

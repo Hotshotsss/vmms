@@ -14,17 +14,17 @@
   <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 
   <!-- MetisMenu CSS -->
-  <link href="{{ url ('vendor/metisMenu/metisMenu.min.css')}}" rel="stylesheet">
+  <link href="{{ asset ('css/metisMenu.min.css')}}" rel="stylesheet">
 
   <!-- Custom CSS -->
 
-  <link href="{{ url ('dist/css/sb-admin-2.css')}}" rel="stylesheet">
-  <link href="{{ url ('css/sb-admin.css')}}" rel="stylesheet">
+  <link href="{{ asset ('css/sb-admin-2.css')}}" rel="stylesheet">
+  <link href="{{ asset ('css/sb-admin.css')}}" rel="stylesheet">
   <link href="{{asset('css/fullcalendar.min.css')}}" rel='stylesheet' />
 
-  <link href="{{ url ('css/admin.css')}}" rel="stylesheet">
+  <link href="{{ asset ('css/admin.css')}}" rel="stylesheet">
   <!-- Custom Fonts -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/solid.css" integrity="sha384-TbilV5Lbhlwdyc4RuIV/JhD8NR+BfMrvz4BL5QFa2we1hQu6wvREr3v6XSRfCTRp" crossorigin="anonymous">
+
   <link rel="stylesheet" href="{{asset('css/fontawesome.min.css')}}">
   <link rel="stylesheet" href="{{asset('css/jquery-ui.css')}}">
 </head>
@@ -139,6 +139,9 @@
 
   </main>
 </div>
+<div class="footer">
+  <p>© Student {{\Carbon\Carbon::now()->format('Y')}} All Rights Reserved</p>
+</div>
 </body>
 </html>
 
@@ -150,11 +153,12 @@
 <script src="{{ asset('js/fullcalendar.min.js')}}"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXhzc2fN2CY1FuFGP3oRFHBkhcgQp1x-g&callback=initMap"></script>
 
+
 <!-- Metis Menu Plugin JavaScript -->
-<script src="{{ url ('vendor/metisMenu/metisMenu.min.js')}}"></script>
+<script src="{{ asset ('js/metisMenu.min.js')}}"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="{{ url ('dist/js/sb-admin-2.js')}}"></script>
+<script src="{{ asset ('js/sb-admin-2.js')}}"></script>
 <script type="text/javascript">
 
 @if(isset($errors) && count($errors->registration) > 0)

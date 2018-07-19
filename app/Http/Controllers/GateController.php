@@ -130,7 +130,7 @@ class GateController extends Controller
     $carout = Parking::whereNotNull('time_out')->get();
 
 
-    return view('gate.VehicleMonitoringOut')->with('carout',$carout,'check',$check);
+    return view('gate.VehicleMonitoringOut')->with('carout',$carout);
   }
 
   public function vehicleMonitoringID(Request $request){
@@ -172,15 +172,16 @@ class GateController extends Controller
 
     if($value->parking_reason == 1 && $value->hospital_proof){
       $days = $time_out->diffInDays($value->time_in);
-      $penalty = $violations->sum('violation_name.penalty');
-      $amount = 25 * $days + $penalty ;
-      return ["standard_hours"=>24,"standard_rate"=>25,"per_hour"=>0,'amount'=>$amount,'duration'=>$days+' day(s)',"penalty"=>$penalty,'discount'=>'Hospital'];
+      $penalty = $value->violations->sum('violation_name.penalty');
+      $amount = (25 * $days) + $penalty ;
+      
+      return ["standard_hours"=>24,"standard_rate"=>25,"per_hour"=>0,'amount'=>$amount,'duration'=>$days.' day(s)',"penalty"=>$penalty,'discount'=>'Hospital'];
     }else if($value->parking_reason == 2 || $value->parking_reason == 3){//add delivery
       $minutes = $time_out->diffInMinutes($value->time_in);
       if($minutes < 16){
-        $penalty = $violations->sum('violation_name.penalty');
+        $penalty = $value->violations->sum('violation_name.penalty');
         $total = 0 + $penalty;
-        return ["standard_hours"=>15,"standard_rate"=>0,"per_hour"=>0,'amount'=>0,'duration'=>$minutes+ ' minute(s)',"penalty"=>$penalty,'discount'=>'Drop by/Delivery'];
+        return ["standard_hours"=>15,"standard_rate"=>0,"per_hour"=>0,'amount'=>0,'duration'=>$minutes.' minute(s)',"penalty"=>$penalty,'discount'=>'Drop by/Delivery'];
       }else{
         return $this->normalCalculate($value);
       }

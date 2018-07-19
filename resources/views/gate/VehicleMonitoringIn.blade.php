@@ -23,7 +23,7 @@
   			            <div class="table-responsive">
                       <table width="100%" class="table table-striped table-bordered table-hover" id="dev-table">
                         <div class="panel-body1">
-                          <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter Developers" />
+                          <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filter" />
                         </div><br>
                         <thead>
                             <tr>
@@ -45,7 +45,7 @@
                                     <th>{{$value->time_in}}</th>
                                     <th>{{$value->plate_number}}</th>
                                     <th>{{$value->vehicle_model}}</th>
-                                    <th>{{$value->carType->type}}</th>
+                                    <th>{{$value->carType ? $value->carType->type : ''}}</th>
                                     <th>{{$value->vehicle_color}}</th>
                                     <th>{{$value->remarks}}</th>
                                     <th>{{$value->inPurpose->purpose}}</th>

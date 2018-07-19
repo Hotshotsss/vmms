@@ -23,6 +23,14 @@ function showDetails(data){
     totalPenalty += Number(violations[i].violation_name.penalty);
     violationsList.push(violations[i].violation_name.violation);
   }
+
+  if(values.parking_reason != 1){
+    $('#proof input[name="hospital_proof"]').attr('disabled',true);
+    $('#proof').hide();
+  }else{
+    $('#proof input[name="hospital_proof"]').attr('disabled',false);
+    $('#proof').show();
+  }
   $('#monitoring-plate').text(values.plate_number);
   $('#monitoring-model').text(values.vehicle_model);
   $('#monitoring-timein').text(values.time_in);

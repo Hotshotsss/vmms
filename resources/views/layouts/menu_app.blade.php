@@ -12,23 +12,22 @@
   <title>MCU - VMMS</title>
 
   <!-- Bootstrap Core CSS -->
-  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
   <!-- MetisMenu CSS -->
-  <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+  <link href="{{asset('css/metisMenu.min.css')}}" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+  <link href="{{asset('css/sb-admin-2.css')}}" rel="stylesheet">
 
   <!-- Custom Fonts -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/solid.css" integrity="sha384-TbilV5Lbhlwdyc4RuIV/JhD8NR+BfMrvz4BL5QFa2we1hQu6wvREr3v6XSRfCTRp" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG" crossorigin="anonymous">
+  <link href="{{asset('css/fontawesome.min.css')}}" rel="stylesheet" type="text/css">
 
-
-    <!-- Search Filter -->
-    <link href="{{asset('css/searchtable.css')}}" rel="stylesheet" type="text/css">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link href="../css/admin.css" rel="stylesheet">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <!-- Search Filter -->
+  <link href="{{asset('css/searchtable.css')}}" rel="stylesheet" type="text/css">
+  <link href="{{asset('css/admin.css')}}" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -72,22 +71,18 @@
 
     <!-- <div id="page-wrapper"> -->
 @yield('content')
+</div>
+<div class="footer">
+  <p>© Student {{\Carbon\Carbon::now()->format('Y')}} All Rights Reserved</p>
+</div>
 </body>
-
 </html>
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-
-<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> -->
-<!-- <script src="../vendor/bootstrap/js/bootstrap.min.js"></script> -->
-<script src="../vendor/metisMenu/metisMenu.min.js"></script>
-<script src="../dist/js/sb-admin-2.js"></script>
-<script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
-<script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-<script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('js/jquery-ui.js')}}"></script>
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
+<script src="{{asset('js/metisMenu.min.js')}}"></script>
+<script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('js/sb-admin-2.js')}}"></script>
 <script src="{{asset('js/gate.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/searchfilter.js')}}" type="text/javascript"></script>
 

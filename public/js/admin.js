@@ -38,6 +38,14 @@ $(document).on('click','#edit-purpose',function(){
 
   var values = $(this).data('id');
 
+;
+  if($.inArray(values.id,[1,2,3]) > -1){
+    var info = '<div id="purpose-body" class="alert alert-warning"><strong>Warning!</strong> We do not recommend changing the value of this item!</div>';
+    $('#purpose-body').html(info);
+  }else{
+    $('#purpose-body .alert-warning').remove();
+  }
+
   $('#editPurpose input[name="purpose"]').val(values.purpose);
   $('#editPurpose button[name="id"]').val(values.id);
 
@@ -174,10 +182,10 @@ $(document).on('change','#sched',function(){
 if($('#editPassword2').length){
   $('#editPassword2').modal('show');
 }
-function initMap() {
-  var map;
 
-  map = new google.maps.Map(document.getElementById('map'), {
+function initMap() {
+if($('#map').length){
+  var map = new google.maps.Map(document.getElementById('map'), {
     center: new google.maps.LatLng(14.6591102, 120.9860692),
     zoom: 17,
     mapTypeId: 'satellite',
@@ -187,31 +195,30 @@ function initMap() {
   });
 
 
-  if($('#map').length){
-    $.getJSON("/map", function(json1) {
-      $.each(json1, function(key, data) {
-        var latLng = new google.maps.LatLng(data.lat, data.lng);
-        var id = data.id;
-        var name = data.name;
-        var address = data.address;
-        var type = data.type;
+  $.getJSON("/map", function(json1) {
+    $.each(json1, function(key, data) {
+      var latLng = new google.maps.LatLng(data.lat, data.lng);
+      var id = data.id;
+      var name = data.name;
+      var address = data.address;
+      var type = data.type;
 
-        var infowincontent = '<div style="color:#333"><strong>'+name+'</strong><br><text>'+address+'</text></div>'
+      var infowincontent = '<div style="color:#333"><strong>'+name+'</strong><br><text>'+address+'</text></div>'
 
-        var marker = new google.maps.Marker({
-          position: latLng,
-          animation: google.maps.Animation.DROP,
-          map: map,
-          title: data.name
-        });
+      var marker = new google.maps.Marker({
+        position: latLng,
+        animation: google.maps.Animation.DROP,
+        map: map,
+        title: data.name
+      });
 
-        var infowindow = new google.maps.InfoWindow({
-          content: infowincontent
-        });
-        marker.addListener('click', function() {
-          infowindow.open(map, marker);
-        });
+      var infowindow = new google.maps.InfoWindow({
+        content: infowincontent
+      });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
       });
     });
-  }
+  });
+}
 }
