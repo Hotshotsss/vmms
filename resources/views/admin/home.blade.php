@@ -3,6 +3,9 @@
 <div id="page-wrapper" style="padding-top:20px;">
   <div id="data-content">
     <div class="row" style="color:white;">
+      <div class="col-lg-12" style="padding-left:0px;padding-right:2.5px;height:400px;padding-bottom:5px;">
+        <div id="map" style="height:100%"></div>
+      </div>
       <div class="col-lg-12 col-md-8 col-xs-6" style="padding-left:0px;padding-right:2.5px;padding-bottom:5px;">
         <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#4db151;border-radius:5px;">
           <div class="col-md-4 hidden-sm hidden-xs">

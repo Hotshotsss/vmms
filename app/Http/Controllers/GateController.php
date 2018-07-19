@@ -115,7 +115,8 @@ class GateController extends Controller
   }
 
   public function vehicleOutView(){
-    $data = Parking::where('time_out',null)->with(['violations.violation_name','location','carRate'])->get();
+    $data = Parking::where('time_out',null)->get();
+
     return view('gate.VehicleOut')->with('car',$data);
   }
 
@@ -128,7 +129,8 @@ class GateController extends Controller
   public function vehicleMonitoringOut(){
     $carout = Parking::whereNotNull('time_out')->get();
 
-    return view('gate.VehicleMonitoringOut')->with('carout',$carout);
+
+    return view('gate.VehicleMonitoringOut')->with('carout',$carout,'check',$check);
   }
 
   public function vehicleMonitoringID(Request $request){
@@ -136,6 +138,14 @@ class GateController extends Controller
     $carID = Car::where('car_id',$car_id)->first();
 
     return redirect()->back();
+  }
+
+  public function checkOutData($id){
+    $data = Parking::where('id',$id)->with('violations.violation_name','location')->first();
+
+    $total = $this->calculatePayments($data);
+
+    return json_encode(array_merge($data->toArray(),$total));
   }
 
   public function updateParking(Request $request){
@@ -158,14 +168,19 @@ class GateController extends Controller
 
 
   public function calculatePayments($value){
+    $time_out = Carbon::parse($value->time_out);
+
     if($value->parking_reason == 1 && $value->hospital_proof){
-      $days = ($value->time_out)->diffInDays($value->time_in);
-      $amount = 25 * $days;
-        return ["standard_hours"=>24,"standard_rate"=>25,"per_hour"=>0,'amount'=>$amount,'duration'=>$days+' day(s)','discount'=>'Hospital'];
+      $days = $time_out->diffInDays($value->time_in);
+      $penalty = $violations->sum('violation_name.penalty');
+      $amount = 25 * $days + $penalty ;
+      return ["standard_hours"=>24,"standard_rate"=>25,"per_hour"=>0,'amount'=>$amount,'duration'=>$days+' day(s)',"penalty"=>$penalty,'discount'=>'Hospital'];
     }else if($value->parking_reason == 2 || $value->parking_reason == 3){//add delivery
-      $minutes = ($value->time_out)->diffInMinutes($value->time_in);
+      $minutes = $time_out->diffInMinutes($value->time_in);
       if($minutes < 16){
-        return ["standard_hours"=>15,"standard_rate"=>0,"per_hour"=>0,'amount'=>0,'duration'=>$minutes+ ' minute(s)','discount'=>'Drop by/Delivery'];
+        $penalty = $violations->sum('violation_name.penalty');
+        $total = 0 + $penalty;
+        return ["standard_hours"=>15,"standard_rate"=>0,"per_hour"=>0,'amount'=>0,'duration'=>$minutes+ ' minute(s)',"penalty"=>$penalty,'discount'=>'Drop by/Delivery'];
       }else{
         return $this->normalCalculate($value);
       }
@@ -176,38 +191,45 @@ class GateController extends Controller
 
   public function normalCalculate($value){
     //check if its there that day
+    $time_out = Carbon::parse($value->time_out);
+
     $check = Parking::where('plate_number',$value->plate_number)
     ->where('time_out','!=',null)
     ->where(DB::raw('date_format(time_out,"%d-%m-%Y")'),Carbon::today()->format('d-m-Y'))->get();
 
-    $hours = ceil(($value->time_out)->diffInMinutes($value->time_in) / 60);
+    $hours = ceil($time_out->diffInMinutes($value->time_in) / 60);
     $violations = $value->violations;
     $car_rate = $value->carRate;
+    $standard_hours = 0;
+    $standard_rate = 0;
+    $hourly_rate = 0;
+
+    if($car_rate){
+      $standard_hours = $car_rate->standard_hours;
+      $standard_rate = $car_rate->standard_rate;
+      $hourly_rate = $car_rate->hour_rate;
+    }
 
     if($check->isNotEmpty()){
       $hours2 = 0;
       foreach ($check as $val) {
-        $hours2 += ceil(($value->time_out)->diffInMinutes($value->time_in) / 60); //total hours before e.g 2
+        $hours2 += ceil($time_out->diffInMinutes($value->time_in) / 60); //total hours before e.g 2
       }
       if($hours2 < $car_rate->standard_hours){
         $hours = $hours - $hours2;
       }
     }
 
-      $standard_hours = $car_rate->standard_hours;
-      $standard_rate = $car_rate->standard_rate;
-      $hourly_rate = $car_rate->hour_rate;
+    $penalty = $violations->sum('violation_name.penalty');
+    $exceedingHours = 0;
 
-      $penalty = $violations->sum('violation_name.penalty');
-      $exceedingHours = 0;
+    if($hours > $standard_hours){
+      $exceedingHours = ($hours - $standard_hours) * $hourly_rate;
+    }
 
-      if($hours > $standard_hours){
-        $exceedingHours = ($hours - $standard_hours) * $hourly_rate;
-      }
-
-      $total = $exceedingHours + $standard_rate + $penalty;
+    $total = $exceedingHours + $standard_rate + $penalty;
 
 
-    return ["standard_hours"=>$standard_hours,"standard_rate"=>$standard_rate,"per_hour"=>$hourly_rate,"amount"=>$total,"duration"=>$hours,"discount"=>"N/A"];
+    return ["standard_hours"=>$standard_hours,"standard_rate"=>$standard_rate,"per_hour"=>$hourly_rate,"amount"=>$total,"duration"=>$hours,"penalty"=>$penalty,"discount"=>"N/A"];
   }
 }

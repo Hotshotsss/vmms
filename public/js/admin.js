@@ -115,10 +115,10 @@ function getEvent(data){
 
     //create hidden id
     $('<input>').attr({
-    type: 'hidden',
-    name: 'edit',
-    value: data.id
-  }).appendTo(ito+' form');
+      type: 'hidden',
+      name: 'edit',
+      value: data.id
+    }).appendTo(ito+' form');
 
     $(ito).modal('show');
   }
@@ -150,27 +150,68 @@ function getEvent(data){
     $(ito+' select[name="time_out"]').val(moment(data.end).format('H:mm'));
 
     $('<input>').attr({
-    type: 'hidden',
-    name: 'edit',
-    value: data.id
-  }).appendTo(ito+' form');
+      type: 'hidden',
+      name: 'edit',
+      value: data.id
+    }).appendTo(ito+' form');
 
     $(ito).modal('show');
   }
 }
 
 $(document).on('change','#sched',function(){
-    if(this.value == 1){
-        $('#assignment_label').text('Monitoring');
-        $('#edit-guard input[name="gate_loc"]').attr('disabled',true);
-        $('#assignment').hide();
-    }else{
-        $('#assignment_label').text('Gate');
-        $('#edit-guard input[name="gate_loc"]').attr('disabled',false);
-        $('#assignment').show();
-    }
+  if(this.value == 1){
+    $('#assignment_label').text('Monitoring');
+    $('#edit-guard input[name="gate_loc"]').attr('disabled',true);
+    $('#assignment').hide();
+  }else{
+    $('#assignment_label').text('Gate');
+    $('#edit-guard input[name="gate_loc"]').attr('disabled',false);
+    $('#assignment').show();
+  }
 });
 
 if($('#editPassword2').length){
   $('#editPassword2').modal('show');
+}
+function initMap() {
+  var map;
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: new google.maps.LatLng(14.6591102, 120.9860692),
+    zoom: 17,
+    mapTypeId: 'satellite',
+    heading: 270,
+    tilt: 45,
+    zoomControl:true
+  });
+
+
+  if($('#map').length){
+    $.getJSON("/map", function(json1) {
+      $.each(json1, function(key, data) {
+        var latLng = new google.maps.LatLng(data.lat, data.lng);
+        var id = data.id;
+        var name = data.name;
+        var address = data.address;
+        var type = data.type;
+
+        var infowincontent = '<div style="color:#333"><strong>'+name+'</strong><br><text>'+address+'</text></div>'
+
+        var marker = new google.maps.Marker({
+          position: latLng,
+          animation: google.maps.Animation.DROP,
+          map: map,
+          title: data.name
+        });
+
+        var infowindow = new google.maps.InfoWindow({
+          content: infowincontent
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+      });
+    });
+  }
 }

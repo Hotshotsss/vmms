@@ -19,6 +19,12 @@ class Parking extends Model
     return $this->hasOne('App\ParkingSlot','id','location_id');
   }
 
+  public function getSameDayParkings($value){
+    return $this->where('plate_number', $this->plate_number)
+   ->where('time_out','!=',null)
+   ->where(DB::raw('date_format(time_out,"%d-%m-%Y")'),Carbon::today()->format('d-m-Y'))->get();
+  }
+
   public function color(){
     return $this->hasOne('App\Colors','id','color_id');
   }

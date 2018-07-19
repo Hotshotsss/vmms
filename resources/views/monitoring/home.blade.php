@@ -46,7 +46,7 @@
                   <th>{{$value->time_in}}</th>
                   <th>{{$value->plate_number}}</th>
                   <th>{{$value->vehicle_model}}</th>
-                  <th>{{$value->carType->type}}</th>
+                  <th>{{$value->carType ? $value->carType->type : ''}}</th>
                   <th>{{$value->inPurpose->purpose}}</th>
                   <th>
                     @foreach($value->violations as $violation)

@@ -42,7 +42,7 @@
                   <th>{{$value->time_in}}</th>
                   <th align = 'center'>
                     <center>
-                      <a href="#" class='btn btn-success' type='button' name = 't2' id="view-details" data-id="{{$value}}" value = '$car_id'><span class='glyphicon glyphicon-search'></span> View Details</a>
+                      <a href="#" class='btn btn-success' type='button' name = 't2' id="view-details" data-id="{{$value->id}}" value = '$car_id'><span class='glyphicon glyphicon-search'></span> View Details</a>
                     </center>
                   </th>
 
@@ -105,6 +105,10 @@
             <div class="table-responsive">
               <table class="table table-bordered">
                 <tr>
+                  <td class="col-md-5"> <label>Less: </label> </td>
+                  <td class="col-md-7 input-value" id="monitoring-reason">  </td>
+                </tr>
+                <tr>
                   <td class="col-md-5 input-value" id="first-hours-label" style="font-weight:bold"> <label>First 3 Hours: </label> </td>
                   <td class="col-md-7 input-value" id="first-hours-value"> 40.00 </td>
                 </tr>
@@ -116,10 +120,7 @@
                   <td class="col-md-5"> <label>Penalty: </label> </td>
                   <td class="col-md-7 input-value" id="monitoring-penalty">  </td>
                 </tr>
-                <tr>
-                  <td class="col-md-5"> <label>Less: </label> </td>
-                  <td class="col-md-7 input-value" id="monitoring-reason">  </td>
-                </tr>
+
                 <tr>
                   <td class="col-md-5"> <label>Total Price: </label> </td>
                   <td class="col-md-7 input-value" id="monitoring-total">  </td>

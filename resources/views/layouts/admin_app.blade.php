@@ -148,6 +148,7 @@
 <script src="{{asset('js/admin.js')}}" type="text/javascript"></script>
 <script src="{{ asset('js/moment.min.js')}}"></script>
 <script src="{{ asset('js/fullcalendar.min.js')}}"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXhzc2fN2CY1FuFGP3oRFHBkhcgQp1x-g&callback=initMap"></script>
 
 <!-- Metis Menu Plugin JavaScript -->
 <script src="{{ url ('vendor/metisMenu/metisMenu.min.js')}}"></script>

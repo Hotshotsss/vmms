@@ -11,7 +11,7 @@
 |
 */
 
-
+Route::get('map','AdminController@showMap');
 //Add all the routes for the admin here
 Route::prefix('admin')->group(function () {
 
@@ -111,6 +111,7 @@ Route::prefix('gate')->group(function () {
 
     Route::post('add-in', 'GateController@addIn');
     // vehicle out
+    Route::get('check-out-data/{id}','GateController@checkOutData');
     Route::get('vehicle-out', 'GateController@vehicleOutView')->middleware('exitg');
     Route::post('update-parking','GateController@updateParking');
 

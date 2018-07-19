@@ -11,6 +11,7 @@ use App\Parking;
 use App\ParkingSlot;
 use App\EmployeeSchedule;
 use App\Purpose;
+use App\Marker;
 use Carbon\Carbon;
 use Validator;
 use DB;
@@ -20,6 +21,8 @@ use App;
 
 class AdminController extends Controller
 {
+
+
   public function home(Request $request){
 
     $slots = ParkingSlot::all();
@@ -379,5 +382,9 @@ class AdminController extends Controller
       $slots = ParkingSlot::all();
 
       return view('admin.home')->with(['slots'=>$slots]);
+    }
+
+    public function showMap(){
+      return Marker::all()->toJson();
     }
   }
