@@ -17,7 +17,7 @@ class LocationsSeeder extends Seeder
         ['parking_name' => 'C Gym','description'=>'Epifanio delos Santos Avenue(EDSA), Morning Breeze Subdivision, Caloocan, 1400 Metro Manila','number_of_slots'=>'250'],
         ['parking_name' => 'Old Gym','description'=>'Epifanio delos Santos Avenue(EDSA), Morning Breeze Subdivision, Caloocan, 1400 Metro Manila','number_of_slots'=>'250'],
         ['parking_name' => 'Patio Minerva','description'=>'Epifanio delos Santos Avenue(EDSA), Morning Breeze Subdivision, Caloocan, 1400 Metro Manila','number_of_slots'=>'250'],
-        ['parking_name' => 'Patio Minerva','description'=>'Epifanio delos Santos Avenue(EDSA), Morning Breeze Subdivision, Caloocan, 1400 Metro Manila','number_of_slots'=>'250'],
+        ['parking_name' => 'Patio Minerva','description'=>'Epifanio delos Santos Avenue(EDSA), Morning Breeze Subdivision, Caloocan, 1400 Metro Manila','number_of_slots'=>'250']
       );
     }
 }

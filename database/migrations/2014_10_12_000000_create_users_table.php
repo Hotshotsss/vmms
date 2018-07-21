@@ -17,7 +17,6 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->tinyInteger('type');
-            $table->tinyInteger('hospital_proof');
             $table->string('username');
             $table->string('password');
             $table->string('temporary_password')->nullable();
