@@ -67,7 +67,7 @@
                     <b><a href="#!" data-id="{{$value}}" id="edit-color" style="float:right;">edit</a></b>
                     @else
 
-                    <select class = "form-control select-color"  name = "txt-vehiclecolor">
+                    <select class = "form-control select-color" data-id="{{$value}}"  name = "txt-vehiclecolor">
                       <option disabled selected>Select Color:</option>
                       <option value="Red">Red</option>
                       <option value="Blue">Blue</option>

@@ -1,0 +1,32 @@
+Admin Side
+
+*Purpose
+-Kala ko tatanggalin na yung Deletion ng Hospital, Dropby and Delivery? kasi diba may 15 minutes yung Dropby and Delivery e nasa code un
+(tsaka pwede "Hospital" na lng pangalan kesa sa "Hospital/Patient") Salamat!
+-May error sa pag aadd ng Purpose. Ayaw
+
+*Employee Sched
+-Walang delete?
+
+*User Settings
+-yung validation sa password
+
+
+Entrance Side
+-May error sa pag aadd ng data sa vehicle in
+
+
+Monitoring Side
+-naghahang sya pag may clinick ako kahit saan
+-di gumagana yung Add sa Remarks tsaka san ako mag input ng remarks??
+-di gumagana yung edit kahit san
+-tsaka pano ko malalaman if okay na yung mga nilagay at pinili ko sa monitoring? 
+wala kasing button na submit or ano. aantayin lng ba to or refresh XD medyo nakakalito
+
+
+Exit Side
+-may problema pag chineck yung doctors proof, nag eerror
+
+
+
+d ko ma try yung simulation sa tatlong side kasi yung una may problema na eh kaya d macheck.
