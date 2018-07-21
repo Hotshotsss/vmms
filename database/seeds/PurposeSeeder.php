@@ -11,10 +11,10 @@ class PurposeSeeder extends Seeder
   */
   public function run()
   {
-    DB::table('purpose')->insert(
+    DB::table('purpose')->insert([
       ['purpose' => 'Hospital'],
       ['purpose' => 'Drop-By'],
       ['purpose' => 'Delivery']
-    );
+    ]);
   }
 }

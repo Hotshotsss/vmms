@@ -67,7 +67,7 @@ $(document).on('click','#edit-user',function(){
 
   var values = $(this).data('id');
 
-  $('#editUser input[name="type"]').val(values.type);
+  $('#editUser #sel1').val(values.type);
   $('#editUser input[name="name"]').val(values.name);
   $('#editUser input[name="username"]').val(values.username);
   $('#editUser button[name="edit"]').val(values.id);
