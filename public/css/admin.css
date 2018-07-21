@@ -202,16 +202,17 @@ min-height: 100%;  background-attachment: fixed;
 }
 
 .footer {
-   left: 0;
-   bottom: 0;
-   position: absolute;
-   width: 100%;
-   background-color: #D1C4E9;
-   color: #333;
-   text-align: center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #D1C4E9;
+  color: #333;
+  text-align: center;
+  margin-top: 0;
 }
 .footer p{
-      margin: 20px;
+  margin: 0px;
+  padding:20px;
 }
 .footer2 {
    left: 0;
@@ -221,6 +222,7 @@ min-height: 100%;  background-attachment: fixed;
    color: #333;
    text-align: center;
    margin-top: 15px;
+float:left;
 }
 .footer2 p{
       margin: 0px;

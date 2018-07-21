@@ -32,7 +32,7 @@
 </head>
 
 <body>
-  <div id="app">
+  <div id="app" style="height:100%;">
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -69,14 +69,11 @@
 
 
     <!-- <div id="page-wrapper"> -->
-    <div class="container-fluid">
-      <div class="row">
-        @yield('content')
-      </div>
-    </div>
+    @yield('content')
+
     <!-- </div> -->
   </div>
-  <div class="footer">
+  <div class="footer2">
     <p>© Student {{\Carbon\Carbon::now()->format('Y')}} All Rights Reserved</p>
 </div>
 </body>

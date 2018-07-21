@@ -5,7 +5,7 @@
   <div id="data-content">
     <div class="row">
       <div class="col-lg-12">
-        <h1>Parking Location Settings</h1>
+        <h1>Rate Settings</h1>
         <hr>
       </div>
       @if($type->isNotEmpty() || $rate->isNotEmpty())
@@ -49,7 +49,7 @@
 
       <div class="@if($type->isNotEmpty()) col-lg-8 @else col-lg-12 @endif" >
         <div class="panel panel-default">
-          <div class="panel-heading">Parking Location Details</div>
+          <div class="panel-heading">Rate Settings</div>
           <div class="panel-body">
             @if($rate->isNotEmpty())
             <div class="table-responsive">
