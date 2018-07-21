@@ -49,7 +49,7 @@
 
       <div class="@if($type->isNotEmpty()) col-lg-8 @else col-lg-12 @endif" >
         <div class="panel panel-default">
-          <div class="panel-heading">Rate Settings</div>
+          <div class="panel-heading">Rate Details</div>
           <div class="panel-body">
             @if($rate->isNotEmpty())
             <div class="table-responsive">
