@@ -1,6 +1,6 @@
 @extends('layouts.menu_app')
 @section('content')
-<div class="col-lg-4 no-padding containerFull" style="border-right:2px solid #d05ce3">
+<div class="col-sm-4 no-padding containerFull" style="border-right:2px solid #d05ce3">
   <a href="@if(session('user_type') && session('user_type') == 2)vehicle-in @else vehicle-out @endif">
     <div class="parking" onmouseover="bigParking()" onmouseout="normalParking()">
       <div class="panel-body centerContent parkingContent">
@@ -20,7 +20,7 @@
 </div>
 
 
-<div class="col-lg-4 no-padding containerFull" style="border-right:2px solid #d05ce3">
+<div class="col-sm-4 no-padding containerFull" style="border-right:2px solid #d05ce3">
   <a href="vehicle-monitoring-in">
     <div class="report" onmouseover="bigReport()" onmouseout="normalReport()">
       <div class="panel-body centerContent reportContent">
@@ -33,7 +33,7 @@
   </a>
 </div>
 
-<div class="col-lg-4 no-padding containerFull">
+<div class="col-sm-4 no-padding containerFull">
   <a href="vehicle-monitoring-out">
     <div class="reportOut" onmouseover="bigReportOut()" onmouseout="normalReportOut()">
       <div class="panel-body centerContent reportContentOut">
@@ -53,7 +53,7 @@
     {{Form::open(['url'=>'gate/edit-password','method'=>'post'])}}
     <div class="modal-content">
       <div class="modal-header">
-      
+
         <center><h2 class="modal-title"><b>Change Password</b></h2></center>
       </div>
 

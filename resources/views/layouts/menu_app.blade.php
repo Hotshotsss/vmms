@@ -72,7 +72,7 @@
     <!-- <div id="page-wrapper"> -->
 @yield('content')
 </div>
-<div class="footer">
+<div class="footer2">
   <p>© Student {{\Carbon\Carbon::now()->format('Y')}} All Rights Reserved</p>
 </div>
 </body>

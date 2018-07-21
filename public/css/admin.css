@@ -114,6 +114,12 @@ min-height: 100%;  background-attachment: fixed;
   background:rgba(0,0,0,0.3);
   z-index: 1;
   transition: all .2s ease-in-out;
+}
+@media(max-width:767px){
+  .reportOut,.parking,.report{
+    background-size: cover;
+    background-position: center;
+  }
 
 }
 .no-padding{
@@ -137,7 +143,7 @@ min-height: 100%;  background-attachment: fixed;
   z-index: 1;
 }
 .containerFull{
-  height: 100%;
+  height: 95%;
 }
 #edit-location, #edit-location:hover, #edit-location:focus{
   color: #9c27b0;
@@ -198,9 +204,25 @@ min-height: 100%;  background-attachment: fixed;
 .footer {
    left: 0;
    bottom: 0;
-   height: 30px;
+   position: absolute;
    width: 100%;
    background-color: #D1C4E9;
    color: #333;
    text-align: center;
+}
+.footer p{
+      margin: 20px;
+}
+.footer2 {
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #D1C4E9;
+   color: #333;
+   text-align: center;
+   margin-top: 15px;
+}
+.footer2 p{
+      margin: 0px;
+      padding:20px;
 }
