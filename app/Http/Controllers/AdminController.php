@@ -137,17 +137,20 @@ class AdminController extends Controller
   public function reports(){
     $car = Parking::whereNotNull('time_out')->get();
 
-    return view('admin.reports')->with(['cars'=>$car])->with(['day'=>'Filter','param'=>'365']);
+    return view('admin.reports')->with(['cars'=>$car])->with(['day'=>'Filter','param'=>'all']);
   }
   public function reportPDF($param){
-
-    $now = Carbon::now()->subDay();
-    $days28 = Carbon::now()->subDays($param);
-    $car = Parking::whereNotNull('time_out')->whereBetween('time_out',[$days28,$now])->get();
-      $pdf = App::make('dompdf.wrapper');
-      $pdf->setPaper('legal', 'landscape');
-      $pdf->loadView('admin.reportPDF',compact('car'));
-      return $pdf->stream();
+    if($param == 'all'){
+      $car = Parking::whereNotNull('time_out')->get();
+    }else{
+      $now = Carbon::now()->subDay();
+      $days28 = Carbon::now()->subDays($param);
+      $car = Parking::whereNotNull('time_out')->whereBetween('time_out',[$days28,$now])->get();
+    }
+    $pdf = App::make('dompdf.wrapper');
+    $pdf->setPaper('legal', 'landscape');
+    $pdf->loadView('admin.reportPDF',compact('car'));
+    return $pdf->stream();
   }
   public function daily(){
     $now = Carbon::now()->subDay();
@@ -243,148 +246,148 @@ class AdminController extends Controller
         return redirect()->back()->with('success','Parking Purpose Deleted!');
       }
 
-    public function viewSchedule(){
-      $users = User::all();
+      public function viewSchedule(){
+        $users = User::all();
 
-      return view('admin.schedule')->with(['users'=>$users]);
-    }
+        return view('admin.schedule')->with(['users'=>$users]);
+      }
 
-    public function getSched(){
-      $sched = EmployeeSchedule::selectRaw('id,user_id,assigned_at,CONCAT(date_from," ",time_in) as start,CONCAT(date_to," ",time_out) as end')->orderBy('assigned_at','asc')->get()->toJson();
+      public function getSched(){
+        $sched = EmployeeSchedule::selectRaw('id,user_id,assigned_at,CONCAT(date_from," ",time_in) as start,CONCAT(date_to," ",time_out) as end')->orderBy('assigned_at','asc')->get()->toJson();
 
-      return $sched;
-    }
+        return $sched;
+      }
 
-    public function addSchedule(Request $request){
-      $at = $request->sched_btn;
+      public function addSchedule(Request $request){
+        $at = $request->sched_btn;
 
-      if($at == "2"){
-        if($request->has('gate_loc')){
-          $at = $request->gate_loc;
+        if($at == "2"){
+          if($request->has('gate_loc')){
+            $at = $request->gate_loc;
+          }
+          else{
+            return redirect()->back()->with(['error','Somethings wrong with your input!']);
+          }
         }
-        else{
-          return redirect()->back()->with(['error','Somethings wrong with your input!']);
+
+        $conflict = $this->checkSchedConflict($request);
+        if($conflict->isNotEmpty()){
+          return redirect()->back()->withInput()->withErrors(['conflict'=>'Oh no! There is a conflict with the schedule you entered.']);
         }
+        $sched = new EmployeeSchedule;
+        $sched->user_id = $request->user;
+        $sched->assigned_at = $at;
+        $sched->date_from = Carbon::parse($request->from_date)->format('Y-m-d');
+        $sched->date_to = Carbon::parse($request->to_date)->format('Y-m-d');
+        $sched->time_in = $request->time_in;
+        $sched->time_out = $request->time_out;
+        $sched->save();
+
+        return redirect()->back()->with('success','Schedule Added!');
       }
 
-      $conflict = $this->checkSchedConflict($request);
-      if($conflict->isNotEmpty()){
-        return redirect()->back()->withInput()->withErrors(['conflict'=>'Oh no! There is a conflict with the schedule you entered.']);
-      }
-      $sched = new EmployeeSchedule;
-      $sched->user_id = $request->user;
-      $sched->assigned_at = $at;
-      $sched->date_from = Carbon::parse($request->from_date)->format('Y-m-d');
-      $sched->date_to = Carbon::parse($request->to_date)->format('Y-m-d');
-      $sched->time_in = $request->time_in;
-      $sched->time_out = $request->time_out;
-      $sched->save();
+      public function editSchedule(Request $request){
+        $at = $request->sched_btn;
 
-      return redirect()->back()->with('success','Schedule Added!');
-    }
-
-    public function editSchedule(Request $request){
-      $at = $request->sched_btn;
-
-      if($at == "2"){
-        if($request->has('gate_loc')){
-          $at = $request->gate_loc;
+        if($at == "2"){
+          if($request->has('gate_loc')){
+            $at = $request->gate_loc;
+          }
+          else{
+            return redirect()->back()->with(['error','Somethings wrong with your input!']);
+          }
         }
-        else{
-          return redirect()->back()->with(['error','Somethings wrong with your input!']);
+
+        $conflict = $this->checkSchedConflictEdit($request);
+        if($conflict->isNotEmpty()){
+          return redirect()->back()->withInput()->withErrors(['conflict'=>'Oh no! There is a conflict with the schedule you entered.']);
         }
+
+        $sched = EmployeeSchedule::find($request->edit);
+        $sched->user_id = $request->user;
+        $sched->assigned_at = $at;
+        $sched->date_from = Carbon::parse($request->from_date)->format('Y-m-d');
+        $sched->date_to = Carbon::parse($request->to_date)->format('Y-m-d');
+        $sched->time_in = $request->time_in;
+        $sched->time_out = $request->time_out;
+        $sched->save();
+
+        return redirect()->back()->with('success','Schedule Edited!');
       }
 
-      $conflict = $this->checkSchedConflictEdit($request);
-      if($conflict->isNotEmpty()){
-        return redirect()->back()->withInput()->withErrors(['conflict'=>'Oh no! There is a conflict with the schedule you entered.']);
+      public function checkSchedConflictEdit($request){
+        $in = Carbon::parse($request->from_date.' '.$request->time_in);
+        $out = Carbon::parse($request->to_date.' '.$request->time_out);
+
+        $conflict = EmployeeSchedule::where('user_id',$request->user)->where('id','!=',$request->edit)
+        ->where(function ($query) use($in,$out){
+          $query->where('date_from','<=',$out->format('Y-m-d'))
+          ->where('date_to','>=',$in->format('Y-m-d'))
+          ->where('time_in','<=',$out->format('H:i:s'))
+          ->where('time_out','>=',$in->format('H:i:s'));
+        })->get();
+
+        return $conflict;
       }
 
-      $sched = EmployeeSchedule::find($request->edit);
-      $sched->user_id = $request->user;
-      $sched->assigned_at = $at;
-      $sched->date_from = Carbon::parse($request->from_date)->format('Y-m-d');
-      $sched->date_to = Carbon::parse($request->to_date)->format('Y-m-d');
-      $sched->time_in = $request->time_in;
-      $sched->time_out = $request->time_out;
-      $sched->save();
+      public function checkSchedConflict($request){
+        $in = Carbon::parse($request->from_date.' '.$request->time_in);
+        $out = Carbon::parse($request->to_date.' '.$request->time_out);
 
-      return redirect()->back()->with('success','Schedule Edited!');
-    }
+        $conflict = EmployeeSchedule::where('user_id',$request->user)
+        ->where(function ($query) use($in,$out){
+          $query->where('date_from','<=',$out->format('Y-m-d'))
+          ->where('date_to','>=',$in->format('Y-m-d'))
+          ->where('time_in','<=',$out->format('H:i:s'))
+          ->where('time_out','>=',$in->format('H:i:s'));
+        })->get();
 
-    public function checkSchedConflictEdit($request){
-      $in = Carbon::parse($request->from_date.' '.$request->time_in);
-      $out = Carbon::parse($request->to_date.' '.$request->time_out);
-
-      $conflict = EmployeeSchedule::where('user_id',$request->user)->where('id','!=',$request->edit)
-      ->where(function ($query) use($in,$out){
-        $query->where('date_from','<=',$out->format('Y-m-d'))
-        ->where('date_to','>=',$in->format('Y-m-d'))
-        ->where('time_in','<=',$out->format('H:i:s'))
-        ->where('time_out','>=',$in->format('H:i:s'));
-      })->get();
-
-      return $conflict;
-    }
-
-    public function checkSchedConflict($request){
-      $in = Carbon::parse($request->from_date.' '.$request->time_in);
-      $out = Carbon::parse($request->to_date.' '.$request->time_out);
-
-      $conflict = EmployeeSchedule::where('user_id',$request->user)
-      ->where(function ($query) use($in,$out){
-        $query->where('date_from','<=',$out->format('Y-m-d'))
-        ->where('date_to','>=',$in->format('Y-m-d'))
-        ->where('time_in','<=',$out->format('H:i:s'))
-        ->where('time_out','>=',$in->format('H:i:s'));
-      })->get();
-
-      return $conflict;
-    }
-
-    public function deleteUser(Request $request){
-      $user = User::find($request->delete)->delete();
-
-      return redirect()->back()->with('success','User Deleted!');
-    }
-
-    public function editUser(Request $request){
-      $user = User::find($request->edit);
-
-      $user->type = $request->type;
-      $user->name = $request->name;
-      $user->username = $request->username;
-      $user->save();
-
-      return redirect()->back()->with('success','User Updated!');
-    }
-
-    public function editPassword(Request $request){
-
-      $validator = Validator::make($request->all(), [
-        'password' => 'required|string|min:6|confirmed',
-      ]);
-
-      if ($validator->fails()) {
-        return redirect()->back()->withInput()->withErrors($validator,'password');
+        return $conflict;
       }
 
-      $user = User::find($request->change);
+      public function deleteUser(Request $request){
+        $user = User::find($request->delete)->delete();
 
-      $user->password = Hash::make($request->password);
-      $user->temporary_password = null;
-      $user->save();
+        return redirect()->back()->with('success','User Deleted!');
+      }
 
-      return redirect()->back()->with('success','Password Updated!');
+      public function editUser(Request $request){
+        $user = User::find($request->edit);
+
+        $user->type = $request->type;
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->save();
+
+        return redirect()->back()->with('success','User Updated!');
+      }
+
+      public function editPassword(Request $request){
+
+        $validator = Validator::make($request->all(), [
+          'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        if ($validator->fails()) {
+          return redirect()->back()->withInput()->withErrors($validator,'password');
+        }
+
+        $user = User::find($request->change);
+
+        $user->password = Hash::make($request->password);
+        $user->temporary_password = null;
+        $user->save();
+
+        return redirect()->back()->with('success','Password Updated!');
+      }
+
+      public function viewTotalSlots(){
+        $slots = ParkingSlot::all();
+
+        return view('admin.home')->with(['slots'=>$slots]);
+      }
+
+      public function showMap(){
+        return Marker::all()->toJson();
+      }
     }
-
-    public function viewTotalSlots(){
-      $slots = ParkingSlot::all();
-
-      return view('admin.home')->with(['slots'=>$slots]);
-    }
-
-    public function showMap(){
-      return Marker::all()->toJson();
-    }
-  }

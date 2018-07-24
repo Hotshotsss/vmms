@@ -38,6 +38,7 @@
                              <th>Vehicle Type</th>
                              <th>Vehicle Color</th>
                              <th>Vehicle Remarks</th>
+                             <th>Violation</th>
                              <th>Purpose</th>
                              <th>Amount Paid</th>
                         </tr>
@@ -53,8 +54,13 @@
                                  <th>{{$value->carType ? $value->carType->type : "N/A"}}</th>
                                  <th>{{$value->vehicle_color}}</th>
                                  <th>{{$value->remarks}}</th>
+                                 <th>
+                                   @foreach($value->violations as $violation)
+                                   <li>{{$violation->violation_name->violation}}</li>
+                                   @endforeach
+                                 </th>
                                  <th>{{$value->inPurpose ? $value->inPurpose->purpose : "N/A"}}</th>
-                                 <th>{{$value->time_in}}</th>
+                                 <th>{{$value->payment_status}}</th>
                           </tr>
                          @endforeach
                     </tbody>

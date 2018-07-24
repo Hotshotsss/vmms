@@ -153,9 +153,10 @@ class GateController extends Controller
     $proof = $request->hospital_proof == null ? 0 : 1;
     $data->time_out = Carbon::now();
     $data->hospital_proof = $proof;
-    // $data->save();
 
     $total = $this->calculatePayments($data);
+    $data->payment_status = $total['amount'];
+    $data->save();
 
     $pdf = App::make('dompdf.wrapper');
     $customPaper = array(0,0,230,300);
@@ -174,7 +175,7 @@ class GateController extends Controller
       $days = $time_out->diffInDays($value->time_in);
       $penalty = $value->violations->sum('violation_name.penalty');
       $amount = (25 * $days) + $penalty ;
-      
+
       return ["standard_hours"=>24,"standard_rate"=>25,"per_hour"=>0,'amount'=>$amount,'duration'=>$days.' day(s)',"penalty"=>$penalty,'discount'=>'Hospital'];
     }else if($value->parking_reason == 2 || $value->parking_reason == 3){//add delivery
       $minutes = $time_out->diffInMinutes($value->time_in);

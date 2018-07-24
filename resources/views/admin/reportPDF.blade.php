@@ -73,6 +73,7 @@ td{
                <th >Vehicle Type</th>
                <th >Vehicle Color</th>
                <th >Vehicle Remarks</th>
+               <th>Violation</th>
                <th>Purpose</th>
                <th>Amount Paid</th>
           </tr>
@@ -88,8 +89,13 @@ td{
                    <td>{{$value->carType->type}}</td>
                    <td>{{$value->vehicle_color}}</td>
                    <td>{{$value->remarks}}</td>
+                   <th>
+                     @foreach($value->violations as $violation)
+                     {{$violation->violation_name->violation}}<br>
+                     @endforeach
+                   </th>
                    <td>{{$value->inPurpose->purpose}}</td>
-                   <td>{{$value->time_in}}</td>
+                   <td>{{$value->payment_status}}</td>
             </tr>
            @endforeach
       </tbody>

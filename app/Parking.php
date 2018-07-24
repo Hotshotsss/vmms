@@ -11,6 +11,10 @@ class Parking extends Model
     'car_type_id','location_id','vehicle_model','vehicle_color','hospital_proof','remarks','plate_number','parking_reason','time_in','time_out','violation','penalty','detailed_location','payment_status'
   ];
 
+  public function getPaymentStatus($value){
+    return 'PHP '.number_format($this->payment_status,2);
+  }
+
   public function violations(){
     return $this->hasMany('App\ParkingViolation');
   }
