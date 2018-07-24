@@ -56,7 +56,9 @@
                                  <th>{{$value->remarks}}</th>
                                  <th>
                                    @foreach($value->violations as $violation)
-                                   <li>{{$violation->violation_name->violation}}</li>
+                                     @if($violation->violation_name)
+                                     <li>{{$violation->violation_name->violation }}</li>
+                                     @endif
                                    @endforeach
                                  </th>
                                  <th>{{$value->inPurpose ? $value->inPurpose->purpose : "N/A"}}</th>

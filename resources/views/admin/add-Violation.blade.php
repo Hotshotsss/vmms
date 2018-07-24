@@ -54,8 +54,8 @@
                           </button>
                           <ul class="dropdown-menu" role="menu">
                             <li><a href="#" id="edit-violation" data-id="{{$value}}">Edit</a></li>
-                            <li class="divider"></li>
                             <li>
+                            <li class="divider"></li>
                             {!!Form::open(['url'=>'admin/delete-violation','method'=>'post','onsubmit'=>'return confirm("Are you sure you want to delete the item?")'])!!}
                               <button style="display: flex;-webkit-appearance: caret;padding: 3px 20px;color:#333;background:none;font-weight:normal" type="submit" name="type_number" value="{{$value->id}}">Delete</button>
                             {{Form::close()}}

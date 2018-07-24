@@ -91,7 +91,9 @@ td{
                    <td>{{$value->remarks}}</td>
                    <th>
                      @foreach($value->violations as $violation)
-                     {{$violation->violation_name->violation}}<br>
+                     @if($violation->violation_name)
+                     {{$violation->violation_name->violation }}<br>
+                     @endif
                      @endforeach
                    </th>
                    <td>{{$value->inPurpose->purpose}}</td>
