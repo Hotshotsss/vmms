@@ -101,7 +101,7 @@ $(document).ready(function() {
     events: {
       url: '/admin/getSched',
       error: function() {
-        alert('No Schedules');
+        alert('No Schedule');
       }
     },
     eventClick: getEvent
