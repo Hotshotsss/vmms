@@ -68,11 +68,11 @@ td{
           <tr>
                <th>Time In</th>
                <th>Time Out</th>
-               <th >Plate Number</th>
-               <th >Vehicle Model</th>
-               <th >Vehicle Type</th>
-               <th >Vehicle Color</th>
-               <th >Vehicle Remarks</th>
+               <th>Plate Number</th>
+               <th>Vehicle Model</th>
+               <th>Vehicle Type</th>
+               <th>Vehicle Color</th>
+               <th>Vehicle Remarks</th>
                <th>Violation</th>
                <th>Purpose</th>
                <th>Amount Paid</th>
