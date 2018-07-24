@@ -34,7 +34,7 @@
                                 <th>Vehicle Color</th>
                                 <th>Vehicle Remarks</th>
                                 <th>Purpose</th>
-                                <th>violations</th>
+                                <th>Violations</th>
                                 <th>Amount Paid</th>
                            </tr>
                        </thead>
