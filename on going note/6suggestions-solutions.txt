@@ -1,0 +1,25 @@
+Admin Side
+
+*View Reports
+-Pwede pakilagay din ng Violation dito? sorry binasa ko kasi ulit eh meron pala. Thankyou
+~done, git pull
+
+*Employee Schedule
+-May schedule to nung una. tas pagkakita ko wala, nag add ako ng sched for this day gang next week tapos lumabas conflict of schedule daw
+~di ko makita yung error, gumagana naman sakin, pa screenshot nlng nung db tapos nung calendar
+
+Vehicle In
+
+*Vehicle Monitoring
+-kaka add ko lang ng data tas chineck ko kung pumasok, pumasok siya pero may nakalagay na agad sa violation kahit d ko pa pinipilian
+~di ko din makita e, okay naman sakin, pa screenshot nalang din.
+
+4:19 in Delivery Truck
+tinatry ko lng yung 15 minutes haha kung magrereset ba sya
+
+Monitoring Side
+-Monitoring na lang makikita dito? haha
+~ yup, yun yung napagusapan natin
+
+pag delivery tsaka Guest po wala bayad yun, pano pag i a out na sya? kailangan mag print? Thankyou.
+~ pwede naman hindi na iprint ni guard. or pwede ding iprint. Depende na lang sa inyo. Regardless, nasasave naman sya sa db :)

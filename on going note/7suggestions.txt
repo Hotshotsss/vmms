@@ -1,0 +1,15 @@
+Exit Gate		
+
+*Vehicle Out
+-wala yung checkmark for doctors signature sa Hospital purpose pag magchecheck out na?
+
+
+*Vehicle Monitoring Out
+-palagyan na lng din ng Violations dito sa table
+
+
+Tanong ko lang, yung sa drop by and delivery pag natapos yung 15 minutes, 
+nag uumpisa ba yung record ng time nung una syang pumasok o pagkatapos nung 15 minutes?
+
+-ang alam ko kasi after 15 minutes dun marerecord
+

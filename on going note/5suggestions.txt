@@ -1,0 +1,22 @@
+Admin Side
+
+*Homepage
+-Sorry if marami nasabi, kahit yung isang Patio Minerva na lng iedit nyo thankyou
+
+-Yung footer umaangat nasa gitna sya
+
+*Flat Rate Settings
+-yung Header nya paki iba na lang ng "Rate Settings" tapos Rate Details dun sa may data, d ko napansin sorry
+
+-Nawala yung Add Flat Rate, yung data table lang naka show pagkatapos ko mag add ng data
+
+*Employee Schedule
+-yung footer nasa gitna katulad nung homepage
+
+
+Monitoring Side
+
+*Vehicle Monitoring
+-Hindi gumagana yung header na VMMS pag kini-click
+
+

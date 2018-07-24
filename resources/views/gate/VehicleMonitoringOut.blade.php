@@ -34,6 +34,7 @@
                                 <th>Vehicle Color</th>
                                 <th>Vehicle Remarks</th>
                                 <th>Purpose</th>
+                                <th>violations</th>
                                 <th>Amount Paid</th>
                            </tr>
                        </thead>
@@ -49,7 +50,12 @@
                                     <th>{{$value->vehicle_color}}</th>
                                     <th>{{$value->remarks}}</th>
                                     <th>{{$value->inPurpose->purpose}}</th>
-                                    <th>{{$value->time_in}}</th>
+                                    <th>
+                                      @foreach($value->violations as $violation)
+                                      <li>{{$violation->violation_name->violation}}</li>
+                                      @endforeach
+                                    </th>
+                                    <th>{{$value->payment_status}}</th>
                              </tr>
                             @endforeach
                        </tbody>

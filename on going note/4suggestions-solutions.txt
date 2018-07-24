@@ -1,0 +1,36 @@
+Admin Side
+
+*Homepage
+-gusto ko lng tanungin if pano galawin yung location dun sa maps?
+d ko magalaw yung pointer eh sa ospital lang nakatutok. 
+Check ko sana yung iba haha tsaka pano pala na embed ung maps sa system? gusto ko lng malaman papano thankyou!
+
+~Kulang lang pala yung data sa database na nabigay ko. Naupdate ko na yung code its either pa sunod nalang yung sa how to run.txt or pagamit nalang netong bagong db na ibibigay ko.
+~Yung maps gumamit kami nung Google Maps Api (Javascript) then kinukuha namin yung data sa database via ajax, check markers table sa database :) 
+kelangan yung lat and lng para malagay yung marker which is kinuha namin sa google. 
+
+*Purpose Settings
+-asan yung Delivery tsaka Dropby? 
+diba nasa code yung 15 min nun. o.o 
+kala ko katulad yun sa Hospital na wala na deletion? wala sakin e xD Hospital na lang natira
+
+~Kulang yung data na nabigay ko. suri
+
+-Hospital lang yung data na nasa Purpose and wala sya deletion. Nag add ako ng dalawang data, pareho wlang delete button. yung nag add pa ko ng isa pa, dun na may delete button.
+
+~Supposedly kasi yung id 1,2,3 ay para lang sa Hospital, Drop By, and delivery so sila yung walang delete button so starting id number 4 dun lang mag kakaron ng delete. Okay na to sa bagong db na ibibigay ko. 
+
+*User Settings
+-nung nag edit ako ng user, yung user originally sa gate sya, tas tinry ko lang iedit yung pangalan di ko napansin bumalik sa Administrator yung sa may dropbox. kung pwede sana if pag mag edit yung original usertype pa rin nya yung nakalagay don.
+
+~okay na to sa updated na code
+
+Monitoring Side
+-pumili ako ng data sa vehicle color, location and violation, hinuli ko yung remarks. Nung nag add ako ng remarks, nareset yung vehicle color nya, naging blangko ulit sya. So pumili ako pero d ko alam kung na submit siya. nung tinignan ko sa exit gate wala syang color sadlife.
+~okay na rin, may na delete si Joyce. :3 
+
+yung sa how to run, 
+
+php artisan migrate - para malagay lahat ng table sa database
+php artisan db:seed - para malagay yung mga necessary data sa database (e.g admin, purpose 1,2 & 3, location sa map)
+

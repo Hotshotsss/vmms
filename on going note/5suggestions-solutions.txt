@@ -1,0 +1,31 @@
+Admin Side
+
+*Homepage
+-Sorry if marami nasabi, kahit yung isang Patio Minerva na lng iedit nyo thankyou
+
+~Okay na to sa updated code, pero para di mo na baguhin lahat nung table sa database, 
+pa change nalang nung sa thesis_db -> markers -> id #6 pa edit nalang nung name to PGT
+
+-Yung footer umaangat nasa gitna sya
+~done na - git pull ka nalang
+
+*Flat Rate Settings
+-yung Header nya paki iba na lang ng "Rate Settings" tapos Rate Details dun sa may data, d ko napansin sorry
+
+~done
+
+-Nawala yung Add Flat Rate, yung data table lang naka show pagkatapos ko mag add ng data
+~pag nawala yung add Rate ibig sabihin lahat ng car type nalagyan na ng rate. Kasi connected sila,
+lalabas lang sya if meron/bagong car type na hindi pa nalalagyan ng rate
+
+*Employee Schedule
+-yung footer nasa gitna katulad nung homepage
+~git pull
+
+Monitoring Side
+
+*Vehicle Monitoring
+-Hindi gumagana yung header na VMMS pag kini-click
+~yung view namay table yun na yung home sa monitoring :)
+
+

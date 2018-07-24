@@ -1,0 +1,28 @@
+Admin Side
+
+*Homepage
+-gusto ko lng tanungin if pano galawin yung location dun sa maps? d ko magalaw yung pointer eh sa ospital lang nakatutok. Check ko sana yung iba haha tsaka pano pala na embed ung maps sa system? gusto ko lng malaman papano thankyou!
+
+*Purpose Settings
+-asan yung Delivery tsaka Dropby? diba nasa code yung 15 min nun. o.o kala ko katulad yun sa Hospital na wala na deletion? wala sakin e xD Hospital na lang natira
+
+-Hospital lang yung data na nasa Purpose and wala sya deletion. Nag add ako ng dalawang data, pareho wlang delete button. yung nag add pa ko ng isa pa, dun na may delete button.
+
+*User Settings
+-nung nag edit ako ng user, yung user originally sa gate sya, tas tinry ko lang iedit yung pangalan di ko napansin bumalik sa Administrator yung sa may dropbox. kung pwede sana if pag mag edit yung original usertype pa rin nya yung nakalagay don.
+
+Monitoring Side
+
+-pumili ako ng data sa vehicle color, location and violation, hinuli ko yung remarks. Nung nag add ako ng remarks, nareset yung vehicle color nya, naging blangko ulit sya. So pumili ako pero d ko alam kung na submit siya. nung tinignan ko sa exit gate wala syang color sadlife.
+
+
+Users:
+
+username: sample1 entrance
+password: Sample12
+
+username: joshua1 monitoring
+password: Joshua12
+
+username: ferleen1 exit
+password: Ferleen12

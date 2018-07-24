@@ -13,6 +13,7 @@ $(document).on('click','#view-details',function(){
     }
   });
 });
+
 function showDetails(data){
   var values = JSON.parse(data);
   var violationsList = [];
