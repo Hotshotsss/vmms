@@ -97,7 +97,6 @@ $(document).ready(function() {
 
     defaultView: 'month',
     defaultDate: new Date(),
-    navLinks: true, // can click day/week names to navigate views
     eventLimit: true, // allow "more" link when too many events
     events: {
       url: '/admin/getSched',
