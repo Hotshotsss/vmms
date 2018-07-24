@@ -253,7 +253,11 @@ class AdminController extends Controller
       }
 
       public function getSched(){
-        $sched = EmployeeSchedule::selectRaw('id,user_id,assigned_at,CONCAT(date_from," ",time_in) as start,CONCAT(date_to," ",time_out) as end')->orderBy('assigned_at','asc')->get()->toJson();
+        $users = User::select('id')->pluck('id');
+        $sched = EmployeeSchedule::selectRaw('id,user_id,assigned_at,CONCAT(date_from," ",time_in) as start,CONCAT(date_to," ",time_out) as end')
+        ->whereIn('user_id',$users)
+        ->orderBy('assigned_at','asc')->get()->toJson();
+
 
         return $sched;
       }
