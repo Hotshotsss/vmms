@@ -66,7 +66,21 @@
         </li>
         <!-- /.dropdown -->
       </ul>
+      <div class="navbar-collapse">
+        <ul class="nav" id="side-menu" style="padding-top:10px;">
+        <li class="hidden-lg hidden-md hidden-sm">
+          <a href="/gate/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            Logout
+          </a>
+
+          <form id="logout-form" action="admin/logout" method="POST" style="display: none;">
+            {{ csrf_field() }}
+          </form>
+        </li>
+      </ul>
+    </div>
     </nav>
+
 
 
     <!-- <div id="page-wrapper"> -->

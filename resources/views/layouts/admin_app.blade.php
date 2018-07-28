@@ -116,9 +116,7 @@
                 <a href="/admin/settings"><i class="fa fa-user fa-fw"></i> User Settings </a>
               </li>
 
-              <li class="hidden-lg hidden-md hidden-sm">
-                <a href="UserSettings.php"><i class="fa fa-user fa-fw"></i> User Profile </a>
-              </li>
+            
               <li class="hidden-lg hidden-md hidden-sm">
                 <a href="/admin/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                   Logout
