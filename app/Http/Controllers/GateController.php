@@ -176,13 +176,13 @@ class GateController extends Controller
       $penalty = $value->violations->sum('violation_name.penalty');
       $amount = (25 * $days) + $penalty ;
 
-      return ["standard_hours"=>24,"standard_rate"=>25,"per_hour"=>0,'amount'=>$amount,'duration'=>$days.' day(s)',"penalty"=>$penalty,'discount'=>'Hospital'];
+      return ["standard_hours"=>24,"standard_rate"=>25,"per_hour"=>0,'amount'=>$amount,'duration'=>$days.' day(s)',"penalty"=>$penalty,'discount'=>'Hospital','hours'=>'hours'];
     }else if($value->parking_reason == 2 || $value->parking_reason == 3){//add delivery
       $minutes = $time_out->diffInMinutes($value->time_in);
       if($minutes < 16){
         $penalty = $value->violations->sum('violation_name.penalty');
         $total = 0 + $penalty;
-        return ["standard_hours"=>15,"standard_rate"=>0,"per_hour"=>0,'amount'=>0,'duration'=>$minutes.' minute(s)',"penalty"=>$penalty,'discount'=>'Drop by/Delivery'];
+        return ["standard_hours"=>15,"standard_rate"=>0,"per_hour"=>0,'amount'=>0,'duration'=>$minutes.' minute(s)',"penalty"=>$penalty,'discount'=>'Drop by/Delivery','hours'=>'minutes'];
       }else{
         return $this->normalCalculate($value);
       }
@@ -232,6 +232,6 @@ class GateController extends Controller
     $total = $exceedingHours + $standard_rate + $penalty;
 
 
-    return ["standard_hours"=>$standard_hours,"standard_rate"=>$standard_rate,"per_hour"=>$hourly_rate,"amount"=>$total,"duration"=>$hours,"penalty"=>$penalty,"discount"=>"N/A"];
+    return ["standard_hours"=>$standard_hours,"standard_rate"=>$standard_rate,"per_hour"=>$hourly_rate,"amount"=>$total,"duration"=>$hours,"penalty"=>$penalty,"discount"=>"N/A",'hours'=>'hours'];
   }
 }

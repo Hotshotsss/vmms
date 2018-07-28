@@ -60,8 +60,8 @@ body { margin: 0px; }
       <tr>
         <td width="15%;" style="font-weight:bolder;" style="font-weight:bolder;">Plate number :</td>
         <td width="48%;" style="border-bottom:.1px solid black;">{{$data->plate_number}}</td>
-        <td width="15%;" style="font-weight:bolder;">  Discount:</td>
-        <td width="22%" style="border-bottom:.1px solid black;">{{$total['discount']}}</td>
+        <td width="17%;" style="font-weight:bolder;">  Discount:</td>
+        <td width="20%" style="border-bottom:.1px solid black;">{{$total['discount']}}</td>
 
       </tr>
     </table>
@@ -69,8 +69,8 @@ body { margin: 0px; }
       <tr>
         <td width="15%;" style="font-weight:bolder;">Date:</td>
         <td width="48%;" style="border-bottom:.1px solid black;">{{\Carbon\Carbon::today()->format('m/d/Y')}}</td>
-        <td width="15%;" style="font-weight:bolder;">First  {{$total['standard_hours']}} hours:</td>
-        <td width="22%" style="border-bottom:.1px solid black;">PHP {{number_format($total['standard_rate'],2)}}</td>
+        <td width="17%;" style="font-weight:bolder;">First  {{$total['standard_hours']}} hours:</td>
+        <td width="20%" style="border-bottom:.1px solid black;">PHP {{number_format($total['standard_rate'],2)}}</td>
 
       </tr>
 
@@ -81,8 +81,8 @@ body { margin: 0px; }
         <td width="18%;" style="border-bottom:.1px solid black;">{{\Carbon\Carbon::parse($data->time_in)->format('m-d-y H:i')}}</td>
         <td width="12%;">Time Out:</td>
         <td width="18%;" style="border-bottom:.1px solid black;">{{\Carbon\Carbon::parse($data->time_out)->format('m-d-y H:i')}}</td>
-        <td width="15%;" style="font-weight:bolder;">Per Hour:</td>
-        <td width="22%" style="border-bottom:.1px solid black;"> PHP {{number_format($total['per_hour'],2)}}</td>
+        <td width="17%;" style="font-weight:bolder;">Exceeding Rate:</td>
+        <td width="20%" style="border-bottom:.1px solid black;"> PHP {{number_format($total['per_hour'],2)}}</td>
       </tr>
 
     </table>
@@ -92,8 +92,8 @@ body { margin: 0px; }
         <td width="18%;" style="border-bottom:.1px solid black;">{{$total['duration']}}</td>
         <td width="12%;">Penalty:</td>
         <td width="18%;" style="border-bottom:.1px solid black;">PHP {{$total['penalty']}}</td>
-        <td width="15%;" style="font-weight:bolder;">Total:</td>
-        <td width="22%;" style="border-bottom:.1px solid black;">PHP {{number_format($total['amount'],2)}}</td>
+        <td width="17%;" style="font-weight:bolder;">Total:</td>
+        <td width="20%;" style="border-bottom:.1px solid black;">PHP {{number_format($total['amount'],2)}}</td>
       </tr>
     </table>
     <table style="width:270px">
