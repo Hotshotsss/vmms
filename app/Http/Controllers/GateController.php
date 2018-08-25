@@ -13,6 +13,7 @@ use App\Purpose;
 use App\Parking;
 use App\EmployeeSchedule;
 use App\Subscription;
+use App\VehicleModel;
 use Carbon\Carbon;
 use PDF;
 use App;
@@ -96,9 +97,10 @@ class GateController extends Controller
     $data = CarType::all();
     $purposes = Purpose::all();
     $slots = ParkingSlot::all();
+    $models = VehicleModel::all();
     $parkings = Parking::whereNull('time_out')->count();
 
-    return view('gate.VehicleIn')->with(['vehicle'=>$data,'purpose'=>$purposes,'slots'=>$slots,'parkings'=>$parkings]);
+    return view('gate.VehicleIn')->with(['vehicle'=>$data,'purpose'=>$purposes,'slots'=>$slots,'model'=>$models,'parkings'=>$parkings]);
   }
 
   public function addIn(Request $request){

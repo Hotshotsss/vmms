@@ -59,8 +59,11 @@ Route::prefix('admin')->group(function () {
 
     //Car Settings
     Route::get('view-car','AdminController@viewCar');
+    Route::get('view-model','AdminController@ViewModel');
     Route::post('add-car','AdminController@addCar');
     Route::post('delete-car','AdminController@deleteCar');
+    Route::post('add-model','AdminController@addModel');
+    Route::post('delete-model','AdminController@deleteModel');
     Route::get('view-violation','AdminController@viewViolations');
     Route::post('add-violation','AdminController@adminAddViolation');
     Route::post('edit-violation','AdminController@adminEditViolation');

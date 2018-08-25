@@ -94,6 +94,9 @@
                       <a href="/admin/view-car"><i class="fas fa-road fa-fw"></i> Add Car Type </a>
                     </li>
                     <li>
+                      <a href="/admin/view-model"><i class="fas fa-road fa-fw"></i> Add Car Model </a>
+                    </li>
+                    <li>
                       <a href="/admin/flat-rate"><i class="fas fa-pencil-alt fa-fw"></i> Rate Settings </a>
                     </li>
                     <li>

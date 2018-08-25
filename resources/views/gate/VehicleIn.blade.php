@@ -23,8 +23,17 @@
         <label>Plate Number</label>
         <input type = "text" class = "form-control" name = "txt-plate" placeholder="Enter Plate Number" required style="margin-bottom: 15px;">
         <div id="div-in">
+          <!-- <label>Vehicle Model</label>
+          <input type = "text" class = "form-control" name = "txt-model" placeholder="Enter Model" required style="margin-bottom: 15px;"> -->
+
           <label>Vehicle Model</label>
-          <input type = "text" class = "form-control" name = "txt-model" placeholder="Enter Model" required style="margin-bottom: 15px;">
+          <select class = "form-control" name = "txt-model" required style="margin-bottom: 15px;">
+            <option value="" disabled selected>Select Vehicle Model</option>
+            @foreach ($model as $value)
+            <option value="{{$value->model}}">{{$value->model}}</option>
+            @endforeach
+          </select>
+
           <label>Vehicle Type</label>
           <select class = "form-control" name = "txt-vehicletype" required style="margin-bottom: 15px;">
             <option value="" disabled selected>Select Vehicle Type</option>
@@ -32,6 +41,9 @@
             <option value="{{$value->id}}">{{$value->type}}</option>
             @endforeach
           </select>
+
+
+
 
           <label>Purpose</label>
           <select class = "form-control" name = "txt-purpose" required style="margin-bottom: 15px;">

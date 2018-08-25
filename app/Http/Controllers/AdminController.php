@@ -12,6 +12,7 @@ use App\ParkingSlot;
 use App\EmployeeSchedule;
 use App\Purpose;
 use App\Marker;
+use App\VehicleModel;
 use Carbon\Carbon;
 use Validator;
 use DB;
@@ -42,6 +43,12 @@ class AdminController extends Controller
     return view('admin.car-type')->with('cars',$types);
   }
 
+  public function viewModel(){
+
+    $models = VehicleModel::all();
+    return view('admin.car-model')->with('model',$models);
+  }
+
   public function addCar(Request $request){
 
     $newType = new CarType;
@@ -52,11 +59,31 @@ class AdminController extends Controller
     return redirect()->back()->with('success','success');
   }
 
+  public function addModel(Request $request){
+
+    $newModel = new VehicleModel;
+
+    $newModel->model = $request->model;
+    $newModel->save();
+
+    return redirect()->back()->with('success','success');
+  }
+
   public function deleteCar(Request $request){
     $type = CarType::find($request->type_number)->delete();
 
     if($type){
       Rate::where('car_id',$request->type_number)->delete();
+    }
+
+    return redirect()->back()->with('success','success');
+  }
+
+  public function deleteModel(Request $request){
+    $model = VehicleModel::find($request->model_number)->delete();
+
+    if($model){
+      Rate::where('id',$request->model_number)->delete();
     }
 
     return redirect()->back()->with('success','success');
