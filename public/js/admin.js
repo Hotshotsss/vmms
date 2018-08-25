@@ -94,7 +94,6 @@ $(document).ready(function() {
 
     },
     displayEventEnd: true,
-
     defaultView: 'month',
     defaultDate: new Date(),
     eventLimit: true, // allow "more" link when too many events
