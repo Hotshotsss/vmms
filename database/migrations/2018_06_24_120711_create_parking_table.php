@@ -15,6 +15,7 @@ class CreateParkingTable extends Migration
     {
         Schema::create('parkings', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('has_sticker')->nullable();
             $table->integer('car_type_id');
             $table->integer('location_id')->nullable();
             $table->string('vehicle_model');

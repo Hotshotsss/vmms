@@ -60,3 +60,15 @@ $(document).on('submit','#checkOut-submit',function(){
   $('#vehicleMonitoring').modal('hide');
   $('#'+row_id).remove();
 });
+
+$(document).on('change','#sticker_id',function(){
+  if(this.checked) {
+    $('#div-in').find('input').attr('disabled',true);
+    $('#div-in').find('select').attr('disabled',true);
+    $('#div-in').hide();
+  }else{
+    $('#div-in').find('input').attr('disabled',false);
+    $('#div-in').find('select').attr('disabled',false);
+    $('#div-in').show();
+  }
+});

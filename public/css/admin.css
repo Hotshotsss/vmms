@@ -5,6 +5,12 @@
     color: #8d2ea0;
     font-weight: bolder;
 }
+
+
+#sticker_label:hover {
+ cursor:pointer;
+}
+
 .navbar-default{
   background-color: #6a0080;
   border-color: #6a0080;

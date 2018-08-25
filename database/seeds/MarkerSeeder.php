@@ -12,8 +12,6 @@ class MarkerSeeder extends Seeder
   public function run()
   {
     DB::table('markers')->insert([
-
-
       ['name' => 'Hospital','address'=>'Epifanio delos Santos Avenue(EDSA), Morning Breeze Subdivision, Caloocan, 1400 Metro Manila','lat'=>'14.658697','lng'=>'120.986788','type'=>'parking'],
       ['name' => 'C Gym','address'=>'Epifanio delos Santos Avenue(EDSA), Morning Breeze Subdivision, Caloocan, 1400 Metro Manila','lat'=>'14.660544','lng'=>'120.986351','type'=>'parking'],
       ['name' => 'C Gym','address'=>'Epifanio delos Santos Avenue(EDSA), Morning Breeze Subdivision, Caloocan, 1400 Metro Manila','lat'=>'14.660414','lng'=>'120.985901','type'=>'parking'],

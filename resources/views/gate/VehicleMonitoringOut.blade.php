@@ -6,6 +6,13 @@
 <div class="col-lg-12">
     <center><h1 class="page-header">Vehicle Monitoring</h1></center>
     <div class="row">
+      <div class="col-lg-3">
+        <a href="/gate/vehicle-monitoring-out"  class="btn btn-primary" name="button">All</a>
+        <a href="/gate/vehicle-monitoring-out?param={{urlencode('With Sticker')}}" class="btn btn-primary" name="button">With Sticker</a>
+        <a href="/gate/vehicle-monitoring-out?param={{urlencode('Without Sticker')}}"  class="btn btn-primary" name="button">Without Sticker</a>
+      </div>
+    </div>
+    <div class="row">
  			    <div class="col-lg-12">
  			        <div class="panel panel-default">
  			            <div class="panel-heading">
@@ -41,7 +48,7 @@
 
                        <tbody>
                             @foreach ($carout as $value)
-                             <tr>
+                             <tr @if($value->has_sticker) style="color: green"@endif>
                                     <th>{{$value->time_in}}</th>
                                     <th>{{$value->time_out}}</th>
                                     <th>{{$value->plate_number}}</th>

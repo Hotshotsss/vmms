@@ -14,7 +14,8 @@ class PurposeSeeder extends Seeder
     DB::table('purpose')->insert([
       ['purpose' => 'Hospital'],
       ['purpose' => 'Drop-By'],
-      ['purpose' => 'Delivery']
+      ['purpose' => 'Delivery'],
+      ['purpose' => 'Others']
     ]);
   }
 }

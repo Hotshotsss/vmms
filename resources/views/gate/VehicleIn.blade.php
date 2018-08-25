@@ -12,30 +12,35 @@
       <div class="panel-body" style="background: #8d2ea0;color: white;border-radius:5px;">
         <center>
           <h3 style="border-bottom:2px solid white;padding-bottom:10px;font-weight:bolder;">Vehicle Information</h3>
-
         </center>
+        @if(session('error'))
+        <center>
+        <b style="color:red">  {{session('error')}} </b>
+        </center>
+        @endif
+        <input type = "checkbox" name = "sticker" id="sticker_id" style="margin-bottom: 15px;">
+        <label id ="sticker_label" for="sticker_id">With Sticker?</label><br>
         <label>Plate Number</label>
         <input type = "text" class = "form-control" name = "txt-plate" placeholder="Enter Plate Number" required style="margin-bottom: 15px;">
-        <label>Vehicle Model</label>
-        <input type = "text" class = "form-control" name = "txt-model" placeholder="Enter Model" required style="margin-bottom: 15px;">
-        <label>Vehicle Type</label>
-        <select class = "form-control" name = "txt-vehicletype" required style="margin-bottom: 15px;">
-          <option value="" disabled selected>Select Vehicle Type</option>
-          @foreach ($vehicle as $value)
-          <option value="{{$value->id}}">{{$value->type}}</option>
-          @endforeach
+        <div id="div-in">
+          <label>Vehicle Model</label>
+          <input type = "text" class = "form-control" name = "txt-model" placeholder="Enter Model" required style="margin-bottom: 15px;">
+          <label>Vehicle Type</label>
+          <select class = "form-control" name = "txt-vehicletype" required style="margin-bottom: 15px;">
+            <option value="" disabled selected>Select Vehicle Type</option>
+            @foreach ($vehicle as $value)
+            <option value="{{$value->id}}">{{$value->type}}</option>
+            @endforeach
+          </select>
 
-        </select>
-
-        <label>Purpose</label>
-        <select class = "form-control" name = "txt-purpose" required style="margin-bottom: 15px;">
-          <option value="" disabled selected>Select Purpose</option>
-          @foreach ($purpose as $value)
-          <option value="{{$value->id}}">{{$value->purpose}}</option>
-          @endforeach
-
-        </select>
-
+          <label>Purpose</label>
+          <select class = "form-control" name = "txt-purpose" required style="margin-bottom: 15px;">
+            <option value="" disabled selected>Select Purpose</option>
+            @foreach ($purpose as $value)
+            <option value="{{$value->id}}">{{$value->purpose}}</option>
+            @endforeach
+          </select>
+        </div>
         <br>
         <center><button type = "submit" name = "btn-in" class = "btn btn-primary">Save</button></center>
       </div>
@@ -60,16 +65,16 @@
 
       @foreach($slots as $slot)
       <div class="col-md-4 col-xs-6" style="padding-left:2.5px;padding-right:2.5px;padding-bottom:5px;">
-       <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#3D5AFE;border-radius: 5px;">
-         <h3 style="font-weight:bolder;padding-top:20px;">{{ucwords(strtolower($slot->parking_name))}}</h3>
-         <center>
-           <h5 style="font-size:35px;padding-top:30px;">{{$slot->parked->count()}}/
-             <b style="font-size:25px;">{{$slot->number_of_slots}}</b>
-           </h5>
-         </center>
-       </div>
-     </div>
-     @endforeach
+        <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#3D5AFE;border-radius: 5px;">
+          <h3 style="font-weight:bolder;padding-top:20px;">{{ucwords(strtolower($slot->parking_name))}}</h3>
+          <center>
+            <h5 style="font-size:35px;padding-top:30px;">{{$slot->parked->count()}}/
+              <b style="font-size:25px;">{{$slot->number_of_slots}}</b>
+            </h5>
+          </center>
+        </div>
+      </div>
+      @endforeach
 
 
     </div>

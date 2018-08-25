@@ -85,7 +85,7 @@
                 <label for="pwd">Time In:</label>
                 <select class="form-control" id="time_in" name="time_in" required>
                   <option value="" disabled selected>Select Time In</option>
-                  <option value="0:00">12:00 AM</option>
+                  <option value="23:59">12:00 AM</option>
                   <option value="1:00">01:00 AM</option>
                   <option value="2:00">02:00 AM</option>
                   <option value="3:00">03:00 AM</option>
@@ -117,7 +117,7 @@
                 <label for="pwd">Time Out</label>
                 <select class="form-control" id="time_out" name="time_out" required>
                   <option value="" disabled selected>Select Time Out</option>
-                  <option value="0:00">12:00 AM</option>
+                  <option value="23:59">12:00 AM</option>
                   <option value="1:00">01:00 AM</option>
                   <option value="2:00">02:00 AM</option>
                   <option value="3:00">03:00 AM</option>
@@ -203,7 +203,7 @@
                 <label for="pwd">Time In:</label>
                 <select class="form-control" id="time_in" name="time_in" required>
                   <option value="" disabled selected>Select Time In</option>
-                  <option value="0:00">12:00 AM</option>
+                  <option value="23:59">12:00 AM</option>
                   <option value="1:00">01:00 AM</option>
                   <option value="2:00">02:00 AM</option>
                   <option value="3:00">03:00 AM</option>
@@ -235,7 +235,7 @@
                 <label for="pwd">Time Out</label>
                 <select class="form-control" id="time_out" name="time_out" required>
                   <option value="" disabled selected>Select Time Out</option>
-                  <option value="0:00">12:00 AM</option>
+                  <option value="23:59">12:00 AM</option>
                   <option value="1:00">01:00 AM</option>
                   <option value="2:00">02:00 AM</option>
                   <option value="3:00">03:00 AM</option>
@@ -323,7 +323,7 @@
               <label for="pwd">Time In:</label>
               <select class="form-control" id="time_in" name="time_in" required>
                 <option value="" disabled selected>Select Time In</option>
-                <option value="0:00">12:00 AM</option>
+                <option value="23:59">12:00 AM</option>
                 <option value="1:00">01:00 AM</option>
                 <option value="2:00">02:00 AM</option>
                 <option value="3:00">03:00 AM</option>
@@ -355,7 +355,7 @@
               <label for="pwd">Time Out</label>
               <select class="form-control" id="time_out" name="time_out" required>
                 <option value="" disabled selected>Select Time Out</option>
-                <option value="0:00">12:00 AM</option>
+                <option value="23:59">12:00 AM</option>
                 <option value="1:00">01:00 AM</option>
                 <option value="2:00">02:00 AM</option>
                 <option value="3:00">03:00 AM</option>
@@ -459,7 +459,7 @@
                 <label for="pwd">Time In:</label>
                 <select class="form-control" id="time_in" name="time_in" required>
                   <option value="" disabled selected>Select Time In</option>
-                  <option value="0:00">12:00 AM</option>
+                  <option value="23:59">12:00 AM</option>
                   <option value="1:00">01:00 AM</option>
                   <option value="2:00">02:00 AM</option>
                   <option value="3:00">03:00 AM</option>
@@ -491,7 +491,7 @@
                 <label for="pwd">Time Out</label>
                 <select class="form-control" id="time_out" name="time_out" required>
                   <option value="" disabled selected>Select Time Out</option>
-                  <option value="0:00">12:00 AM</option>
+                  <option value="23:59">12:00 AM</option>
                   <option value="1:00">01:00 AM</option>
                   <option value="2:00">02:00 AM</option>
                   <option value="3:00">03:00 AM</option>
@@ -579,7 +579,7 @@
               <label for="pwd">Time In:</label>
               <select class="form-control" id="time_in" name="time_in" required>
                 <option value="" disabled selected>Select Time In</option>
-                <option value="0:00">12:00 AM</option>
+                <option value="23:59">12:00 AM</option>
                 <option value="1:00">01:00 AM</option>
                 <option value="2:00">02:00 AM</option>
                 <option value="3:00">03:00 AM</option>
@@ -611,7 +611,7 @@
               <label for="pwd">Time Out</label>
               <select class="form-control" id="time_out" name="time_out" required>
                 <option value="" disabled selected>Select Time Out</option>
-                <option value="0:00">12:00 AM</option>
+                <option value="23:59">12:00 AM</option>
                 <option value="1:00">01:00 AM</option>
                 <option value="2:00">02:00 AM</option>
                 <option value="3:00">03:00 AM</option>

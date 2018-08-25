@@ -11,12 +11,13 @@ use App\CarType;
 use App\Colors;
 use App\Purpose;
 use App\Parking;
+use App\EmployeeSchedule;
+use App\Subscription;
 use Carbon\Carbon;
 use PDF;
 use App;
 use Auth;
 use DB;
-use App\EmployeeSchedule;
 class GateController extends Controller
 {
   public function indexGate(){
@@ -101,17 +102,34 @@ class GateController extends Controller
   }
 
   public function addIn(Request $request){
-
-    $car = new Parking;
-    $car->plate_number = strtoupper(Input::get("txt-plate"));
-    $car->vehicle_model = Input::get("txt-model");
-    $car->parking_reason = Input::get("txt-purpose");
-    $car->car_type_id = Input::get("txt-vehicletype");
-    $car->time_in = Carbon::now();
-    $car->hospital_proof = 0;
-    $car->save();
-    return redirect()->back();
-
+    $sticker = $request->sticker == null ? 0 : 1;
+    if($sticker){
+      $subscribed = Subscription::where('plate_number',Input::get("txt-plate"))->first();
+      if($subscribed){
+        $car = new Parking;
+        $car->has_sticker = 1;
+        $car->car_type_id = $subscribed->car_type_id;
+        $car->vehicle_model = $subscribed->vehicle_model;
+        $car->plate_number = strtoupper(Input::get("txt-plate"));
+        $car->parking_reason = 4;
+        $car->time_in = Carbon::now();
+        $car->vehicle_color = $subscribed->vehicle_color;
+        $car->save();
+        return redirect()->back();
+      }else{
+        return redirect()->back()->with('error','We cannot find the plate number on our list of vehicles with sticker. Please try again.');
+      }
+    }else{
+      $car = new Parking;
+      $car->plate_number = strtoupper(Input::get("txt-plate"));
+      $car->vehicle_model = Input::get("txt-model");
+      $car->parking_reason = Input::get("txt-purpose");
+      $car->car_type_id = Input::get("txt-vehicletype");
+      $car->time_in = Carbon::now();
+      $car->hospital_proof = 0;
+      $car->save();
+      return redirect()->back();
+    }
   }
 
   public function vehicleOutView(){
@@ -120,16 +138,31 @@ class GateController extends Controller
     return view('gate.VehicleOut')->with('car',$data);
   }
 
-  public function vehicleMonitoringIn(){
-    $carin = Parking::where('time_out',null)->get();
+  public function vehicleMonitoringIn(Request $request){
+    if($request->param){
+      if(urldecode($request->param) == 'With Sticker'){
+        $carin = Parking::where('has_sticker',1)->where('time_out',null)->get();
+      }else{
+        $carin = Parking::whereNull('has_sticker')->where('time_out',null)->get();
+      }
+    }else{
+      $carin = Parking::all()->where('time_out',null); //Parking
+    }
 
     return view('gate.VehicleMonitoringIn')->with('carin',$carin);
   }
 
-  public function vehicleMonitoringOut(){
-    $carout = Parking::whereNotNull('time_out')->get();
-
-
+  public function vehicleMonitoringOut(Request $request){
+    // $today = Carbon::now()->startOfDay();
+    if($request->param){
+      if(urldecode($request->param) == 'With Sticker'){
+        $carout = Parking::where('has_sticker',1)->whereNotNull('time_out')->get();
+      }else{
+        $carout = Parking::whereNull('has_sticker')->whereNotNull('time_out')->get();
+      }
+    }else{
+      $carout = Parking::whereNotNull('time_out')->get(); //Parking
+    }
     return view('gate.VehicleMonitoringOut')->with('carout',$carout);
   }
 
@@ -228,10 +261,15 @@ class GateController extends Controller
     if($hours > $standard_hours){
       $exceedingHours = ($hours - $standard_hours) * $hourly_rate;
     }
+    if($value->has_sticker){
+      $total = $penalty;
+      $discount = '1 year subscription';
+    }else{
+      $discount = 'N/A';
+      $total = $exceedingHours + $standard_rate + $penalty;
+    }
 
-    $total = $exceedingHours + $standard_rate + $penalty;
 
-
-    return ["standard_hours"=>$standard_hours,"standard_rate"=>$standard_rate,"per_hour"=>$hourly_rate,"amount"=>$total,"duration"=>$hours,"penalty"=>$penalty,"discount"=>"N/A",'hours'=>'hours'];
+    return ["standard_hours"=>$standard_hours,"standard_rate"=>$standard_rate,"per_hour"=>$hourly_rate,"amount"=>$total,"duration"=>$hours,"penalty"=>$penalty,"discount"=>$discount,'hours'=>'hours'];
   }
 }

@@ -88,7 +88,7 @@
                   <!-- /.nav-second-level -->
                 </li>
                 <li>
-                  <a href="#!"><i class="fas fa-cogs fa-fw"></i> Car Settings <span class="fa arrow"></span></a>
+                  <a href="#!"><i class="fas fa-cogs fa-fw"></i> Vehicle Settings <span class="fa arrow"></span></a>
                   <ul class="nav nav-second-level">
                     <li>
                       <a href="/admin/view-car"><i class="fas fa-road fa-fw"></i> Add Car Type </a>
@@ -116,7 +116,7 @@
                 <a href="/admin/settings"><i class="fa fa-user fa-fw"></i> User Settings </a>
               </li>
 
-            
+
               <li class="hidden-lg hidden-md hidden-sm">
                 <a href="/admin/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                   Logout
