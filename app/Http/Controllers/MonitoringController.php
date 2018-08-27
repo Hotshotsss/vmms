@@ -16,7 +16,7 @@ class MonitoringController extends Controller
       if(urldecode($request->param) == 'With Sticker'){
         $data = Parking::where('has_sticker',1)->where('time_out',null)->get();
       }else{
-        $data = Parking::whereNull('has_sticker')->where('time_out',null)->get();
+        $data = Parking::whereNull('has_sticker')->orWhere('has_sticker',0)->where('time_out',null)->get();
       }
     }else{
       $data = Parking::all()->where('time_out',null); //Parking

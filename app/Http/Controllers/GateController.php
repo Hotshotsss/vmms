@@ -145,7 +145,7 @@ class GateController extends Controller
       if(urldecode($request->param) == 'With Sticker'){
         $carin = Parking::where('has_sticker',1)->where('time_out',null)->get();
       }else{
-        $carin = Parking::whereNull('has_sticker')->where('time_out',null)->get();
+        $carin = Parking::whereNull('has_sticker')->orWhere('has_sticker',0)->where('time_out',null)->get();
       }
     }else{
       $carin = Parking::all()->where('time_out',null); //Parking
@@ -160,7 +160,7 @@ class GateController extends Controller
       if(urldecode($request->param) == 'With Sticker'){
         $carout = Parking::where('has_sticker',1)->whereNotNull('time_out')->get();
       }else{
-        $carout = Parking::whereNull('has_sticker')->whereNotNull('time_out')->get();
+        $carout = Parking::whereNull('has_sticker')->orWhere('has_sticker',0)->whereNotNull('time_out')->get();
       }
     }else{
       $carout = Parking::whereNotNull('time_out')->get(); //Parking
