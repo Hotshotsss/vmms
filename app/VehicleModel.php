@@ -9,8 +9,6 @@ class VehicleModel extends Model
 {
 
   use Notifiable;
-  protected $table = 'vehicle_model';
-
   protected $fillable = [
     'id','model',
   ];
