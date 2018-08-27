@@ -8,3 +8,11 @@
 Credentials
 username: admin
 password: admin
+
+REVISION
+-run php artisan migrate
+-add column in 'parkings' table
+  column name : has_sticker
+  type:         int(11)
+-insert data in 'subscriptions' table (dummy car with sticker list)
+-insert 'others' in purpose should be id number 4
