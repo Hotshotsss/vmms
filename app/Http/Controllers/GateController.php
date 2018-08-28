@@ -98,9 +98,10 @@ class GateController extends Controller
     $purposes = Purpose::all();
     $slots = ParkingSlot::all();
     $models = VehicleModel::all();
+    $locations = ParkingSlot::all();
     $parkings = Parking::whereNull('time_out')->count();
 
-    return view('gate.VehicleIn')->with(['vehicle'=>$data,'purpose'=>$purposes,'slots'=>$slots,'model'=>$models,'parkings'=>$parkings]);
+    return view('gate.VehicleIn')->with(['vehicle'=>$data,'purpose'=>$purposes,'slots'=>$slots,'model'=>$models,'location'=>$locations,'parkings'=>$parkings]);
   }
 
   public function addIn(Request $request){
@@ -127,6 +128,7 @@ class GateController extends Controller
       $car->vehicle_model = Input::get("txt-model");
       $car->parking_reason = Input::get("txt-purpose");
       $car->car_type_id = Input::get("txt-vehicletype");
+      $car->location_id = Input::get("txt-location");
       $car->time_in = Carbon::now();
       $car->hospital_proof = 0;
       $car->save();

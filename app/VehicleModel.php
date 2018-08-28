@@ -9,6 +9,8 @@ class VehicleModel extends Model
 {
 
   use Notifiable;
+
+
   protected $fillable = [
     'id','model',
   ];
