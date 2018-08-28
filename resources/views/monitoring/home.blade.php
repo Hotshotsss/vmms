@@ -100,7 +100,6 @@
                       @else
                       <div class="form-group">
                         <!-- <label for="sel1">Select list:</label> -->
-
                         <select class="form-control select-location" data-id="{{$value}}">
                           <option disabled selected>Select Location:</option>
                           @foreach ($locations as $value)
