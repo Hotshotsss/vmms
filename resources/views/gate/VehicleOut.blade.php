@@ -36,7 +36,7 @@
 
               <tbody>
                 @foreach ($car as $value)
-                <tr id="out-tr{{ $loop->iteration }}">
+                <tr id="out-tr{{ $loop->iteration }}"  @if($value->has_sticker) style="color: green" @endif>
                   <th>{{$value->plate_number}}</th>
                   <th>{{$value->vehicle_model}}</th>
                   <th>{{$value->time_in}}</th>

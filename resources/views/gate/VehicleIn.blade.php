@@ -41,16 +41,6 @@
             <option value="{{$value->id}}">{{$value->type}}</option>
             @endforeach
           </select>
-
-          <label>Location</label>
-          <select class = "form-control" name = "txt-location" required style="margin-bottom: 15px;">
-            <option value="" disabled selected>Select Location</option>
-            @foreach ($location as $value)
-            
-            <option value="{{$value->id}}">{{$value->parking_name}}</option>
-            @endforeach
-          </select>
-
           <label>Purpose</label>
           <select class = "form-control" name = "txt-purpose" required style="margin-bottom: 15px;">
             <option value="" disabled selected>Select Purpose</option>
@@ -58,7 +48,15 @@
             <option value="{{$value->id}}">{{$value->purpose}}</option>
             @endforeach
           </select>
-        </div>
+          </div>
+          <label>Location</label>
+          <select class = "form-control" name = "txt-location" required style="margin-bottom: 15px;">
+            <option value="" disabled selected>Select Location</option>
+            @foreach ($location as $value)
+            <option value="{{$value->id}}">{{$value->parking_name}}</option>
+            @endforeach
+          </select>
+
         <br>
         <center><button type = "submit" name = "btn-in" class = "btn btn-primary">Save</button></center>
       </div>

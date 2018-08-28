@@ -62,7 +62,7 @@
                           </button>
                           <ul class="dropdown-menu" role="menu">
                             <li><a href="#" id="edit-purpose" data-id="{{$value}}">Edit</a></li>
-                            @if(!in_array($value->id,[1,2,3]))
+                            @if(!in_array($value->id,[1,2,3,4]))
                             <li class="divider"></li>
                             <li>
                             {{Form::open(['url'=>'admin/delete-purpose','method'=>'post','onsubmit'=>'return confirm("Are you sure you want to delete this slot?")'])}}

@@ -46,7 +46,7 @@
 
                     <tbody>
                          @foreach ($cars as $value)
-                          <tr>
+                          <tr @if($value->has_sticker) style="color: green"@endif>
                                  <th>{{$value->time_in}}</th>
                                  <th>{{$value->time_out}}</th>
                                  <th>{{$value->plate_number}}</th>

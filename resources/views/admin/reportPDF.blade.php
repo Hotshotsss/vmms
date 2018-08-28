@@ -81,7 +81,7 @@ td{
       </thead>
       <tbody>
            @foreach ($car as $value)
-            <tr>
+            <tr  @if($value->has_sticker) style="color: green" @endif>
                    <td>{{$value->time_in}}</td>
                    <td>{{$value->time_out}}</td>
                    <td>{{$value->plate_number}}</td>
