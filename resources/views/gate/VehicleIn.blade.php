@@ -6,9 +6,9 @@
   <center><h1 class="page-header">Vehicle In</h1></center>
 </div>
 <div class="col-lg-12">
-  {!! Form::open(['url'=>'gate/add-in','method'=>'post']) !!}
   <div class="row" style="margin-top: 0px;">
     <div class="col-md-4">
+      {!! Form::open(['url'=>'gate/add-in','method'=>'post']) !!}
       <div class="panel-body" style="background: #8d2ea0;color: white;border-radius:5px;">
         <center>
           <h3 style="border-bottom:2px solid white;padding-bottom:10px;font-weight:bolder;">Vehicle Information</h3>
@@ -61,7 +61,7 @@
         <center><button type = "submit" name = "btn-in" class = "btn btn-primary">Save</button></center>
       </div>
     </div>
-
+  {!! form::close() !!}
     <div class="col-md-8" style="color:white;">
       <div class="col-md-12 col-xs-6 responsiveTotal" style="padding-left:0px;padding-right:2.5px;padding-bottom:5px;">
         <div class="bg-danger o-hidden h-100"  style="height: 200px;padding:0px 15px;background:#F50057;border-radius:5px;">
@@ -96,6 +96,6 @@
     </div>
 
   </div>
-  {!! form::close() !!}
+
 </div>
 @endsection

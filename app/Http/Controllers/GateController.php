@@ -115,6 +115,7 @@ class GateController extends Controller
         $car->vehicle_model = $subscribed->vehicle_model;
         $car->plate_number = strtoupper(Input::get("txt-plate"));
         $car->parking_reason = 4;
+        $car->location_id = Input::get("txt-location");
         $car->time_in = Carbon::now();
         $car->vehicle_color = $subscribed->vehicle_color;
         $car->save();
