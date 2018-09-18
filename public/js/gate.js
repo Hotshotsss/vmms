@@ -21,8 +21,10 @@ function showDetails(data){
   var violations = values.violations;
 
   for(i = 0; i < violations.length; i++){
+    if(violations[i].violation_name){
     totalPenalty += Number(violations[i].violation_name.penalty);
     violationsList.push(violations[i].violation_name.violation);
+  }
   }
 
   if(values.parking_reason != 1){

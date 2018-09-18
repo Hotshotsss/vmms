@@ -86,7 +86,7 @@ td{
                    <td>{{$value->time_out}}</td>
                    <td>{{$value->plate_number}}</td>
                    <td>{{$value->vehicle_model}}</td>
-                   <td>{{$value->carType->type}}</td>
+                   <th>{{$value->carType ? $value->carType->type : "N/A"}}</th>
                    <td>{{$value->vehicle_color}}</td>
                    <td>{{$value->remarks}}</td>
                    <th>
